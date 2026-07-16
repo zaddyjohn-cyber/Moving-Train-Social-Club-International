@@ -60,64 +60,60 @@ export default function WhyJoinPreview() {
             <div
               key={benefit.id}
               style={{
-                background: "rgba(16,36,58,0.75)",
+                background: "rgba(16,36,58,0.85)",
                 border: "1px solid rgba(213,165,59,0.1)",
                 borderRadius: "14px",
-                padding: "2rem 1.75rem",
+                overflow: "hidden",
                 display: "flex",
                 flexDirection: "column",
-                gap: "1rem",
                 transition: "all 0.25s ease",
               }}
               onMouseEnter={(e) => {
                 const el = e.currentTarget as HTMLElement;
-                el.style.borderColor = "rgba(213,165,59,0.3)";
+                el.style.borderColor = "rgba(213,165,59,0.32)";
                 el.style.transform = "translateY(-4px)";
+                el.style.boxShadow = "0 8px 36px rgba(0,0,0,0.45), 0 0 18px rgba(213,165,59,0.07)";
               }}
               onMouseLeave={(e) => {
                 const el = e.currentTarget as HTMLElement;
                 el.style.borderColor = "rgba(213,165,59,0.1)";
                 el.style.transform = "translateY(0)";
+                el.style.boxShadow = "none";
               }}
             >
-              <div
-                style={{
-                  width: 52,
-                  height: 52,
-                  borderRadius: "12px",
-                  background: "rgba(213,165,59,0.08)",
-                  border: "1px solid rgba(213,165,59,0.15)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "var(--gold)",
-                  flexShrink: 0,
-                }}
-              >
-                {iconMap[benefit.icon] ?? <Users size={24} />}
+              {/* Image */}
+              {(benefit as typeof benefit & { image?: string }).image && (
+                <div style={{ width: "100%", aspectRatio: "16/9", overflow: "hidden", position: "relative" }}>
+                  <img
+                    src={(benefit as typeof benefit & { image?: string }).image}
+                    alt={benefit.title}
+                    style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }}
+                  />
+                  <div style={{
+                    position: "absolute", inset: 0,
+                    background: "linear-gradient(to bottom, transparent 35%, rgba(16,36,58,0.72) 100%)",
+                  }}/>
+                </div>
+              )}
+              {/* Text */}
+              <div style={{ padding: "1.25rem 1.5rem", display: "flex", flexDirection: "column", gap: "0.75rem", flex: 1 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "0.625rem" }}>
+                  <div style={{
+                    width: 36, height: 36, borderRadius: "9px",
+                    background: "rgba(213,165,59,0.08)", border: "1px solid rgba(213,165,59,0.15)",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    color: "var(--gold)", flexShrink: 0,
+                  }}>
+                    {iconMap[benefit.icon] ?? <Users size={18} />}
+                  </div>
+                  <h3 style={{ fontFamily: "'Cinzel', Georgia, serif", fontWeight: 600, fontSize: "0.9375rem", color: "var(--ivory)", margin: 0, lineHeight: 1.3 }}>
+                    {benefit.title}
+                  </h3>
+                </div>
+                <p style={{ color: "var(--steel)", fontSize: "0.855rem", lineHeight: 1.7, margin: 0, maxWidth: "100%" }}>
+                  {benefit.description}
+                </p>
               </div>
-              <h3
-                style={{
-                  fontFamily: "'Cinzel', Georgia, serif",
-                  fontWeight: 600,
-                  fontSize: "1rem",
-                  color: "var(--ivory)",
-                  margin: 0,
-                }}
-              >
-                {benefit.title}
-              </h3>
-              <p
-                style={{
-                  color: "var(--steel)",
-                  fontSize: "0.875rem",
-                  lineHeight: 1.7,
-                  margin: 0,
-                  maxWidth: "100%",
-                }}
-              >
-                {benefit.description}
-              </p>
             </div>
           ))}
         </div>

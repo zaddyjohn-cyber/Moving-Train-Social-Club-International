@@ -1,13 +1,10 @@
-import type { Metadata } from "next";
+"use client";
+
 import Link from "next/link";
 import { siteConfig } from "@/lib/config";
 import { membershipBenefits } from "@/lib/mock-data";
 import { ArrowRight, Users, Globe, Heart, TrendingUp, Scale, Calendar } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Why Join",
-  description: `Discover the benefits of membership in the ${siteConfig.name} — brotherhood, welfare, financial empowerment, and international networking.`,
-};
 
 const iconMap: Record<string, React.ReactNode> = {
   users: <Users size={28} />, globe: <Globe size={28} />,
@@ -49,32 +46,75 @@ export default function WhyJoinPage() {
             <p className="eyebrow" style={{ marginBottom: "1rem" }}>What Membership Offers</p>
             <h2 id="benefits-title" style={{ fontFamily: "'Cinzel', Georgia, serif", color: "var(--ivory)" }}>Six Pillars of Brotherhood</h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "2rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(300px,100%), 1fr))", gap: "1.5rem" }}>
             {membershipBenefits.map((benefit, i) => (
               <div
                 key={benefit.id}
                 style={{
-                  background: "rgba(16,36,58,0.75)",
+                  background: "rgba(16,36,58,0.85)",
                   border: "1px solid rgba(213,165,59,0.12)",
                   borderRadius: "16px",
-                  padding: "2.5rem 2rem",
+                  overflow: "hidden",
                   display: "flex",
                   flexDirection: "column",
-                  gap: "1.25rem",
+                  transition: "border-color 0.25s, box-shadow 0.25s, transform 0.25s",
+                }}
+                onMouseEnter={(e) => {
+                  const el = e.currentTarget as HTMLElement;
+                  el.style.borderColor = "rgba(213,165,59,0.32)";
+                  el.style.boxShadow = "0 8px 40px rgba(0,0,0,0.5), 0 0 20px rgba(213,165,59,0.07)";
+                  el.style.transform = "translateY(-3px)";
+                }}
+                onMouseLeave={(e) => {
+                  const el = e.currentTarget as HTMLElement;
+                  el.style.borderColor = "rgba(213,165,59,0.12)";
+                  el.style.boxShadow = "none";
+                  el.style.transform = "translateY(0)";
                 }}
               >
-                <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-                  <div style={{ width: 56, height: 56, borderRadius: "12px", background: "rgba(213,165,59,0.08)", border: "1px solid rgba(213,165,59,0.15)", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--gold)", flexShrink: 0 }}>
-                    {iconMap[benefit.icon] ?? <Users size={28} />}
+                {/* Image */}
+                {(benefit as typeof benefit & { image?: string }).image && (
+                  <div style={{ width: "100%", aspectRatio: "16/9", overflow: "hidden", position: "relative" }}>
+                    <img
+                      src={(benefit as typeof benefit & { image?: string }).image}
+                      alt={benefit.title}
+                      style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }}
+                    />
+                    {/* Gold overlay tint */}
+                    <div style={{
+                      position: "absolute", inset: 0,
+                      background: "linear-gradient(to bottom, transparent 40%, rgba(16,36,58,0.75) 100%)",
+                    }}/>
+                    {/* Number badge */}
+                    <span style={{
+                      position: "absolute", top: "0.75rem", right: "0.75rem",
+                      fontFamily: "'Cinzel', Georgia, serif", fontSize: "0.8rem", fontWeight: 700,
+                      color: "rgba(242,210,140,0.7)",
+                      background: "rgba(5,10,24,0.65)", backdropFilter: "blur(6px)",
+                      padding: "0.2rem 0.55rem", borderRadius: "6px",
+                      border: "1px solid rgba(213,165,59,0.2)",
+                    }}>0{i + 1}</span>
                   </div>
-                  <span style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "1.25rem", fontWeight: 700, color: "rgba(213,165,59,0.3)" }}>0{i + 1}</span>
+                )}
+                {/* Text */}
+                <div style={{ padding: "1.5rem", display: "flex", flexDirection: "column", gap: "0.75rem", flex: 1 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                    <div style={{
+                      width: 38, height: 38, borderRadius: "9px",
+                      background: "rgba(213,165,59,0.08)", border: "1px solid rgba(213,165,59,0.15)",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      color: "var(--gold)", flexShrink: 0,
+                    }}>
+                      {iconMap[benefit.icon] ?? <Users size={20} />}
+                    </div>
+                    <h3 style={{ fontFamily: "'Cinzel', Georgia, serif", fontWeight: 600, fontSize: "1rem", color: "var(--ivory)", margin: 0, lineHeight: 1.3 }}>
+                      {benefit.title}
+                    </h3>
+                  </div>
+                  <p style={{ color: "var(--steel)", fontSize: "0.9rem", lineHeight: 1.75, margin: 0, maxWidth: "100%" }}>
+                    {benefit.description}
+                  </p>
                 </div>
-                <h3 style={{ fontFamily: "'Cinzel', Georgia, serif", fontWeight: 600, fontSize: "1.125rem", color: "var(--ivory)", margin: 0 }}>
-                  {benefit.title}
-                </h3>
-                <p style={{ color: "var(--steel)", fontSize: "0.9375rem", lineHeight: 1.75, margin: 0, maxWidth: "100%" }}>
-                  {benefit.description}
-                </p>
               </div>
             ))}
           </div>

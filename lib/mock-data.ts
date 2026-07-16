@@ -292,6 +292,7 @@ export const membershipBenefits = [
     description:
       "A trusted network of responsible and dependable individuals who celebrate your successes and provide genuine support during difficult periods.",
     icon: "users",
+    image: "/images/why-join/lifelong-brotherhood.png",
   },
   {
     id: "b-2",
@@ -299,6 +300,7 @@ export const membershipBenefits = [
     description:
       "Connection to a global network of members living across Nigeria, Europe, and the Americas — relationships that cross borders.",
     icon: "globe",
+    image: "/images/why-join/international-family.png",
   },
   {
     id: "b-3",
@@ -306,6 +308,7 @@ export const membershipBenefits = [
     description:
       "Members in good standing receive meaningful support during weddings, birthdays, bereavements, housewarmings, and other major life milestones.",
     icon: "heart-handshake",
+    image: "/images/why-join/strong-welfare-support.png",
   },
   {
     id: "b-4",
@@ -313,6 +316,7 @@ export const membershipBenefits = [
     description:
       "The club encourages wealth creation, disciplined financial management, investment, and member-focused financial initiatives.",
     icon: "trending-up",
+    image: "/images/why-join/financial-empowerment.png",
   },
   {
     id: "b-5",
@@ -320,6 +324,7 @@ export const membershipBenefits = [
     description:
       "A written constitution, elected leadership, financial accountability, and democratic decision-making ensure every member's voice matters.",
     icon: "scale",
+    image: "/images/why-join/transparency-governance.png",
   },
   {
     id: "b-6",
@@ -327,6 +332,7 @@ export const membershipBenefits = [
     description:
       "International conventions, family gatherings, cultural celebrations, professional networking, and leadership opportunities await every member.",
     icon: "calendar",
+    image: "/images/why-join/networking-social-events.png",
   },
 ];
 
