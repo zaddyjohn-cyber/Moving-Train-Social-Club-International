@@ -15,12 +15,15 @@ function GlobeCanvas() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    const dpr = Math.min(window.devicePixelRatio || 1, 2); // cap at 2 for perf
     let W = canvas.offsetWidth, H = canvas.offsetHeight;
-    canvas.width = W; canvas.height = H;
+    canvas.width = W * dpr; canvas.height = H * dpr;
+    ctx.scale(dpr, dpr);
 
     const onResize = () => {
       W = canvas.offsetWidth; H = canvas.offsetHeight;
-      canvas.width = W; canvas.height = H;
+      canvas.width = W * dpr; canvas.height = H * dpr;
+      ctx.scale(dpr, dpr);
     };
     window.addEventListener("resize", onResize, { passive: true });
 
@@ -30,8 +33,15 @@ function GlobeCanvas() {
       y: (90 - c.lat) / 180,
     }));
 
+    // Throttle to ~40fps on mobile for battery/performance
+    const isMobile = W < 768;
+    let lastTime = 0;
+    const targetInterval = isMobile ? 25 : 16;
+
     let t = 0;
-    const draw = () => {
+    const draw = (now: number) => {
+      if (now - lastTime < targetInterval) { animRef.current = requestAnimationFrame(draw); return; }
+      lastTime = now;
       ctx.clearRect(0, 0, W, H);
       const cx = W / 2, cy = H / 2;
       const r  = Math.min(W, H) * 0.38;
@@ -132,19 +142,19 @@ function GlobeCanvas() {
         ctx.fillStyle=`rgba(0,200,255,${0.5-t2*0.07})`; ctx.fill();
       }
 
-      t++; animRef.current=requestAnimationFrame(draw);
+      t++; animRef.current = requestAnimationFrame(draw);
     };
 
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (!prefersReduced) { animRef.current = requestAnimationFrame(draw); }
-    else { draw(); cancelAnimationFrame(animRef.current); }
+    else { draw(0); cancelAnimationFrame(animRef.current); }
 
     return () => { cancelAnimationFrame(animRef.current); window.removeEventListener("resize", onResize); };
   }, []);
 
   return (
     <canvas ref={canvasRef} aria-hidden="true"
-      style={{ position:"absolute", inset:0, width:"100%", height:"100%", opacity:0.8 }}/>
+      style={{ position:"absolute", inset:0, width:"100%", height:"100%", opacity:0.92 }}/>
   );
 }
 
@@ -166,6 +176,12 @@ export default function CinematicHero() {
         background: "radial-gradient(ellipse at 60% 40%, #0A1A3A 0%, #050A18 60%, #030711 100%)",
       }}
     >
+      {/* Animated ambient glow — boosts depth without a video file */}
+      <div aria-hidden="true" style={{
+        position:"absolute", inset:0, zIndex:0,
+        background:"radial-gradient(ellipse 80% 60% at 70% 40%, rgba(0,200,255,0.055) 0%, transparent 60%), radial-gradient(ellipse 60% 80% at 20% 80%, rgba(213,165,59,0.07) 0%, transparent 55%)",
+        animation:"heroAmbient 12s ease-in-out infinite alternate",
+      }}/>
       {/* Geo texture */}
       <div aria-hidden="true" style={{
         position:"absolute", inset:0,
@@ -415,16 +431,16 @@ export default function CinematicHero() {
         <ChevronDown size={18} style={{ animation:"float 2.2s ease-in-out infinite" }}/>
       </a>
 
-      {/* Mobile: stacked layout override */}
+      {/* Mobile layout + quality overrides */}
       <style>{`
         @media (max-width: 767px) {
           .hero-logo-right {
             position: relative !important;
             right: auto !important; top: auto !important;
             transform: none !important;
-            width: clamp(180px, 60vw, 260px) !important;
-            height: clamp(180px, 60vw, 260px) !important;
-            margin: 0 auto 1.75rem !important;
+            width: clamp(160px, 55vw, 240px) !important;
+            height: clamp(160px, 55vw, 240px) !important;
+            margin: 0 auto 1.5rem !important;
             order: -1;
           }
           section[aria-label="Hero"] > div[style*="zIndex: 3"] {
@@ -439,8 +455,14 @@ export default function CinematicHero() {
             align-items: center;
           }
           section[aria-label="Hero"] h1 { font-size: clamp(1.75rem, 8vw, 2.4rem) !important; }
-          section[aria-label="Hero"] p   { max-width: 100%; }
-          section[aria-label="Hero"] > div[style*="zIndex: 3"] > div > div[style*="left: 0"] { display: none; }
+          section[aria-label="Hero"] p { max-width: 100%; }
+          .hero-ctas { justify-content: center !important; }
+          .hero-stat-row { justify-content: center !important; }
+        }
+        /* Ensure canvas stays crisp on high-DPI phones */
+        section[aria-label="Hero"] canvas {
+          image-rendering: auto;
+          will-change: transform;
         }
       `}</style>
     </section>

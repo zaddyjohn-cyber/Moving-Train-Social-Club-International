@@ -50,7 +50,8 @@ body {
     radial-gradient(ellipse at 10% 100%, rgba(213,165,59,0.07), transparent 50%),
     radial-gradient(ellipse at 50% 50%, rgba(5,10,24,0.4), transparent 70%),
     linear-gradient(160deg, #030711 0%, #050A18 35%, #081426 65%, #030711 100%);
-  background-attachment: fixed;
+  /* fixed breaks iOS Safari — use scroll */
+  background-attachment: scroll;
   color: var(--ivory);
   font-family: "Manrope", system-ui, sans-serif;
   font-size: 1rem;
@@ -454,6 +455,11 @@ h4 { font-size: clamp(1rem, 2vw, 1.375rem); }
 }
 
 /* ─── Animations ─────────────────────────────────────────────── */
+@keyframes heroAmbient {
+  from { opacity: 0.7; transform: scale(1); }
+  to   { opacity: 1;   transform: scale(1.08); }
+}
+
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
