@@ -7,14 +7,10 @@ import { currentExecutives, founderMembers, chairmanshipTimeline } from "@/lib/m
 
 // Combine known members into a display list (no fabricated data)
 function buildMemberList() {
-  const known: { id: string; name: string; slug: string; positions: string[]; badges: string[] }[] = [];
-
-  const founderSet = new Set(founderMembers.map((f) => f.slug));
-  const chairSet = new Set(chairmanshipTimeline.map((c) => c.slug));
-  const currentSet = new Set(currentExecutives.map((e) => e.slug));
+  const known: { id: string; name: string; slug: string; photo?: string; positions: string[]; badges: string[] }[] = [];
 
   // Combine unique members across sources
-  const allSlugs = new Map<string, { name: string; positions: string[]; badges: string[] }>();
+  const allSlugs = new Map<string, { name: string; photo?: string; positions: string[]; badges: string[] }>();
 
   founderMembers.forEach((m) => {
     allSlugs.set(m.slug, { name: m.name, positions: [], badges: ["Founder"] });
@@ -23,6 +19,7 @@ function buildMemberList() {
   chairmanshipTimeline.forEach((c) => {
     const existing = allSlugs.get(c.slug) ?? { name: c.name, positions: [], badges: [] };
     existing.positions.push(c.title);
+    if (c.photo && !existing.photo) existing.photo = c.photo;
     if (!existing.badges.includes("Pioneer")) existing.badges.push("Pioneer");
     allSlugs.set(c.slug, existing);
   });
@@ -30,6 +27,7 @@ function buildMemberList() {
   currentExecutives.forEach((e) => {
     const existing = allSlugs.get(e.slug) ?? { name: e.name, positions: [], badges: [] };
     existing.positions.push(e.position);
+    if (e.photo && !existing.photo) existing.photo = e.photo;
     if (!existing.badges.includes("Current Executive")) existing.badges.push("Current Executive");
     allSlugs.set(e.slug, existing);
   });
@@ -114,6 +112,13 @@ export default function MembersPage() {
               >
                 {/* Avatar */}
                 <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+                  {member.photo ? (
+                    <img
+                      src={member.photo}
+                      alt={member.name}
+                      style={{ width: 56, height: 56, borderRadius: "50%", objectFit: "cover", border: "2px solid rgba(213,165,59,0.35)", flexShrink: 0 }}
+                    />
+                  ) : (
                   <div
                     aria-hidden="true"
                     style={{
@@ -127,6 +132,7 @@ export default function MembersPage() {
                   >
                     {member.name.split(" ").filter((w) => w !== "Mr.").slice(0, 2).map((w) => w[0]).join("")}
                   </div>
+                  )}
                   <div style={{ minWidth: 0 }}>
                     <h2
                       style={{

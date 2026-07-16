@@ -162,9 +162,22 @@ export default function HistoryPage() {
                 }}
               >
                 <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start", justifyContent: "space-between", gap: "0.75rem", marginBottom: "0.875rem" }}>
-                  <div>
-                    <h3 style={{ fontFamily: "'Cinzel', Georgia, serif", fontSize: "1.0625rem", color: "var(--ivory)", margin: "0 0 0.25rem" }}>{chair.name}</h3>
-                    <p style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--gold)", margin: 0 }}>{chair.title}</p>
+                  <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+                    {chair.photo ? (
+                      <img
+                        src={chair.photo}
+                        alt={chair.name}
+                        style={{ width: 60, height: 60, borderRadius: "50%", objectFit: "cover", border: "2px solid rgba(213,165,59,0.4)", flexShrink: 0 }}
+                      />
+                    ) : (
+                      <div style={{ width: 60, height: 60, borderRadius: "50%", background: "rgba(213,165,59,0.08)", border: "1.5px solid rgba(213,165,59,0.2)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Cinzel', Georgia, serif", fontWeight: 700, fontSize: "1rem", color: "var(--gold)", flexShrink: 0 }}>
+                        {chair.name.split(" ").filter((w) => w !== "Mr.").slice(0, 2).map((w) => w[0]).join("")}
+                      </div>
+                    )}
+                    <div>
+                      <h3 style={{ fontFamily: "'Cinzel', Georgia, serif", fontSize: "1.0625rem", color: "var(--ivory)", margin: "0 0 0.25rem" }}>{chair.name}</h3>
+                      <p style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--gold)", margin: 0 }}>{chair.title}</p>
+                    </div>
                   </div>
                   {chair.endDate === null && (
                     <span style={{ padding: "0.25rem 0.75rem", background: "rgba(213,165,59,0.1)", border: "1px solid rgba(213,165,59,0.3)", borderRadius: "999px", fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--gold)" }}>
