@@ -70,30 +70,7 @@ export default function MembersPage() {
         </div>
       </section>
 
-      {/* Notice */}
-      <div
-        style={{
-          maxWidth: "1100px",
-          margin: "0 auto",
-          padding: "0 1.5rem 2rem",
-        }}
-      >
-        <div
-          style={{
-            background: "rgba(213,165,59,0.05)",
-            border: "1px solid rgba(184,134,30,0.18)",
-            borderRadius: "10px",
-            padding: "1rem 1.5rem",
-          }}
-        >
-          <p style={{ color: "rgba(170,182,197,0.75)", fontSize: "0.875rem", lineHeight: 1.6, margin: 0, maxWidth: "100%" }}>
-            <strong style={{ color: "var(--gold)", fontFamily: "'Space Grotesk', system-ui, sans-serif", fontWeight: 600 }}>Member Profiles:</strong>{" "}
-            Only names and roles explicitly documented in the club's records are displayed. Full profile
-            pages will be populated as members provide and consent to information. Private details are never
-            displayed publicly.
-          </p>
-        </div>
-      </div>
+
 
       {/* Members grid */}
       <section aria-label="Member directory" style={{ padding: "2rem 1.5rem 6rem" }}>

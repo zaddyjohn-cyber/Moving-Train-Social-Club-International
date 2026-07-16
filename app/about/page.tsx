@@ -1,18 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig } from "@/lib/config";
-import { coreValues } from "@/lib/mock-data";
-import { ArrowRight, Users, Globe, Heart, Shield, TrendingUp, Scale, ArrowRightCircle, Landmark } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About the Club",
   description: `Learn about the ${siteConfig.name} — our mission, philosophy, core values, and what makes this brotherhood unique.`,
-};
-
-const iconComponents: Record<string, React.ReactNode> = {
-  users: <Users size={20} />, shield: <Shield size={20} />, globe: <Globe size={20} />,
-  scale: <Scale size={20} />, "trending-up": <TrendingUp size={20} />, heart: <Heart size={20} />,
-  "arrow-right-circle": <ArrowRightCircle size={20} />, landmark: <Landmark size={20} />,
 };
 
 export default function AboutPage() {
@@ -77,38 +70,6 @@ export default function AboutPage() {
                 <p className="eyebrow" style={{ marginBottom: "0.875rem" }}>{item.label}</p>
                 <h3 style={{ fontFamily: "'Cinzel', Georgia, serif", fontSize: "1.125rem", color: "var(--ivory)", marginBottom: "1rem" }}>{item.title}</h3>
                 <p style={{ color: "var(--steel)", fontSize: "0.9375rem", lineHeight: 1.75, margin: 0, maxWidth: "100%" }}>{item.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Core Values */}
-      <section aria-labelledby="values-about-title" style={{ padding: "5rem 1.5rem", background: "var(--navy)" }}>
-        <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: "3.5rem" }}>
-            <p className="eyebrow" style={{ marginBottom: "1rem" }}>What We Stand For</p>
-            <h2 id="values-about-title" style={{ fontFamily: "'Cinzel', Georgia, serif", color: "var(--ivory)" }}>Core Values</h2>
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: "1.25rem" }}>
-            {coreValues.map((v) => (
-              <div
-                key={v.id}
-                style={{
-                  background: "rgba(11,26,48,0.6)",
-                  border: "1px solid rgba(213,165,59,0.1)",
-                  borderRadius: "12px",
-                  padding: "1.5rem",
-                  display: "flex",
-                  gap: "1rem",
-                  alignItems: "flex-start",
-                }}
-              >
-                <div style={{ color: "var(--gold)", marginTop: "2px", flexShrink: 0 }}>{iconComponents[v.icon]}</div>
-                <div>
-                  <h4 style={{ fontFamily: "'Cinzel', Georgia, serif", fontSize: "0.9375rem", color: "var(--ivory)", margin: "0 0 0.5rem" }}>{v.title}</h4>
-                  <p style={{ color: "var(--steel)", fontSize: "0.8375rem", lineHeight: 1.7, margin: 0, maxWidth: "100%" }}>{v.description}</p>
-                </div>
               </div>
             ))}
           </div>
