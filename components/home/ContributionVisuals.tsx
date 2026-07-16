@@ -87,30 +87,52 @@ function NetworkVisual() {
     "M265,72 Q310,20 355,45", "M50,82 Q200,118 355,45",
   ];
   return (
-    <svg viewBox="0 0 400 120" width="100%" style={{ display: "block" }} aria-hidden="true">
-      <text x="16" y="20" fill="#D5A53B" fontSize="10" fontFamily={mono} fontWeight="700" letterSpacing="2">
-        GLOBAL LINK · ALWAYS ON
-      </text>
-      {arcs.map((d, i) => (
-        <g key={i}>
-          <path d={d} fill="none" stroke="rgba(213,165,59,0.18)" strokeWidth="1" />
-          <path d={d} fill="none" stroke="#00C8FF" strokeWidth="1.5" strokeLinecap="round"
-            strokeDasharray="10 130"
-            style={{ animation: `cvFlow 2.6s linear ${i * 0.6}s infinite` }} />
-        </g>
-      ))}
-      {nodes.map(({ x, y, label }, i) => (
-        <g key={label}>
-          <circle cx={x} cy={y} r={5} fill="#D5A53B"
-            style={{ transformOrigin: `${x}px ${y}px`, animation: `cvNodePulse 2s ease-in-out ${i * 0.4}s infinite` }} />
-          <circle cx={x} cy={y} r={10} fill="none" stroke="rgba(213,165,59,0.35)" strokeWidth="1"
-            style={{ transformOrigin: `${x}px ${y}px`, animation: `cvSealRing 2s ease-out ${i * 0.4}s infinite` }} />
-          <text x={x} y={y + 22} fill="rgba(170,182,197,0.6)" fontSize="7.5" fontFamily={mono} textAnchor="middle" letterSpacing="1">
-            {label}
-          </text>
-        </g>
-      ))}
-    </svg>
+    <div style={{ position: "relative", borderRadius: "10px", overflow: "hidden" }}>
+      {/* Background video */}
+      <video
+        src="/images/global-link.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        style={{ width: "100%", height: "auto", display: "block" }}
+      />
+      {/* Dark overlay so SVG elements stay legible */}
+      <div style={{
+        position: "absolute", inset: 0,
+        background: "rgba(3,7,17,0.52)",
+      }} />
+      {/* Animated network SVG on top */}
+      <svg
+        viewBox="0 0 400 120"
+        width="100%"
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
+        aria-hidden="true"
+      >
+        <text x="16" y="20" fill="#D5A53B" fontSize="10" fontFamily={mono} fontWeight="700" letterSpacing="2">
+          GLOBAL LINK · ALWAYS ON
+        </text>
+        {arcs.map((d, i) => (
+          <g key={i}>
+            <path d={d} fill="none" stroke="rgba(213,165,59,0.25)" strokeWidth="1" />
+            <path d={d} fill="none" stroke="#00C8FF" strokeWidth="1.5" strokeLinecap="round"
+              strokeDasharray="10 130"
+              style={{ animation: `cvFlow 2.6s linear ${i * 0.6}s infinite` }} />
+          </g>
+        ))}
+        {nodes.map(({ x, y, label }, i) => (
+          <g key={label}>
+            <circle cx={x} cy={y} r={5} fill="#D5A53B"
+              style={{ transformOrigin: `${x}px ${y}px`, animation: `cvNodePulse 2s ease-in-out ${i * 0.4}s infinite` }} />
+            <circle cx={x} cy={y} r={10} fill="none" stroke="rgba(213,165,59,0.45)" strokeWidth="1"
+              style={{ transformOrigin: `${x}px ${y}px`, animation: `cvSealRing 2s ease-out ${i * 0.4}s infinite` }} />
+            <text x={x} y={y + 22} fill="rgba(242,210,140,0.8)" fontSize="7.5" fontFamily={mono} textAnchor="middle" letterSpacing="1">
+              {label}
+            </text>
+          </g>
+        ))}
+      </svg>
+    </div>
   );
 }
 
