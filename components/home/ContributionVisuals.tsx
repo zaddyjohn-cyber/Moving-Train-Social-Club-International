@@ -15,40 +15,59 @@ const mono = "'Space Grotesk', ui-monospace, monospace";
 function DuesVisual() {
   const bars = Array.from({ length: 12 });
   return (
-    <svg viewBox="0 0 400 120" width="100%" style={{ display: "block" }} aria-hidden="true">
-      <text x="16" y="22" fill="#D5A53B" fontSize="10" fontFamily={mono} fontWeight="700" letterSpacing="2">
-        MONTHLY DUES · ALL MEMBERS
-      </text>
-      <text x="384" y="22" fill="#F2D28C" fontSize="11" fontFamily={mono} fontWeight="700" textAnchor="end">
-        12/12 PAID
-      </text>
-      {bars.map((_, i) => {
-        const h = 38 + (i % 3) * 9 + (i % 2) * 5;
-        return (
-          <g key={i}>
-            <rect
-              x={20 + i * 30} y={100 - h} width={18} height={h} rx={3}
-              fill="url(#duesGrad)"
-              style={{
-                transformOrigin: `${29 + i * 30}px 100px`,
-                animation: `cvGrow 0.5s ease ${0.15 + i * 0.18}s both, cvBarPulse 4s ease-in-out ${2.5 + i * 0.1}s infinite`,
-              }}
-            />
-            <text x={29 + i * 30} y={112} fill="rgba(170,182,197,0.45)" fontSize="7" fontFamily={mono} textAnchor="middle">
-              {["J","F","M","A","M","J","J","A","S","O","N","D"][i]}
-            </text>
-          </g>
-        );
-      })}
-      <line x1="16" y1="100" x2="384" y2="100" stroke="rgba(213,165,59,0.25)" strokeWidth="1" />
-      <defs>
-        <linearGradient id="duesGrad" x1="0" y1="1" x2="0" y2="0">
-          <stop offset="0%" stopColor="#B8861E" />
-          <stop offset="60%" stopColor="#D5A53B" />
-          <stop offset="100%" stopColor="#F2D28C" />
-        </linearGradient>
-      </defs>
-    </svg>
+    <div style={{ position: "relative", borderRadius: "10px", overflow: "hidden" }}>
+      {/* Background video */}
+      <video
+        src="/images/monthly-dues.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        style={{ width: "100%", height: "auto", display: "block" }}
+      />
+      {/* Dark overlay so SVG stays legible */}
+      <div style={{ position: "absolute", inset: 0, background: "rgba(3,7,17,0.52)" }} />
+      {/* Animated bar chart SVG on top */}
+      <svg
+        viewBox="0 0 400 120"
+        width="100%"
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
+        aria-hidden="true"
+      >
+        <text x="16" y="22" fill="#D5A53B" fontSize="10" fontFamily={mono} fontWeight="700" letterSpacing="2">
+          MONTHLY DUES · ALL MEMBERS
+        </text>
+        <text x="384" y="22" fill="#F2D28C" fontSize="11" fontFamily={mono} fontWeight="700" textAnchor="end">
+          12/12 PAID
+        </text>
+        {bars.map((_, i) => {
+          const h = 38 + (i % 3) * 9 + (i % 2) * 5;
+          return (
+            <g key={i}>
+              <rect
+                x={20 + i * 30} y={100 - h} width={18} height={h} rx={3}
+                fill="url(#duesGrad)"
+                style={{
+                  transformOrigin: `${29 + i * 30}px 100px`,
+                  animation: `cvGrow 0.5s ease ${0.15 + i * 0.18}s both, cvBarPulse 4s ease-in-out ${2.5 + i * 0.1}s infinite`,
+                }}
+              />
+              <text x={29 + i * 30} y={112} fill="rgba(242,210,140,0.7)" fontSize="7" fontFamily={mono} textAnchor="middle">
+                {["J","F","M","A","M","J","J","A","S","O","N","D"][i]}
+              </text>
+            </g>
+          );
+        })}
+        <line x1="16" y1="100" x2="384" y2="100" stroke="rgba(213,165,59,0.35)" strokeWidth="1" />
+        <defs>
+          <linearGradient id="duesGrad" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0%" stopColor="#B8861E" />
+            <stop offset="60%" stopColor="#D5A53B" />
+            <stop offset="100%" stopColor="#F2D28C" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
   );
 }
 
