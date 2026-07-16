@@ -15,6 +15,7 @@ const navLinks = [
     href: "#",
     children: [
       { label: "Why Join",     href: "/why-join" },
+      { label: "Journal",      href: "/blog" },
       { label: "Achievements", href: "/achievements" },
       { label: "Gallery",      href: "/gallery" },
       { label: "Events",       href: "/events" },
