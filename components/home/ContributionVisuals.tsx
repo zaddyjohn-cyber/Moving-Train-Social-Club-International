@@ -171,38 +171,12 @@ function ScrollVisual() {
 
 /* ── 6. Founding — timeline grows from 2020, members join ───── */
 function FoundingVisual() {
-  const dots = Array.from({ length: 6 });
   return (
-    <svg viewBox="0 0 400 120" width="100%" style={{ display: "block" }} aria-hidden="true">
-      <text x="16" y="20" fill="#D5A53B" fontSize="10" fontFamily={mono} fontWeight="700" letterSpacing="2">
-        THE FIRST INVITATION · 2020
-      </text>
-      {/* Timeline */}
-      <line x1="30" y1="70" x2="370" y2="70" stroke="rgba(213,165,59,0.5)" strokeWidth="1.5"
-        strokeDasharray="340" style={{ animation: "cvDraw 1.8s ease 0.2s both" }} />
-      {/* Founder spark */}
-      <circle cx="30" cy="70" r="7" fill="#F2D28C"
-        style={{ transformOrigin: "30px 70px", animation: "cvStamp 0.4s ease 0.1s both, cvNodePulse 2.5s ease-in-out 1s infinite" }} />
-      <text x="30" y="94" fill="rgba(242,210,140,0.8)" fontSize="8" fontFamily={mono} textAnchor="middle" fontWeight="700">
-        UBANI
-      </text>
-      {/* Member dots joining */}
-      {dots.map((_, i) => (
-        <g key={i}>
-          <circle cx={85 + i * 48} cy="70" r="5" fill="#D5A53B"
-            style={{ transformOrigin: `${85 + i * 48}px 70px`, animation: `cvStamp 0.4s cubic-bezier(0.34,1.56,0.64,1) ${0.7 + i * 0.3}s both` }} />
-          <circle cx={85 + i * 48} cy="70" r="10" fill="none" stroke="rgba(213,165,59,0.3)" strokeWidth="0.75"
-            style={{ transformOrigin: `${85 + i * 48}px 70px`, animation: `cvSealRing 2.4s ease-out ${1 + i * 0.3}s infinite` }} />
-        </g>
-      ))}
-      <text x="370" y="94" fill="rgba(170,182,197,0.6)" fontSize="8" fontFamily={mono} textAnchor="end" letterSpacing="1"
-        style={{ animation: "cvFadeIn 0.6s ease 2.6s both" }}>
-        → THE MOVING TRAIN
-      </text>
-      <text x="200" y="112" fill="rgba(170,182,197,0.45)" fontSize="8" fontFamily={mono} textAnchor="middle">
-        COMMITTEE OF FRIENDS → INTERNATIONAL BROTHERHOOD
-      </text>
-    </svg>
+    <img
+      src="/images/invite.jpg"
+      alt="The First Invitation · 2020"
+      style={{ width: "100%", height: "auto", display: "block", borderRadius: "10px" }}
+    />
   );
 }
 
