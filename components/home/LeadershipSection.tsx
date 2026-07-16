@@ -11,11 +11,11 @@ function LeadershipCard({ exec }: { exec: (typeof currentExecutives)[number] }) 
         background: "rgba(16,36,58,0.85)",
         border: "1px solid rgba(213,165,59,0.12)",
         borderRadius: "16px",
-        padding: "2rem 1.75rem",
+        padding: "1rem",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        gap: "1rem",
+        gap: "0.625rem",
         textAlign: "center",
         transition: "all 0.25s ease",
       }}
@@ -33,33 +33,17 @@ function LeadershipCard({ exec }: { exec: (typeof currentExecutives)[number] }) 
       }}
     >
       {/* Avatar */}
-      <div
-        style={{
-          width: 80,
-          height: 80,
-          borderRadius: "50%",
-          border: "1.5px solid rgba(213,165,59,0.35)",
-          overflow: "hidden",
-          flexShrink: 0,
-          background: "linear-gradient(135deg, rgba(213,165,59,0.15) 0%, rgba(213,165,59,0.08) 100%)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          boxShadow: "0 0 16px rgba(213,165,59,0.15)",
-        }}
-      >
-        {(exec as typeof exec & { photo?: string }).photo ? (
-          <img
-            src={(exec as typeof exec & { photo?: string }).photo}
-            alt={exec.name}
-            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }}
-          />
-        ) : (
+      {(exec as typeof exec & { photo?: string }).photo ? (
+        <div style={{ width: "100%", aspectRatio: "1/1", borderRadius: "10px", overflow: "hidden", border: "1.5px solid rgba(213,165,59,0.35)", flexShrink: 0, boxShadow: "0 0 20px rgba(213,165,59,0.18)" }}>
+          <img src={(exec as typeof exec & { photo?: string }).photo} alt={exec.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center" }} />
+        </div>
+      ) : (
+        <div style={{ width: 80, height: 80, borderRadius: "50%", border: "1.5px solid rgba(213,165,59,0.35)", overflow: "hidden", flexShrink: 0, background: "linear-gradient(135deg, rgba(213,165,59,0.15) 0%, rgba(213,165,59,0.08) 100%)", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 0 16px rgba(213,165,59,0.15)" }}>
           <span style={{ fontSize: "1.5rem", fontFamily: "'Cinzel', Georgia, serif", fontWeight: 700, color: "var(--gold)" }}>
             {exec.name.split(" ").slice(-1)[0][0]}
           </span>
-        )}
-      </div>
+        </div>
+      )}
 
       {/* Position badge */}
       <div

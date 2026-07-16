@@ -74,16 +74,14 @@ function TimelineNode({
           background: "rgba(16,36,58,0.85)",
           border: `1px solid ${item.endDate === null ? "rgba(213,165,59,0.35)" : "rgba(213,165,59,0.12)"}`,
           borderRadius: "12px",
-          padding: "1.5rem",
+          padding: "1rem",
           width: "100%",
           boxShadow: item.endDate === null ? "0 0 32px rgba(213,165,59,0.08)" : "none",
         }}
       >
         {(item as typeof item & { photo?: string }).photo && (
-          <div style={{ display: "flex", justifyContent: "center", marginBottom: "1rem" }}>
-            <div style={{ width: 80, height: 80, borderRadius: "50%", overflow: "hidden", border: "2px solid rgba(213,165,59,0.4)", boxShadow: "0 0 20px rgba(213,165,59,0.20)" }}>
-              <img src={(item as typeof item & { photo?: string }).photo} alt={item.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
-            </div>
+          <div style={{ marginBottom: "1rem", borderRadius: "10px", overflow: "hidden", border: "2px solid rgba(213,165,59,0.35)", boxShadow: "0 0 28px rgba(213,165,59,0.18)", aspectRatio: "4/3", width: "100%" }}>
+            <img src={(item as typeof item & { photo?: string }).photo} alt={item.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center" }} />
           </div>
         )}
         {item.endDate === null && (

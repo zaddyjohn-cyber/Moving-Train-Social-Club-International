@@ -14,33 +14,25 @@ function OfficerCard({ officer, badge }: { officer: { id: string; name: string; 
         background: "rgba(16,36,58,0.85)",
         border: "1px solid rgba(213,165,59,0.12)",
         borderRadius: "16px",
-        padding: "2rem 1.5rem",
+        padding: "1rem",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        gap: "1rem",
+        gap: "0.625rem",
         textAlign: "center",
       }}
     >
-      <div
-        style={{
-          width: 72, height: 72, borderRadius: "50%",
-          overflow: "hidden",
-          border: "1.5px solid rgba(213,165,59,0.35)",
-          display: "flex", alignItems: "center", justifyContent: "center",
-          background: "linear-gradient(135deg, rgba(213,165,59,0.12) 0%, rgba(213,165,59,0.07) 100%)",
-          boxShadow: officer.photo ? "0 0 16px rgba(213,165,59,0.20)" : "none",
-          flexShrink: 0,
-        }}
-      >
-        {officer.photo ? (
-          <img src={officer.photo} alt={officer.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
-        ) : (
+      {officer.photo ? (
+        <div style={{ width: "100%", aspectRatio: "1/1", borderRadius: "10px", overflow: "hidden", border: "1.5px solid rgba(213,165,59,0.35)", flexShrink: 0, boxShadow: "0 0 20px rgba(213,165,59,0.18)" }}>
+          <img src={officer.photo} alt={officer.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top center" }} />
+        </div>
+      ) : (
+        <div style={{ width: 72, height: 72, borderRadius: "50%", overflow: "hidden", border: "1.5px solid rgba(213,165,59,0.35)", display: "flex", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg, rgba(213,165,59,0.12) 0%, rgba(213,165,59,0.07) 100%)", flexShrink: 0 }}>
           <span style={{ fontFamily: "'Cinzel', Georgia, serif", fontWeight: 700, fontSize: "1.25rem", color: "var(--gold)" }}>
             {officer.name.split(" ").filter((w) => w !== "Mr.").slice(0, 2).map((w) => w[0]).join("")}
           </span>
-        )}
-      </div>
+        </div>
+      )}
       <div
         style={{
           padding: "0.25rem 0.875rem",
