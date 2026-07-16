@@ -10,12 +10,12 @@ const navLinks = [
   { label: "History",    href: "/history" },
   { label: "Leadership", href: "/leadership" },
   { label: "Members",    href: "/members" },
+  { label: "Journal",    href: "/blog" },
   {
     label: "Explore",
     href: "#",
     children: [
       { label: "Why Join",     href: "/why-join" },
-      { label: "Journal",      href: "/blog" },
       { label: "Achievements", href: "/achievements" },
       { label: "Gallery",      href: "/gallery" },
       { label: "Events",       href: "/events" },
