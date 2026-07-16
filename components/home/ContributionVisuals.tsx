@@ -185,34 +185,15 @@ function NetworkVisual() {
 
 /* ── 5. Scroll — constitution writes itself ─────────────────── */
 function ScrollVisual() {
-  const lines = [
-    { w: 150, label: "ARTICLE I — THE BROTHERHOOD" },
-    { w: 210 }, { w: 190 }, { w: 205 }, { w: 120 },
-  ];
   return (
-    <svg viewBox="0 0 400 120" width="100%" style={{ display: "block" }} aria-hidden="true">
-      <rect x="60" y="10" width="280" height="100" rx="6" fill="rgba(213,165,59,0.04)"
-        stroke="rgba(213,165,59,0.3)" strokeWidth="1" />
-      <text x="200" y="30" fill="#F2D28C" fontSize="10" fontFamily={mono} fontWeight="700" textAnchor="middle" letterSpacing="2">
-        THE CONSTITUTION
-      </text>
-      <line x1="90" y1="38" x2="310" y2="38" stroke="rgba(213,165,59,0.3)" strokeWidth="0.75" />
-      {lines.map((l, i) => (
-        <rect key={i} x="90" y={48 + i * 12} width={l.w} height="4.5" rx="2"
-          fill={i === 0 ? "rgba(242,210,140,0.55)" : "rgba(170,182,197,0.3)"}
-          style={{
-            transformOrigin: "90px 0px",
-            animation: `cvWrite 0.9s ease ${0.3 + i * 0.55}s both`,
-          }} />
-      ))}
-      {/* Writing cursor */}
-      <rect x="90" y="46" width="2" height="8" fill="#F2D28C"
-        style={{ animation: "cvCursor 3.05s steps(5) 0.3s both, cvBlink 0.8s step-end 3.4s infinite" }} />
-      {/* Four quills = four drafters */}
-      <text x="352" y="104" fill="rgba(213,165,59,0.7)" fontSize="9" fontFamily={mono} textAnchor="end">
-        ✎ ×4
-      </text>
-    </svg>
+    <video
+      src="/images/writing.mp4"
+      autoPlay
+      muted
+      loop
+      playsInline
+      style={{ width: "100%", height: "auto", display: "block", borderRadius: "10px" }}
+    />
   );
 }
 
