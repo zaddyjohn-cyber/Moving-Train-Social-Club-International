@@ -131,7 +131,7 @@ export default function Footer() {
                 }}
               >
                 <Image
-                  src="/images/logo.png"
+                  src="/images/logo.svg"
                   alt={siteConfig.logo.alt}
                   width={44}
                   height={44}

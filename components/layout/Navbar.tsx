@@ -84,7 +84,7 @@ export default function Navbar() {
             }}
           >
             <Image
-              src="/images/logo.png"
+              src="/images/logo.svg"
               alt={siteConfig.logo.alt}
               width={38}
               height={38}

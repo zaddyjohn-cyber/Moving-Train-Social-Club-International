@@ -348,7 +348,7 @@ export default function CinematicHero() {
               }}
             >
               <Image
-                src="/images/logo.png"
+                src="/images/logo.svg"
                 alt={siteConfig.logo.alt}
                 width={52}
                 height={52}
