@@ -75,6 +75,7 @@ function AnimatedStat({ target, suffix, label, duration, started }: {
 
 export default function StorySection() {
   const { ref: introRef, visible: introVisible } = useVisible(0.15);
+  const { ref: statsRef, visible: statsVisible } = useVisible(0.6);
   const { ref: foundersRef, visible: foundersVisible } = useVisible(0.1);
   const { ref: contributionsRef, visible: contributionsVisible } = useVisible(0.1);
 
@@ -220,7 +221,7 @@ export default function StorySection() {
             </div>
 
             {/* Stats row — sits below image, outside the overflow:hidden */}
-            <div style={{
+            <div ref={statsRef} style={{
               display: "grid",
               gridTemplateColumns: "1fr 1fr 1fr",
               gap: "0.5rem",
@@ -231,7 +232,7 @@ export default function StorySection() {
               borderRadius: "14px",
             }}>
               {stats.map((s) => (
-                <AnimatedStat key={s.label} {...s} started={introVisible} />
+                <AnimatedStat key={s.label} {...s} started={statsVisible} />
               ))}
             </div>
           </div>
