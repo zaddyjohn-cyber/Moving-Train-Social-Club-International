@@ -154,15 +154,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         }}/>
         {/* Breadcrumb */}
         <div style={{ position: "absolute", top: "1.5rem", left: "1.5rem", display: "flex", alignItems: "center", gap: "0.5rem" }}>
-          <Link href="/blog" style={{
+          <Link href="/blog" className="blog-back-link" style={{
             display: "flex", alignItems: "center", gap: "0.4rem",
             color: "rgba(242,210,140,0.8)", fontFamily: "'Space Grotesk', system-ui, sans-serif",
             fontSize: "0.72rem", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase",
             transition: "color 0.2s",
-          }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--gold)"; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "rgba(242,210,140,0.8)"; }}
-          >
+          }}>
             <ArrowLeft size={13}/> Journal
           </Link>
           <span style={{ color: "rgba(170,182,197,0.4)", fontSize: "0.65rem" }}>›</span>
@@ -288,15 +285,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2rem", flexWrap: "wrap", gap: "1rem" }}>
             <p className="eyebrow">Continue Reading</p>
-            <Link href="/blog" style={{
+            <Link href="/blog" className="blog-all-link" style={{
               display: "flex", alignItems: "center", gap: "0.4rem",
               fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.75rem",
               fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase",
               color: "var(--gold)", transition: "gap 0.2s",
-            }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.gap = "0.65rem"; }}
-              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.gap = "0.4rem"; }}
-            >
+            }}>
               All stories <ArrowRight size={13}/>
             </Link>
           </div>
@@ -307,23 +301,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           }}>
             {related.map((rp) => (
               <Link key={rp.slug} href={`/blog/${rp.slug}`} style={{ display: "block", textDecoration: "none" }}>
-                <article style={{
+                <article className="related-card" style={{
                   background: "rgba(16,36,58,0.85)",
                   border: "1px solid rgba(213,165,59,0.1)",
                   borderRadius: "14px", overflow: "hidden",
                   transition: "border-color 0.25s, transform 0.25s",
-                }}
-                  onMouseEnter={(e) => {
-                    const el = e.currentTarget as HTMLElement;
-                    el.style.borderColor = "rgba(213,165,59,0.32)";
-                    el.style.transform = "translateY(-3px)";
-                  }}
-                  onMouseLeave={(e) => {
-                    const el = e.currentTarget as HTMLElement;
-                    el.style.borderColor = "rgba(213,165,59,0.1)";
-                    el.style.transform = "translateY(0)";
-                  }}
-                >
+                }}>
                   <div style={{ aspectRatio: "16/9", overflow: "hidden" }}>
                     <img src={rp.coverImage} alt={rp.coverAlt}
                       style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
@@ -346,6 +329,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </div>
         </div>
       </section>
+
+      <style>{`
+        .blog-back-link:hover { color: var(--gold) !important; }
+        .blog-all-link:hover { gap: 0.65rem !important; }
+        .related-card:hover { border-color: rgba(213,165,59,0.32) !important; transform: translateY(-3px) !important; }
+      `}</style>
     </div>
   );
 }
