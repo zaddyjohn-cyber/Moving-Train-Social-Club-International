@@ -85,7 +85,7 @@ export default function MembersPage() {
             Showing {members.length} verified member records
           </p>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "1.25rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(260px,100%), 1fr))", gap: "1.25rem" }}>
             {members.map((member) => (
               <article
                 key={member.id}
@@ -130,7 +130,7 @@ export default function MembersPage() {
                       flexShrink: 0,
                     }}
                   >
-                    {member.name.split(" ").filter((w) => w !== "Mr.").slice(0, 2).map((w) => w[0]).join("")}
+                    {member.name.split(" ").filter((w) => !["Hon.", "Mr.", "Mrs.", "Chief", "High", "Dr.", "Engr.", "Nze"].includes(w)).slice(0, 2).map((w) => w[0]).join("")}
                   </div>
                   )}
                   <div style={{ minWidth: 0 }}>

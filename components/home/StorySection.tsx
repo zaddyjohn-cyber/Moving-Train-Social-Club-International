@@ -329,7 +329,7 @@ export default function StorySection() {
                       color: "var(--gold)",
                     }}
                   >
-                    {member.name.split(" ").filter((w) => w !== "Mr.").slice(0, 2).map((w) => w[0]).join("")}
+                    {member.name.split(" ").filter((w) => !["Hon.", "Mr.", "Mrs.", "Chief", "High", "Dr.", "Engr.", "Nze"].includes(w)).slice(0, 2).map((w) => w[0]).join("")}
                   </div>
                   <div>
                     <p

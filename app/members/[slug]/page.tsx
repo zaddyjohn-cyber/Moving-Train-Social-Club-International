@@ -104,7 +104,7 @@ export default async function MemberProfilePage({ params }: { params: Promise<{ 
                 boxShadow: "0 0 24px rgba(213,165,59,0.1)",
               }}
             >
-              {member.name.split(" ").filter((w) => w !== "Mr.").slice(0, 2).map((w) => w[0]).join("")}
+              {member.name.split(" ").filter((w) => !["Hon.", "Mr.", "Mrs.", "Chief", "High", "Dr.", "Engr.", "Nze"].includes(w)).slice(0, 2).map((w) => w[0]).join("")}
             </div>
 
             {/* Info */}

@@ -4,18 +4,18 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const founderMembers = [
-  { id: "1", name: "Mr. Chinedu Okafor", slug: "chinedu-okafor" },
-  { id: "2", name: "Mr. Chinatu Ubani", slug: "chinatu-ubani" },
-  { id: "3", name: "Mr. John Matthew", slug: "john-matthew" },
-  { id: "4", name: "Mr. Nnamdi Muodukwu", slug: "nnamdi-muodukwu" },
-  { id: "5", name: "Mr. Chuks Ikwuakolam Omumu", slug: "chuks-ikwuakolam-omumu" },
-  { id: "6", name: "Mr. Daniel Anyaeri", slug: "daniel-anyaeri" },
+  { id: "1", name: "Hon. Chinedu Okafor", slug: "chinedu-okafor" },
+  { id: "2", name: "Hon. Chinatu Ubani", slug: "chinatu-ubani" },
+  { id: "3", name: "Hon. John Matthew", slug: "john-matthew" },
+  { id: "4", name: "Hon. Nnamdi Muodukwu", slug: "nnamdi-muodukwu" },
+  { id: "5", name: "Hon. Chuks Ikwuakolam Omumu", slug: "chuks-ikwuakolam-omumu" },
+  { id: "6", name: "Hon. Daniel Anyaeri", slug: "daniel-anyaeri" },
 ];
 
 export const currentExecutives = [
   {
     id: "ex-1",
-    name: "Mr. Bond Peter Njoku",
+    name: "Hon. Bond Peter Njoku",
     slug: "bond-peter-njoku",
     position: "Chairman",
     photo: "/images/members/bond-peter-njoku.jpg",
@@ -23,35 +23,35 @@ export const currentExecutives = [
   },
   {
     id: "ex-2",
-    name: "Mr. Chuks Ekweogu",
-    slug: "chuks-ekweogu",
+    name: "Hon. Herbert Chuks Ekweogu",
+    slug: "herbert-chuks-ekweogu",
     position: "Vice Chairman",
     isCurrent: true,
   },
   {
     id: "ex-3",
-    name: "Mr. John Matthew",
+    name: "Hon. John Matthew",
     slug: "john-matthew",
     position: "Secretary",
     isCurrent: true,
   },
   {
     id: "ex-4",
-    name: "Mr. Obinna Aladum",
+    name: "Hon. Obinna Aladum",
     slug: "obinna-aladum",
     position: "Financial Secretary",
     isCurrent: true,
   },
   {
     id: "ex-5",
-    name: "Mr. Emmanuel Okoh",
-    slug: "emmanuel-okoh",
+    name: "High Chief Emmanuel Henry Okoh",
+    slug: "emmanuel-henry-okoh",
     position: "Treasurer",
     isCurrent: true,
   },
   {
     id: "ex-6",
-    name: "Mr. Chinatu Ubani",
+    name: "Hon. Chinatu Ubani",
     slug: "chinatu-ubani",
     position: "Public Relations Officer",
     isCurrent: true,
@@ -61,42 +61,42 @@ export const currentExecutives = [
 export const pioneerExecutives = [
   {
     id: "pe-1",
-    name: "Mr. Bertrand Chekwube Ugorji",
+    name: "Chief Bertrand Chekwube Ugorji",
     slug: "bertrand-chekwube-ugorji",
     position: "Chairman",
     isPioneer: true,
   },
   {
     id: "pe-2",
-    name: "Mr. Obinna Aladum",
+    name: "Hon. Obinna Aladum",
     slug: "obinna-aladum",
     position: "Vice Chairman",
     isPioneer: true,
   },
   {
     id: "pe-3",
-    name: "Mr. Chinedu Okafor",
+    name: "Hon. Chinedu Okafor",
     slug: "chinedu-okafor",
     position: "Secretary",
     isPioneer: true,
   },
   {
     id: "pe-4",
-    name: "Mr. Nnamdi Muodukwu",
+    name: "Hon. Nnamdi Muodukwu",
     slug: "nnamdi-muodukwu",
     position: "Financial Secretary",
     isPioneer: true,
   },
   {
     id: "pe-5",
-    name: "Mr. Emmanuel Henry Okoh",
+    name: "High Chief Emmanuel Henry Okoh",
     slug: "emmanuel-henry-okoh",
     position: "Treasurer",
     isPioneer: true,
   },
   {
     id: "pe-6",
-    name: "Mr. John Matthew",
+    name: "Hon. John Matthew",
     slug: "john-matthew",
     position: "Public Relations Officer",
     isPioneer: true,
@@ -106,7 +106,7 @@ export const pioneerExecutives = [
 export const chairmanshipTimeline = [
   {
     id: "ch-1",
-    name: "Mr. Bertrand Chekwube Ugorji",
+    name: "Chief Bertrand Chekwube Ugorji",
     slug: "bertrand-chekwube-ugorji",
     title: "Pioneer Chairman",
     period: "October 2020 — December 31, 2022",
@@ -117,7 +117,7 @@ export const chairmanshipTimeline = [
   },
   {
     id: "ch-2",
-    name: "Mr. Ejiro Efejedia",
+    name: "Hon. Ejiro Efejedia",
     slug: "ejiro-efejedia",
     title: "Second Chairman",
     period: "January 29, 2023 — April 30, 2023",
@@ -128,7 +128,7 @@ export const chairmanshipTimeline = [
   },
   {
     id: "ch-3",
-    name: "Mr. Bond Peter Njoku",
+    name: "Hon. Bond Peter Njoku",
     slug: "bond-peter-njoku",
     photo: "/images/members/bond-peter-njoku.jpg",
     title: "Third Chairman",
@@ -262,37 +262,37 @@ export const coreValues = [
 
 export const notableContributions = [
   {
-    member: "Mr. Bertrand Chekwube Ugorji",
+    member: "Chief Bertrand Chekwube Ugorji",
     icon: "coins",
     contribution:
       "Paid one full year of monthly dues on behalf of all members during the club's inaugural year, ensuring the organisation's financial stability from its very beginning.",
   },
   {
-    member: "Mr. Chinedu Okafor",
+    member: "Hon. Chinedu Okafor",
     icon: "registry",
     contribution:
       "Facilitated the club's registration with the Corporate Affairs Commission of Nigeria, giving the organisation its formal legal standing.",
   },
   {
-    member: "Mr. John Matthew",
+    member: "Hon. John Matthew",
     icon: "video",
     contribution:
       "Sponsored the club's Zoom subscription for three and a half years, enabling consistent international meetings across continents.",
   },
   {
-    member: "Mr. Bertrand Chekwube Ugorji",
+    member: "Chief Bertrand Chekwube Ugorji",
     icon: "network",
     contribution:
       "Subsequently assumed responsibility for the Zoom subscription, ensuring the continuation of the club's international communication infrastructure.",
   },
   {
-    member: "Mr. Obinna Aladum, Mr. John Matthew, Mr. Emmanuel Henry Okoh & Mr. Chuks Ikwuakolam Omumu",
+    member: "Hon. Obinna Aladum, Hon. John Matthew, High Chief Emmanuel Henry Okoh & Hon. Chuks Ikwuakolam Omumu",
     icon: "scroll",
     contribution:
       "Collaborated to draft the club's first constitution, providing the governance framework that continues to guide the organisation.",
   },
   {
-    member: "Mr. Chinatu Ubani",
+    member: "Hon. Chinatu Ubani",
     icon: "sprout",
     contribution:
       "Proposed the formation of the Committee of Friends in 2020 and later invited additional members, laying the groundwork for what became the Moving Train.",

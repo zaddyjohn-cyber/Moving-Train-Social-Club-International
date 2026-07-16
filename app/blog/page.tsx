@@ -75,7 +75,7 @@ export default function BlogPage() {
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <p className="eyebrow" style={{ marginBottom: "1.5rem" }}>Featured Story</p>
           <Link href={`/blog/${featured.slug}`} style={{ display: "block", textDecoration: "none" }}>
-            <article style={{
+            <article className="featured-post-grid" style={{
               display: "grid",
               gridTemplateColumns: "1fr 1fr",
               gap: 0,
@@ -146,8 +146,11 @@ export default function BlogPage() {
           </Link>
           <style>{`
             @media (max-width: 767px) {
-              article[style*="grid-template-columns: 1fr 1fr"] {
+              .featured-post-grid {
                 grid-template-columns: 1fr !important;
+              }
+              .featured-post-grid > div:first-child {
+                aspect-ratio: 16/9 !important;
               }
             }
           `}</style>

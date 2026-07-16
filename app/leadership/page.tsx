@@ -29,7 +29,7 @@ function OfficerCard({ officer, badge }: { officer: { id: string; name: string; 
       ) : (
         <div style={{ width: 72, height: 72, borderRadius: "50%", overflow: "hidden", border: "1.5px solid rgba(213,165,59,0.35)", display: "flex", alignItems: "center", justifyContent: "center", background: "linear-gradient(135deg, rgba(213,165,59,0.12) 0%, rgba(213,165,59,0.07) 100%)", flexShrink: 0 }}>
           <span style={{ fontFamily: "'Cinzel', Georgia, serif", fontWeight: 700, fontSize: "1.25rem", color: "var(--gold)" }}>
-            {officer.name.split(" ").filter((w) => w !== "Mr.").slice(0, 2).map((w) => w[0]).join("")}
+            {officer.name.split(" ").filter((w) => !["Hon.", "Mr.", "Mrs.", "Chief", "High", "Dr.", "Engr.", "Nze"].includes(w)).slice(0, 2).map((w) => w[0]).join("")}
           </span>
         </div>
       )}

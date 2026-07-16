@@ -126,7 +126,7 @@ export default function HistoryPage() {
                     fontWeight: 700, fontSize: "1rem", color: "var(--gold)",
                   }}
                 >
-                  {m.name.split(" ").filter((w) => w !== "Mr.").slice(0, 2).map((w) => w[0]).join("")}
+                  {m.name.split(" ").filter((w) => !["Hon.", "Mr.", "Mrs.", "Chief", "High", "Dr.", "Engr.", "Nze"].includes(w)).slice(0, 2).map((w) => w[0]).join("")}
                 </div>
                 <p style={{ fontFamily: "'Cinzel', Georgia, serif", fontSize: "0.875rem", color: "var(--ivory)", margin: "0 0 0.4rem", lineHeight: 1.35 }}>
                   {m.name}
@@ -171,7 +171,7 @@ export default function HistoryPage() {
                       />
                     ) : (
                       <div style={{ width: 60, height: 60, borderRadius: "50%", background: "rgba(213,165,59,0.08)", border: "1.5px solid rgba(213,165,59,0.2)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'Cinzel', Georgia, serif", fontWeight: 700, fontSize: "1rem", color: "var(--gold)", flexShrink: 0 }}>
-                        {chair.name.split(" ").filter((w) => w !== "Mr.").slice(0, 2).map((w) => w[0]).join("")}
+                        {chair.name.split(" ").filter((w) => !["Hon.", "Mr.", "Mrs.", "Chief", "High", "Dr.", "Engr.", "Nze"].includes(w)).slice(0, 2).map((w) => w[0]).join("")}
                       </div>
                     )}
                     <div>
