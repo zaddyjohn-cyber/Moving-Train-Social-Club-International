@@ -266,6 +266,119 @@ export default function CinematicHero() {
         }}
       />
 
+      {/* Diagonal gold lines + sparkle dots */}
+      <svg
+        aria-hidden="true"
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none", zIndex: 1 }}
+        viewBox="0 0 1440 900"
+        preserveAspectRatio="xMidYMid slice"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient id="goldLine1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#D5A53B" stopOpacity="0"/>
+            <stop offset="25%" stopColor="#F2D28C" stopOpacity="0.7"/>
+            <stop offset="55%" stopColor="#D5A53B" stopOpacity="0.85"/>
+            <stop offset="80%" stopColor="#F2D28C" stopOpacity="0.5"/>
+            <stop offset="100%" stopColor="#D5A53B" stopOpacity="0"/>
+          </linearGradient>
+          <linearGradient id="goldLine2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#D5A53B" stopOpacity="0"/>
+            <stop offset="30%" stopColor="#D5A53B" stopOpacity="0.55"/>
+            <stop offset="65%" stopColor="#F2D28C" stopOpacity="0.75"/>
+            <stop offset="100%" stopColor="#D5A53B" stopOpacity="0"/>
+          </linearGradient>
+          <linearGradient id="goldLine3" x1="100%" y1="0%" x2="0%" y2="0%">
+            <stop offset="0%" stopColor="#D5A53B" stopOpacity="0"/>
+            <stop offset="25%" stopColor="#F2D28C" stopOpacity="0.65"/>
+            <stop offset="60%" stopColor="#D5A53B" stopOpacity="0.8"/>
+            <stop offset="100%" stopColor="#D5A53B" stopOpacity="0"/>
+          </linearGradient>
+          <filter id="goldGlow">
+            <feGaussianBlur stdDeviation="2.5" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+
+        {/* Top-left diagonal band — thick */}
+        <g filter="url(#goldGlow)">
+          <polygon points="-60,120 560,120 620,150 -60,150" fill="url(#goldLine1)" opacity="0.9"/>
+          <polygon points="-60,128 560,128 620,140 -60,140" fill="#F2D28C" opacity="0.25"/>
+        </g>
+
+        {/* Top-left diagonal band — thin offset */}
+        <g filter="url(#goldGlow)">
+          <polygon points="-60,160 480,160 540,178 -60,178" fill="url(#goldLine1)" opacity="0.55"/>
+        </g>
+
+        {/* Bottom-right diagonal band — thick */}
+        <g filter="url(#goldGlow)">
+          <polygon points="880,750 1500,750 1500,780 880,780" fill="url(#goldLine3)" opacity="0.9"/>
+          <polygon points="880,758 1500,758 1500,770 880,770" fill="#F2D28C" opacity="0.25"/>
+        </g>
+
+        {/* Bottom-right diagonal band — thin offset */}
+        <g filter="url(#goldGlow)">
+          <polygon points="960,790 1500,790 1500,806 960,806" fill="url(#goldLine3)" opacity="0.55"/>
+        </g>
+
+        {/* Dot trail — top left cluster */}
+        {[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15].map((i) => (
+          <circle key={`dtl-${i}`} cx={100 + i * 28} cy={210 + (i % 3) * 8} r={i % 4 === 0 ? 2.5 : 1.5}
+            fill="#D5A53B" opacity={0.12 + (i % 3) * 0.08}/>
+        ))}
+        {[0,1,2,3,4,5,6,7,8,9,10,11,12].map((i) => (
+          <circle key={`dtl2-${i}`} cx={140 + i * 28} cy={230 + (i % 2) * 6} r={1.5}
+            fill="#F2D28C" opacity={0.10 + (i % 2) * 0.06}/>
+        ))}
+
+        {/* Dot trail — bottom right cluster */}
+        {[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15].map((i) => (
+          <circle key={`dbr-${i}`} cx={960 + i * 28} cy={698 + (i % 3) * 7} r={i % 4 === 0 ? 2.5 : 1.5}
+            fill="#D5A53B" opacity={0.12 + (i % 3) * 0.08}/>
+        ))}
+        {[0,1,2,3,4,5,6,7,8,9,10,11,12].map((i) => (
+          <circle key={`dbr2-${i}`} cx={1000 + i * 28} cy={716 + (i % 2) * 6} r={1.5}
+            fill="#F2D28C" opacity={0.10 + (i % 2) * 0.06}/>
+        ))}
+
+        {/* Sparkle — top left corner */}
+        <g filter="url(#goldGlow)" transform="translate(58,68)">
+          <line x1="0" y1="-14" x2="0" y2="14" stroke="#F2D28C" strokeWidth="1.5" opacity="0.9"/>
+          <line x1="-14" y1="0" x2="14" y2="0" stroke="#F2D28C" strokeWidth="1.5" opacity="0.9"/>
+          <line x1="-8" y1="-8" x2="8" y2="8" stroke="#F2D28C" strokeWidth="0.8" opacity="0.55"/>
+          <line x1="8" y1="-8" x2="-8" y2="8" stroke="#F2D28C" strokeWidth="0.8" opacity="0.55"/>
+          <circle cx="0" cy="0" r="2.5" fill="#F2D28C" opacity="1"/>
+        </g>
+
+        {/* Sparkle — bottom right corner */}
+        <g filter="url(#goldGlow)" transform="translate(1382,832)">
+          <line x1="0" y1="-12" x2="0" y2="12" stroke="#F2D28C" strokeWidth="1.5" opacity="0.9"/>
+          <line x1="-12" y1="0" x2="12" y2="0" stroke="#F2D28C" strokeWidth="1.5" opacity="0.9"/>
+          <line x1="-7" y1="-7" x2="7" y2="7" stroke="#F2D28C" strokeWidth="0.8" opacity="0.55"/>
+          <line x1="7" y1="-7" x2="-7" y2="7" stroke="#F2D28C" strokeWidth="0.8" opacity="0.55"/>
+          <circle cx="0" cy="0" r="2" fill="#F2D28C" opacity="1"/>
+        </g>
+
+        {/* Sparkle — mid right edge */}
+        <g filter="url(#goldGlow)" transform="translate(1410,430)">
+          <line x1="0" y1="-9" x2="0" y2="9" stroke="#D5A53B" strokeWidth="1.2" opacity="0.7"/>
+          <line x1="-9" y1="0" x2="9" y2="0" stroke="#D5A53B" strokeWidth="1.2" opacity="0.7"/>
+          <line x1="-5" y1="-5" x2="5" y2="5" stroke="#D5A53B" strokeWidth="0.6" opacity="0.4"/>
+          <line x1="5" y1="-5" x2="-5" y2="5" stroke="#D5A53B" strokeWidth="0.6" opacity="0.4"/>
+          <circle cx="0" cy="0" r="1.5" fill="#D5A53B" opacity="0.9"/>
+        </g>
+
+        {/* Sparkle — upper mid */}
+        <g filter="url(#goldGlow)" transform="translate(700,55)">
+          <line x1="0" y1="-8" x2="0" y2="8" stroke="#D5A53B" strokeWidth="1" opacity="0.6"/>
+          <line x1="-8" y1="0" x2="8" y2="0" stroke="#D5A53B" strokeWidth="1" opacity="0.6"/>
+          <line x1="-5" y1="-5" x2="5" y2="5" stroke="#D5A53B" strokeWidth="0.6" opacity="0.35"/>
+          <line x1="5" y1="-5" x2="-5" y2="5" stroke="#D5A53B" strokeWidth="0.6" opacity="0.35"/>
+          <circle cx="0" cy="0" r="1.5" fill="#D5A53B" opacity="0.9"/>
+        </g>
+      </svg>
+
       {/* Logo GIF — main hero visual, right side */}
       <div
         style={{
