@@ -266,40 +266,30 @@ export default function CinematicHero() {
         }}
       />
 
-      {/* Globe canvas — right side */}
+      {/* Logo GIF — main hero visual, right side */}
       <div
-        aria-hidden="true"
         style={{
           position: "absolute",
-          right: "-5%",
+          right: "2%",
           top: "50%",
           transform: "translateY(-50%)",
-          width: "clamp(360px, 55vw, 700px)",
-          height: "clamp(360px, 55vw, 700px)",
-          opacity: 0.9,
+          width: "clamp(320px, 45vw, 620px)",
+          height: "clamp(320px, 45vw, 620px)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          filter: "drop-shadow(0 0 60px rgba(184,134,30,0.35)) drop-shadow(0 0 120px rgba(184,134,30,0.15))",
         }}
       >
-        <GlobeCanvas />
-        {/* Logo centred over the globe */}
-        <div
+        <img
+          src="/images/logo.gif"
+          alt={siteConfig.logo.alt}
           style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: "clamp(160px, 22vw, 280px)",
-            height: "clamp(160px, 22vw, 280px)",
-            borderRadius: "50%",
-            overflow: "hidden",
-            boxShadow: "0 0 60px rgba(213,165,59,0.25), 0 0 20px rgba(213,165,59,0.15)",
+            width: "100%",
+            height: "100%",
+            objectFit: "contain",
           }}
-        >
-          <img
-            src="/images/logo.gif"
-            alt={siteConfig.logo.alt}
-            style={{ width: "100%", height: "100%", objectFit: "contain" }}
-          />
-        </div>
+        />
       </div>
 
       {/* Cinematic vignette */}
