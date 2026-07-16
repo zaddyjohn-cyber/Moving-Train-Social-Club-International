@@ -30,6 +30,7 @@ const footerLinks = {
     { label:"About",        href:"/about" },
     { label:"Our History",  href:"/history" },
     { label:"Leadership",   href:"/leadership" },
+    { label:"Journal",      href:"/blog" },
     { label:"Achievements", href:"/achievements" },
     { label:"Events",       href:"/events" },
   ],
