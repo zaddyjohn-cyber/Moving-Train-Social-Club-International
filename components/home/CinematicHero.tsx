@@ -273,7 +273,7 @@ export default function CinematicHero() {
       }}/>
 
       {/* Content */}
-      <div style={{
+      <div className="hero-content-wrapper" style={{
         position:"relative", zIndex:3,
         width:"100%", maxWidth:"1280px", margin:"0 auto",
         padding:"0 clamp(1rem,4vw,2rem)",
@@ -281,10 +281,14 @@ export default function CinematicHero() {
         paddingBottom:"clamp(4rem,8vw,6rem)",
         display:"flex", flexDirection:"column",
       }}>
-        {/* Mobile: logo goes here (hidden on desktop via CSS override) */}
-        <div aria-hidden="true" className="mobile-hero-logo" style={{ display:"none" }}/>
+        {/* Mobile logo — visible only on mobile via CSS */}
+        <div aria-hidden="true" className="mobile-hero-logo" style={{
+          display:"none", justifyContent:"center", marginBottom:"1.5rem",
+        }}>
+          <img src="/images/logo.gif" alt="" style={{ width:"clamp(140px,50vw,200px)", height:"clamp(140px,50vw,200px)", objectFit:"contain", filter:"drop-shadow(0 0 40px rgba(213,165,59,0.35))" }}/>
+        </div>
 
-        <div style={{ maxWidth:"640px" }}>
+        <div className="hero-content-inner" style={{ maxWidth:"640px" }}>
           {/* Logo badge */}
           <div style={{
             display:"flex", alignItems:"center", gap:"0.875rem",
@@ -434,32 +438,25 @@ export default function CinematicHero() {
       {/* Mobile layout + quality overrides */}
       <style>{`
         @media (max-width: 767px) {
-          .hero-logo-right {
-            position: relative !important;
-            right: auto !important; top: auto !important;
-            transform: none !important;
-            width: clamp(160px, 55vw, 240px) !important;
-            height: clamp(160px, 55vw, 240px) !important;
-            margin: 0 auto 1.5rem !important;
-            order: -1;
-          }
-          section[aria-label="Hero"] > div[style*="zIndex: 3"] {
+          .hero-logo-right { display: none !important; }
+          .mobile-hero-logo { display: flex !important; }
+          .hero-content-wrapper {
             flex-direction: column;
             align-items: center;
             text-align: center;
+            padding-top: clamp(4rem, 12vw, 6rem) !important;
           }
-          section[aria-label="Hero"] > div[style*="zIndex: 3"] > div {
-            max-width: 100%;
+          .hero-content-inner {
+            max-width: 100% !important;
             display: flex;
             flex-direction: column;
             align-items: center;
           }
-          section[aria-label="Hero"] h1 { font-size: clamp(1.75rem, 8vw, 2.4rem) !important; }
-          section[aria-label="Hero"] p { max-width: 100%; }
+          .hero-content-inner h1 { font-size: clamp(1.75rem, 8.5vw, 2.4rem) !important; }
+          .hero-content-inner p { max-width: 100% !important; }
           .hero-ctas { justify-content: center !important; }
           .hero-stat-row { justify-content: center !important; }
         }
-        /* Ensure canvas stays crisp on high-DPI phones */
         section[aria-label="Hero"] canvas {
           image-rendering: auto;
           will-change: transform;
