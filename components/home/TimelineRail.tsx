@@ -71,7 +71,7 @@ function TimelineNode({
       {/* Card */}
       <div
         style={{
-          background: "rgba(11,26,48,0.8)",
+          background: "rgba(255,252,246,0.92)",
           border: `1px solid ${item.endDate === null ? "rgba(213,165,59,0.35)" : "rgba(213,165,59,0.12)"}`,
           borderRadius: "12px",
           padding: "1.5rem",
@@ -142,7 +142,7 @@ function TimelineNode({
         <p
           style={{
             fontSize: "0.8rem",
-            color: "rgba(174,184,198,0.6)",
+            color: "rgba(90,80,65,0.65)",
             marginBottom: "0.875rem",
             fontVariantNumeric: "tabular-nums",
           }}

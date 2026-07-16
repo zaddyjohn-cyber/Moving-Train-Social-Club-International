@@ -51,7 +51,7 @@ function GlobeCanvas() {
       const globeGrad = ctx.createRadialGradient(cx - r * 0.15, cy - r * 0.2, r * 0.1, cx, cy, r);
       globeGrad.addColorStop(0, "rgba(15,35,70,0.9)");
       globeGrad.addColorStop(0.6, "rgba(7,18,37,0.85)");
-      globeGrad.addColorStop(1, "rgba(5,10,24,0.9)");
+      globeGrad.addColorStop(1, "rgba(235,228,215,0.95)");
       ctx.beginPath();
       ctx.arc(cx, cy, r, 0, Math.PI * 2);
       ctx.fillStyle = globeGrad;
@@ -59,7 +59,7 @@ function GlobeCanvas() {
 
       // Outer glow
       const glowGrad = ctx.createRadialGradient(cx, cy, r * 0.9, cx, cy, r * 1.25);
-      glowGrad.addColorStop(0, "rgba(0,200,255,0.08)");
+      glowGrad.addColorStop(0, "rgba(184,134,30,0.08)");
       glowGrad.addColorStop(0.5, "rgba(213,165,59,0.04)");
       glowGrad.addColorStop(1, "rgba(0,200,255,0)");
       ctx.beginPath();
@@ -107,7 +107,7 @@ function GlobeCanvas() {
       ctx.rotate(t * 0.008);
       ctx.beginPath();
       ctx.ellipse(0, 0, r * 1.18, r * 0.35, 0, 0, Math.PI * 2);
-      ctx.strokeStyle = "rgba(0,200,255,0.12)";
+      ctx.strokeStyle = "rgba(184,134,30,0.15)";
       ctx.lineWidth = 1;
       ctx.setLineDash([4, 8]);
       ctx.stroke();
@@ -308,7 +308,7 @@ export default function CinematicHero() {
         style={{
           position: "absolute",
           inset: 0,
-          background: "linear-gradient(90deg, rgba(5,10,24,0.95) 0%, rgba(5,10,24,0.7) 50%, rgba(5,10,24,0.2) 100%)",
+          background: "linear-gradient(90deg, rgba(235,228,215,0.98) 0%, rgba(245,240,232,0.7) 50%, rgba(245,240,232,0.1) 100%)",
           pointerEvents: "none",
         }}
       />
@@ -476,7 +476,7 @@ export default function CinematicHero() {
             style={{
               fontFamily: "'Space Grotesk', system-ui, sans-serif",
               fontSize: "0.8rem",
-              color: "rgba(174,184,198,0.6)",
+              color: "rgba(90,80,65,0.65)",
               letterSpacing: "0.08em",
               opacity: loaded ? 1 : 0,
               transition: "opacity 0.8s ease 0.7s",
@@ -500,12 +500,12 @@ export default function CinematicHero() {
           flexDirection: "column",
           alignItems: "center",
           gap: "0.5rem",
-          color: "rgba(174,184,198,0.4)",
+          color: "rgba(90,80,65,0.5)",
           zIndex: 3,
           transition: "color 0.2s",
         }}
         onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--gold)")}
-        onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "rgba(174,184,198,0.4)")}
+        onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "rgba(90,80,65,0.5)")}
       >
         <span
           style={{

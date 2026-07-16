@@ -97,7 +97,7 @@ export default async function MemberProfilePage({ params }: { params: Promise<{ 
               aria-hidden="true"
               style={{
                 width: 120, height: 120, borderRadius: "50%", flexShrink: 0,
-                background: "linear-gradient(135deg, rgba(213,165,59,0.15) 0%, rgba(0,200,255,0.08) 100%)",
+                background: "linear-gradient(135deg, rgba(213,165,59,0.15) 0%, rgba(184,134,30,0.08) 100%)",
                 border: "2px solid rgba(213,165,59,0.3)",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 fontFamily: "'Cinzel', Georgia, serif", fontWeight: 700, fontSize: "2rem", color: "var(--gold)",
@@ -120,7 +120,7 @@ export default async function MemberProfilePage({ params }: { params: Promise<{ 
                       fontFamily: "'Space Grotesk', system-ui, sans-serif",
                       fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase",
                       ...(badge === "Current Executive"
-                        ? { background: "rgba(0,200,255,0.08)", border: "1px solid rgba(0,200,255,0.25)", color: "var(--cyan)" }
+                        ? { background: "rgba(184,134,30,0.08)", border: "1px solid rgba(0,200,255,0.25)", color: "var(--gold)" }
                         : badge === "Founder"
                         ? { background: "rgba(213,165,59,0.1)", border: "1px solid rgba(213,165,59,0.3)", color: "var(--gold)" }
                         : { background: "rgba(174,184,198,0.06)", border: "1px solid rgba(174,184,198,0.15)", color: "var(--steel)" }),
@@ -174,7 +174,7 @@ export default async function MemberProfilePage({ params }: { params: Promise<{ 
                 <div
                   key={i}
                   style={{
-                    background: "rgba(11,26,48,0.7)",
+                    background: "rgba(255,252,246,0.82)",
                     borderLeft: "3px solid rgba(213,165,59,0.4)",
                     padding: "1.25rem 1.5rem",
                     borderRadius: "0 10px 10px 0",

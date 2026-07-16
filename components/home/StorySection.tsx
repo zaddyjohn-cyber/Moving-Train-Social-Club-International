@@ -125,7 +125,7 @@ export default function StorySection() {
           >
             <div
               style={{
-                background: "rgba(11,26,48,0.8)",
+                background: "rgba(255,252,246,0.92)",
                 border: "1px solid rgba(213,165,59,0.2)",
                 borderRadius: "20px",
                 padding: "2.5rem",
@@ -279,7 +279,7 @@ export default function StorySection() {
                 <div
                   key={member.id}
                   style={{
-                    background: "rgba(11,26,48,0.7)",
+                    background: "rgba(255,252,246,0.82)",
                     border: "1px solid rgba(213,165,59,0.1)",
                     borderRadius: "12px",
                     padding: "1.5rem 1.25rem",
@@ -300,7 +300,7 @@ export default function StorySection() {
                       width: 56,
                       height: 56,
                       borderRadius: "50%",
-                      background: "linear-gradient(135deg, rgba(213,165,59,0.15) 0%, rgba(0,200,255,0.06) 100%)",
+                      background: "linear-gradient(135deg, rgba(213,165,59,0.15) 0%, rgba(184,134,30,0.07) 100%)",
                       border: "1px solid rgba(213,165,59,0.25)",
                       display: "flex",
                       alignItems: "center",
@@ -381,7 +381,7 @@ export default function StorySection() {
                 <div
                   key={i}
                   style={{
-                    background: "rgba(11,26,48,0.7)",
+                    background: "rgba(255,252,246,0.82)",
                     border: "1px solid rgba(213,165,59,0.1)",
                     borderLeft: "3px solid rgba(213,165,59,0.4)",
                     borderRadius: "0 12px 12px 0",

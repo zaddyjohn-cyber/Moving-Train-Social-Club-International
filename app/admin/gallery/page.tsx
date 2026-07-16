@@ -15,7 +15,7 @@ export default function AdminGalleryPage() {
           <Link href="/admin" style={{ display: "flex", alignItems: "center", gap: "0.4rem", fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.875rem", color: "var(--steel)" }}>
             <ArrowLeft size={14} /> Dashboard
           </Link>
-          <span style={{ color: "rgba(174,184,198,0.3)" }}>/</span>
+          <span style={{ color: "rgba(90,80,65,0.4)" }}>/</span>
           <span style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.875rem", color: "var(--gold)" }}>Gallery</span>
         </div>
 
@@ -51,12 +51,12 @@ export default function AdminGalleryPage() {
         </div>
 
         {/* Queue placeholder */}
-        <div style={{ background: "rgba(11,26,48,0.5)", border: "1px dashed rgba(213,165,59,0.15)", borderRadius: "14px", padding: "5rem 2rem", textAlign: "center" }}>
+        <div style={{ background: "rgba(255,252,246,0.65)", border: "1px dashed rgba(213,165,59,0.15)", borderRadius: "14px", padding: "5rem 2rem", textAlign: "center" }}>
           <ImageIcon size={40} style={{ color: "rgba(213,165,59,0.2)", marginBottom: "1.5rem" }} />
-          <h2 style={{ fontFamily: "'Cinzel', Georgia, serif", fontSize: "1.125rem", color: "rgba(246,243,234,0.4)", marginBottom: "1rem" }}>
+          <h2 style={{ fontFamily: "'Cinzel', Georgia, serif", fontSize: "1.125rem", color: "rgba(28,22,16,0.4)", marginBottom: "1rem" }}>
             No Pending Uploads
           </h2>
-          <p style={{ color: "rgba(174,184,198,0.35)", fontSize: "0.875rem", maxWidth: "40ch", margin: "0 auto" }}>
+          <p style={{ color: "rgba(90,80,65,0.45)", fontSize: "0.875rem", maxWidth: "40ch", margin: "0 auto" }}>
             When members upload photographs, they will appear here for review.
             Connect Supabase to enable live moderation.
           </p>

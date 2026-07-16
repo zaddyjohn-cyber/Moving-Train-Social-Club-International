@@ -56,7 +56,7 @@ export default function AdminDashboardPage() {
             <Link key={stat.label} href={stat.href} style={{ textDecoration: "none" }}>
               <div
                 style={{
-                  background: "rgba(11,26,48,0.8)",
+                  background: "rgba(255,252,246,0.92)",
                   border: "1px solid rgba(213,165,59,0.12)",
                   borderRadius: "14px",
                   padding: "1.5rem",
@@ -81,7 +81,7 @@ export default function AdminDashboardPage() {
                   {stat.label}
                 </div>
                 {stat.note && (
-                  <p style={{ color: "rgba(174,184,198,0.35)", fontSize: "0.7rem", marginTop: "0.5rem", margin: "0.5rem 0 0", maxWidth: "100%" }}>{stat.note}</p>
+                  <p style={{ color: "rgba(90,80,65,0.45)", fontSize: "0.7rem", marginTop: "0.5rem", margin: "0.5rem 0 0", maxWidth: "100%" }}>{stat.note}</p>
                 )}
               </div>
             </Link>
@@ -98,7 +98,7 @@ export default function AdminDashboardPage() {
               <Link key={action.label} href={action.href} style={{ textDecoration: "none" }}>
                 <div
                   style={{
-                    background: "rgba(11,26,48,0.7)",
+                    background: "rgba(255,252,246,0.82)",
                     border: "1px solid rgba(213,165,59,0.12)",
                     borderRadius: "14px",
                     padding: "1.75rem",
@@ -132,9 +132,9 @@ export default function AdminDashboardPage() {
           <h2 style={{ fontFamily: "'Cinzel', Georgia, serif", fontSize: "1.25rem", color: "var(--ivory)", marginBottom: "1.5rem" }}>
             Recent Activity Log
           </h2>
-          <div style={{ background: "rgba(11,26,48,0.5)", border: "1px solid rgba(213,165,59,0.1)", borderRadius: "14px", padding: "3rem", textAlign: "center" }}>
-            <AlertCircle size={28} style={{ color: "rgba(174,184,198,0.2)", marginBottom: "1rem" }} />
-            <p style={{ color: "rgba(174,184,198,0.35)", fontSize: "0.875rem" }}>
+          <div style={{ background: "rgba(255,252,246,0.65)", border: "1px solid rgba(213,165,59,0.1)", borderRadius: "14px", padding: "3rem", textAlign: "center" }}>
+            <AlertCircle size={28} style={{ color: "rgba(90,80,65,0.3)", marginBottom: "1rem" }} />
+            <p style={{ color: "rgba(90,80,65,0.45)", fontSize: "0.875rem" }}>
               Audit log requires Supabase connection. Administrative actions will be recorded here when live.
             </p>
           </div>

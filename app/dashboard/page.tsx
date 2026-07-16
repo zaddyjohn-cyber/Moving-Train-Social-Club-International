@@ -9,7 +9,7 @@ export default function DashboardPage() {
   return (
     <div style={{ paddingTop: "72px", background: "var(--navy)", minHeight: "100vh" }}>
       {/* Demo notice */}
-      <div style={{ background: "rgba(0,200,255,0.04)", borderBottom: "1px solid rgba(0,200,255,0.12)", padding: "0.875rem 1.5rem", textAlign: "center" }}>
+      <div style={{ background: "rgba(184,134,30,0.05)", borderBottom: "1px solid rgba(184,134,30,0.15)", padding: "0.875rem 1.5rem", textAlign: "center" }}>
         <p style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.8rem", color: "rgba(0,200,255,0.7)", margin: 0 }}>
           <strong>Demo Mode:</strong> Connect Supabase credentials to enable live member authentication and data.
         </p>
@@ -28,7 +28,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Profile completion */}
-        <div style={{ background: "rgba(11,26,48,0.8)", border: "1px solid rgba(213,165,59,0.2)", borderRadius: "16px", padding: "2rem", marginBottom: "2rem" }}>
+        <div style={{ background: "rgba(255,252,246,0.92)", border: "1px solid rgba(213,165,59,0.2)", borderRadius: "16px", padding: "2rem", marginBottom: "2rem" }}>
           <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "1.5rem" }}>
             <div>
               <p style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.8rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "0.5rem" }}>
@@ -64,7 +64,7 @@ export default function DashboardPage() {
             >
               <div
                 style={{
-                  background: "rgba(11,26,48,0.7)",
+                  background: "rgba(255,252,246,0.82)",
                   border: "1px solid rgba(213,165,59,0.12)",
                   borderRadius: "14px",
                   padding: "1.5rem",
@@ -96,13 +96,13 @@ export default function DashboardPage() {
         </div>
 
         {/* Announcements placeholder */}
-        <div style={{ background: "rgba(11,26,48,0.5)", border: "1px solid rgba(213,165,59,0.1)", borderRadius: "16px", padding: "2rem" }}>
+        <div style={{ background: "rgba(255,252,246,0.65)", border: "1px solid rgba(213,165,59,0.1)", borderRadius: "16px", padding: "2rem" }}>
           <h2 style={{ fontFamily: "'Cinzel', Georgia, serif", fontSize: "1.125rem", color: "var(--ivory)", marginBottom: "1.5rem" }}>
             Club Announcements
           </h2>
           <div style={{ padding: "2rem", textAlign: "center", borderRadius: "10px", background: "rgba(0,0,0,0.2)" }}>
-            <Bell size={28} style={{ color: "rgba(174,184,198,0.2)", marginBottom: "0.875rem" }} />
-            <p style={{ color: "rgba(174,184,198,0.4)", fontSize: "0.875rem" }}>
+            <Bell size={28} style={{ color: "rgba(90,80,65,0.3)", marginBottom: "0.875rem" }} />
+            <p style={{ color: "rgba(90,80,65,0.5)", fontSize: "0.875rem" }}>
               No announcements at this time. Connect Supabase to load live club announcements.
             </p>
           </div>

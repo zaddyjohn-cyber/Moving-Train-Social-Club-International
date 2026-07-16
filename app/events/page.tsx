@@ -24,7 +24,7 @@ export default function EventsPage() {
   return (
     <div style={{ paddingTop: "72px", background: "var(--navy)" }}>
       {/* Hero */}
-      <section style={{ padding: "6rem 1.5rem 4rem", background: "radial-gradient(ellipse at 50% 60%, rgba(10,26,58,0.7) 0%, var(--navy) 65%)" }}>
+      <section style={{ padding: "6rem 1.5rem 4rem", background: "radial-gradient(ellipse at 50% 60%, rgba(240,234,220,0.5) 0%, var(--navy) 65%)" }}>
         <div style={{ maxWidth: "700px", margin: "0 auto", textAlign: "center" }}>
           <p className="eyebrow" style={{ marginBottom: "1.25rem" }}>Gatherings</p>
           <h1 style={{ fontFamily: "'Cinzel', Georgia, serif", color: "var(--ivory)", marginBottom: "1.5rem" }}>
@@ -89,12 +89,12 @@ export default function EventsPage() {
             <p className="eyebrow" style={{ marginBottom: "0.75rem" }}>What&apos;s Next</p>
             <h2 style={{ fontFamily: "'Cinzel', Georgia, serif", color: "var(--ivory)" }}>Upcoming Events</h2>
           </div>
-          <div style={{ textAlign: "center", padding: "4rem 2rem", background: "rgba(11,26,48,0.5)", border: "1px dashed rgba(213,165,59,0.15)", borderRadius: "16px" }}>
+          <div style={{ textAlign: "center", padding: "4rem 2rem", background: "rgba(255,252,246,0.65)", border: "1px dashed rgba(213,165,59,0.15)", borderRadius: "16px" }}>
             <Calendar size={36} style={{ color: "rgba(213,165,59,0.3)", marginBottom: "1.5rem" }} />
             <h3 style={{ fontFamily: "'Cinzel', Georgia, serif", fontSize: "1.125rem", color: "rgba(246,243,234,0.5)", marginBottom: "1rem" }}>
               Upcoming Events Will Appear Here
             </h3>
-            <p style={{ color: "rgba(174,184,198,0.4)", fontSize: "0.875rem", maxWidth: "36ch", margin: "0 auto 2rem" }}>
+            <p style={{ color: "rgba(90,80,65,0.5)", fontSize: "0.875rem", maxWidth: "36ch", margin: "0 auto 2rem" }}>
               Members are notified of upcoming events through the member dashboard and club communications.
             </p>
             <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>

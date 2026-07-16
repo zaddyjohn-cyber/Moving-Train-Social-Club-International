@@ -8,7 +8,7 @@ function LeadershipCard({ exec }: { exec: (typeof currentExecutives)[number] }) 
   return (
     <div
       style={{
-        background: "rgba(11,26,48,0.8)",
+        background: "rgba(255,252,246,0.92)",
         border: "1px solid rgba(213,165,59,0.12)",
         borderRadius: "16px",
         padding: "2rem 1.75rem",
@@ -39,7 +39,7 @@ function LeadershipCard({ exec }: { exec: (typeof currentExecutives)[number] }) 
           width: 80,
           height: 80,
           borderRadius: "50%",
-          background: "linear-gradient(135deg, rgba(213,165,59,0.15) 0%, rgba(0,200,255,0.08) 100%)",
+          background: "linear-gradient(135deg, rgba(213,165,59,0.15) 0%, rgba(184,134,30,0.08) 100%)",
           border: "1.5px solid rgba(213,165,59,0.25)",
           display: "flex",
           alignItems: "center",
@@ -94,7 +94,7 @@ function LeadershipCard({ exec }: { exec: (typeof currentExecutives)[number] }) 
         style={{
           fontFamily: "'Space Grotesk', system-ui, sans-serif",
           fontSize: "0.75rem",
-          color: "rgba(174,184,198,0.5)",
+          color: "rgba(90,80,65,0.55)",
           margin: 0,
           letterSpacing: "0.06em",
         }}

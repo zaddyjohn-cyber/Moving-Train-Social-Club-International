@@ -46,12 +46,12 @@ export default async function GalleryAlbumPage({ params }: { params: Promise<{ s
       <section style={{ padding: "2rem 1.5rem 6rem" }}>
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
           {album.imageCount === 0 ? (
-            <div style={{ textAlign: "center", padding: "5rem 2rem", background: "rgba(11,26,48,0.5)", border: "1px dashed rgba(213,165,59,0.15)", borderRadius: "16px" }}>
+            <div style={{ textAlign: "center", padding: "5rem 2rem", background: "rgba(255,252,246,0.65)", border: "1px dashed rgba(213,165,59,0.15)", borderRadius: "16px" }}>
               <ImageIcon size={48} style={{ color: "rgba(213,165,59,0.2)", marginBottom: "1.5rem" }} />
               <h2 style={{ fontFamily: "'Cinzel', Georgia, serif", fontSize: "1.25rem", color: "rgba(246,243,234,0.5)", marginBottom: "1rem" }}>
                 Photographs Coming Soon
               </h2>
-              <p style={{ color: "rgba(174,184,198,0.4)", fontSize: "0.9375rem", marginBottom: "2rem", maxWidth: "40ch", margin: "0 auto 2rem" }}>
+              <p style={{ color: "rgba(90,80,65,0.5)", fontSize: "0.9375rem", marginBottom: "2rem", maxWidth: "40ch", margin: "0 auto 2rem" }}>
                 This album is being prepared. Members can contribute photographs via their dashboard.
               </p>
               <Link href="/login" className="btn-ghost-gold">Upload Photos</Link>

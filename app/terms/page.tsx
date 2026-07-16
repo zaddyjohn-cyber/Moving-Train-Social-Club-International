@@ -38,7 +38,7 @@ export default function TermsPage() {
           </div>
 
           <div style={{ marginTop: "3rem", paddingTop: "2rem", borderTop: "1px solid rgba(213,165,59,0.1)" }}>
-            <p style={{ color: "rgba(174,184,198,0.4)", fontSize: "0.8rem" }}>
+            <p style={{ color: "rgba(90,80,65,0.5)", fontSize: "0.8rem" }}>
               Last updated: {new Date().toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric" })}
             </p>
           </div>

@@ -60,7 +60,7 @@ export default function WhyJoinPreview() {
             <div
               key={benefit.id}
               style={{
-                background: "rgba(11,26,48,0.7)",
+                background: "rgba(255,252,246,0.82)",
                 border: "1px solid rgba(213,165,59,0.1)",
                 borderRadius: "14px",
                 padding: "2rem 1.75rem",
@@ -126,7 +126,7 @@ export default function WhyJoinPreview() {
         <div style={{ textAlign: "center" }}>
           <p
             style={{
-              color: "rgba(174,184,198,0.6)",
+              color: "rgba(90,80,65,0.65)",
               fontSize: "0.875rem",
               marginBottom: "1.5rem",
               fontFamily: "'Space Grotesk', system-ui, sans-serif",

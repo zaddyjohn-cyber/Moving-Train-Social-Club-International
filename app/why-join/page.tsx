@@ -54,7 +54,7 @@ export default function WhyJoinPage() {
               <div
                 key={benefit.id}
                 style={{
-                  background: "rgba(11,26,48,0.7)",
+                  background: "rgba(255,252,246,0.82)",
                   border: "1px solid rgba(213,165,59,0.12)",
                   borderRadius: "16px",
                   padding: "2.5rem 2rem",
@@ -101,7 +101,7 @@ export default function WhyJoinPage() {
                   key={item}
                   style={{
                     padding: "0.5rem 1.125rem",
-                    background: "rgba(11,26,48,0.8)",
+                    background: "rgba(255,252,246,0.92)",
                     border: "1px solid rgba(213,165,59,0.15)",
                     borderRadius: "999px",
                     fontFamily: "'Manrope', system-ui, sans-serif",

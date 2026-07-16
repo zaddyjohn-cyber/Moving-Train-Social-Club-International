@@ -68,7 +68,7 @@ export default function AboutPage() {
               <div
                 key={item.label}
                 style={{
-                  background: "rgba(11,26,48,0.7)",
+                  background: "rgba(255,252,246,0.82)",
                   border: "1px solid rgba(213,165,59,0.12)",
                   borderRadius: "16px",
                   padding: "2rem 1.75rem",
@@ -132,7 +132,7 @@ export default function AboutPage() {
                 key={c.code}
                 style={{
                   padding: "0.5rem 1.25rem",
-                  background: "rgba(11,26,48,0.8)",
+                  background: "rgba(255,252,246,0.92)",
                   border: "1px solid rgba(213,165,59,0.2)",
                   borderRadius: "999px",
                   fontFamily: "'Space Grotesk', system-ui, sans-serif",

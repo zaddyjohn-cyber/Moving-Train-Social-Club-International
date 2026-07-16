@@ -10,7 +10,7 @@ export default function GalleryPage() {
   return (
     <div style={{ paddingTop: "72px", background: "var(--navy)" }}>
       {/* Hero */}
-      <section style={{ padding: "6rem 1.5rem 4rem", background: "radial-gradient(ellipse at 50% 50%, rgba(10,26,58,0.7) 0%, var(--navy) 65%)" }}>
+      <section style={{ padding: "6rem 1.5rem 4rem", background: "radial-gradient(ellipse at 50% 50%, rgba(240,234,220,0.5) 0%, var(--navy) 65%)" }}>
         <div style={{ maxWidth: "700px", margin: "0 auto", textAlign: "center" }}>
           <p className="eyebrow" style={{ marginBottom: "1.25rem" }}>Visual Record</p>
           <h1 style={{ fontFamily: "'Cinzel', Georgia, serif", color: "var(--ivory)", marginBottom: "1.5rem" }}>
@@ -27,9 +27,9 @@ export default function GalleryPage() {
       <section aria-label="Gallery albums" style={{ padding: "3rem 1.5rem 6rem" }}>
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
           {/* Notice */}
-          <div style={{ background: "rgba(0,200,255,0.04)", border: "1px solid rgba(0,200,255,0.12)", borderRadius: "10px", padding: "1rem 1.5rem", marginBottom: "3rem" }}>
-            <p style={{ color: "rgba(174,184,198,0.6)", fontSize: "0.875rem", lineHeight: 1.6, margin: 0, maxWidth: "100%" }}>
-              <strong style={{ color: "var(--cyan)", fontFamily: "'Space Grotesk', system-ui, sans-serif", fontWeight: 600 }}>Photo Policy:</strong>{" "}
+          <div style={{ background: "rgba(184,134,30,0.05)", border: "1px solid rgba(184,134,30,0.15)", borderRadius: "10px", padding: "1rem 1.5rem", marginBottom: "3rem" }}>
+            <p style={{ color: "rgba(90,80,65,0.65)", fontSize: "0.875rem", lineHeight: 1.6, margin: 0, maxWidth: "100%" }}>
+              <strong style={{ color: "var(--gold)", fontFamily: "'Space Grotesk', system-ui, sans-serif", fontWeight: 600 }}>Photo Policy:</strong>{" "}
               All photographs are reviewed and approved before publication. Members may upload photographs
               via their dashboard. Some albums are available to members only.{" "}
               <Link href="/login" style={{ color: "var(--gold)" }}>Login</Link> to access the full gallery.
@@ -45,7 +45,7 @@ export default function GalleryPage() {
               >
                 <article
                   style={{
-                    background: "rgba(11,26,48,0.8)",
+                    background: "rgba(255,252,246,0.92)",
                     border: "1px solid rgba(213,165,59,0.12)",
                     borderRadius: "16px",
                     overflow: "hidden",
@@ -66,7 +66,7 @@ export default function GalleryPage() {
                   <div
                     style={{
                       height: "200px",
-                      background: "linear-gradient(135deg, rgba(10,26,58,0.9) 0%, rgba(5,10,24,0.9) 100%)",
+                      background: "linear-gradient(135deg, rgba(240,234,220,0.9) 0%, rgba(235,228,215,0.95) 100%)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -83,7 +83,7 @@ export default function GalleryPage() {
                     />
                     <div style={{ color: "rgba(213,165,59,0.2)", display: "flex", flexDirection: "column", alignItems: "center", gap: "0.5rem" }}>
                       <ImageIcon size={32} />
-                      <span style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.75rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(174,184,198,0.3)" }}>
+                      <span style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.75rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(90,80,65,0.4)" }}>
                         {album.imageCount > 0 ? `${album.imageCount} photos` : "Photos coming soon"}
                       </span>
                     </div>
@@ -95,7 +95,7 @@ export default function GalleryPage() {
                       <h2 style={{ fontFamily: "'Cinzel', Georgia, serif", fontSize: "1rem", color: "var(--ivory)", margin: 0, lineHeight: 1.3 }}>
                         {album.title}
                       </h2>
-                      <span style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.75rem", color: "rgba(174,184,198,0.4)", flexShrink: 0 }}>
+                      <span style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.75rem", color: "rgba(90,80,65,0.5)", flexShrink: 0 }}>
                         {album.year}
                       </span>
                     </div>
@@ -110,7 +110,7 @@ export default function GalleryPage() {
             {/* Members-only placeholder */}
             <div
               style={{
-                background: "rgba(11,26,48,0.5)",
+                background: "rgba(255,252,246,0.65)",
                 border: "1px dashed rgba(213,165,59,0.15)",
                 borderRadius: "16px",
                 overflow: "hidden",
@@ -124,8 +124,8 @@ export default function GalleryPage() {
               }}
             >
               <Lock size={28} style={{ color: "rgba(213,165,59,0.3)" }} />
-              <h2 style={{ fontFamily: "'Cinzel', Georgia, serif", fontSize: "1rem", color: "rgba(246,243,234,0.4)", margin: 0 }}>Members-Only Albums</h2>
-              <p style={{ color: "rgba(174,184,198,0.4)", fontSize: "0.875rem", margin: 0, maxWidth: "24ch" }}>
+              <h2 style={{ fontFamily: "'Cinzel', Georgia, serif", fontSize: "1rem", color: "rgba(28,22,16,0.4)", margin: 0 }}>Members-Only Albums</h2>
+              <p style={{ color: "rgba(90,80,65,0.5)", fontSize: "0.875rem", margin: 0, maxWidth: "24ch" }}>
                 Additional albums are available to logged-in members.
               </p>
               <Link href="/login" className="btn-ghost-gold" style={{ fontSize: "0.8rem", padding: "0.5rem 1.25rem" }}>
@@ -135,7 +135,7 @@ export default function GalleryPage() {
           </div>
 
           {/* Upload CTA for members */}
-          <div style={{ marginTop: "3rem", textAlign: "center", padding: "2rem", background: "rgba(11,26,48,0.5)", border: "1px solid rgba(213,165,59,0.1)", borderRadius: "16px" }}>
+          <div style={{ marginTop: "3rem", textAlign: "center", padding: "2rem", background: "rgba(255,252,246,0.65)", border: "1px solid rgba(213,165,59,0.1)", borderRadius: "16px" }}>
             <p style={{ color: "var(--steel)", marginBottom: "1.25rem" }}>
               Are you a member? Share your photographs with the brotherhood.
             </p>

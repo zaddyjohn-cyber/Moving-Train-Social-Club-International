@@ -81,7 +81,7 @@ export default function UploadPhotosPage() {
 
         {/* Policy notice */}
         <div style={{ background: "rgba(213,165,59,0.04)", border: "1px solid rgba(213,165,59,0.15)", borderRadius: "10px", padding: "1rem 1.5rem", marginBottom: "2.5rem" }}>
-          <p style={{ color: "rgba(174,184,198,0.7)", fontSize: "0.8375rem", lineHeight: 1.65, margin: 0, maxWidth: "100%" }}>
+          <p style={{ color: "rgba(90,80,65,0.75)", fontSize: "0.8375rem", lineHeight: 1.65, margin: 0, maxWidth: "100%" }}>
             <strong style={{ color: "var(--gold-light)", fontWeight: 600 }}>Photo Policy:</strong> Accepted formats: JPEG, PNG, WebP. Maximum file size: 10MB.
             All uploads enter a pending approval state. Only photographs that respect the privacy and dignity
             of all individuals pictured should be uploaded. Consent of those pictured is your responsibility.
@@ -117,7 +117,7 @@ export default function UploadPhotosPage() {
           <p style={{ fontFamily: "'Cinzel', Georgia, serif", fontSize: "1rem", color: "var(--ivory)", marginBottom: "0.5rem" }}>
             Drag photos here, or click to select
           </p>
-          <p style={{ color: "rgba(174,184,198,0.4)", fontSize: "0.8rem", margin: 0 }}>
+          <p style={{ color: "rgba(90,80,65,0.5)", fontSize: "0.8rem", margin: 0 }}>
             JPEG, PNG, WebP · Max 10MB each · Multiple files accepted
           </p>
           <input
@@ -138,7 +138,7 @@ export default function UploadPhotosPage() {
               <div
                 key={photo.id}
                 style={{
-                  background: "rgba(11,26,48,0.8)",
+                  background: "rgba(255,252,246,0.92)",
                   border: "1px solid rgba(213,165,59,0.12)",
                   borderRadius: "14px",
                   padding: "1.5rem",
@@ -167,7 +167,7 @@ export default function UploadPhotosPage() {
                       <span style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.8rem", color: "var(--steel)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                         {photo.file.name}
                       </span>
-                      <span style={{ fontSize: "0.75rem", color: "rgba(174,184,198,0.4)", flexShrink: 0 }}>
+                      <span style={{ fontSize: "0.75rem", color: "rgba(90,80,65,0.5)", flexShrink: 0 }}>
                         ({(photo.file.size / 1024 / 1024).toFixed(1)}MB)
                       </span>
                     </div>
@@ -211,7 +211,7 @@ export default function UploadPhotosPage() {
                       </button>
                     )}
                     {photo.status === "uploading" && (
-                      <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", color: "var(--cyan)" }}>
+                      <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", color: "var(--gold)" }}>
                         <div style={{ width: 14, height: 14, borderRadius: "50%", border: "2px solid var(--cyan)", borderTopColor: "transparent", animation: "spin 0.8s linear infinite" }} />
                         <span style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.8rem" }}>Uploading…</span>
                       </div>
