@@ -15,7 +15,7 @@ const mono = "'Space Grotesk', ui-monospace, monospace";
 function DuesVisual() {
   const bars = Array.from({ length: 12 });
   return (
-    <div style={{ position: "relative", borderRadius: "10px", overflow: "hidden" }}>
+    <div style={{ position: "relative", borderRadius: "10px", overflow: "hidden", aspectRatio: "16/9" }}>
       {/* Background video */}
       <video
         src="/images/monthly-dues.mp4"
@@ -23,7 +23,7 @@ function DuesVisual() {
         muted
         loop
         playsInline
-        style={{ width: "100%", height: "auto", display: "block" }}
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }}
       />
       {/* Dark overlay so SVG stays legible */}
       <div style={{ position: "absolute", inset: 0, background: "rgba(3,7,17,0.52)" }} />
@@ -74,22 +74,26 @@ function DuesVisual() {
 /* ── 2. Registry — certificate draws, seal stamps ───────────── */
 function RegistryVisual() {
   return (
-    <img
-      src="/images/CAC.jpg"
-      alt="CAC Registration Certificate"
-      style={{ width: "100%", height: "auto", display: "block", borderRadius: "10px" }}
-    />
+    <div style={{ aspectRatio: "16/9", overflow: "hidden", borderRadius: "10px" }}>
+      <img
+        src="/images/CAC.jpg"
+        alt="CAC Registration Certificate"
+        style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
+      />
+    </div>
   );
 }
 
 /* ── 3. Video — live meeting grid with people on camera ─────── */
 function VideoVisual() {
   return (
-    <img
-      src="/images/zoom.jpg"
-      alt="International Meeting"
-      style={{ width: "100%", height: "auto", display: "block", borderRadius: "10px" }}
-    />
+    <div style={{ aspectRatio: "16/9", overflow: "hidden", borderRadius: "10px" }}>
+      <img
+        src="/images/zoom.jpg"
+        alt="International Meeting"
+        style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }}
+      />
+    </div>
   );
 }
 
@@ -106,7 +110,7 @@ function NetworkVisual() {
     "M265,72 Q310,20 355,45", "M50,82 Q200,118 355,45",
   ];
   return (
-    <div style={{ position: "relative", borderRadius: "10px", overflow: "hidden" }}>
+    <div style={{ position: "relative", borderRadius: "10px", overflow: "hidden", aspectRatio: "16/9" }}>
       {/* Background video */}
       <video
         src="/images/global-link.mp4"
@@ -114,7 +118,7 @@ function NetworkVisual() {
         muted
         loop
         playsInline
-        style={{ width: "100%", height: "auto", display: "block" }}
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }}
       />
       {/* Dark overlay so SVG elements stay legible */}
       <div style={{
@@ -158,25 +162,29 @@ function NetworkVisual() {
 /* ── 5. Scroll — constitution writes itself ─────────────────── */
 function ScrollVisual() {
   return (
-    <video
-      src="/images/writing.mp4"
-      autoPlay
-      muted
-      loop
-      playsInline
-      style={{ width: "100%", height: "auto", display: "block", borderRadius: "10px" }}
-    />
+    <div style={{ aspectRatio: "16/9", overflow: "hidden", borderRadius: "10px" }}>
+      <video
+        src="/images/writing.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+      />
+    </div>
   );
 }
 
 /* ── 6. Founding — timeline grows from 2020, members join ───── */
 function FoundingVisual() {
   return (
-    <img
-      src="/images/invite.jpg"
-      alt="The First Invitation · 2020"
-      style={{ width: "100%", height: "auto", display: "block", borderRadius: "10px" }}
-    />
+    <div style={{ aspectRatio: "16/9", overflow: "hidden", borderRadius: "10px" }}>
+      <img
+        src="/images/invite.jpg"
+        alt="The First Invitation · 2020"
+        style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }}
+      />
+    </div>
   );
 }
 
