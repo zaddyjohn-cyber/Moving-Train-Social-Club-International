@@ -55,33 +55,11 @@ function DuesVisual() {
 /* ── 2. Registry — certificate draws, seal stamps ───────────── */
 function RegistryVisual() {
   return (
-    <svg viewBox="0 0 400 120" width="100%" style={{ display: "block" }} aria-hidden="true">
-      {/* Certificate */}
-      <rect x="70" y="14" width="200" height="92" rx="6" fill="rgba(213,165,59,0.04)"
-        stroke="#D5A53B" strokeWidth="1.5"
-        strokeDasharray="584" style={{ animation: "cvDraw 2s ease 0.2s both" }} />
-      <rect x="80" y="24" width="180" height="72" rx="3" fill="none"
-        stroke="rgba(213,165,59,0.3)" strokeWidth="0.75"
-        strokeDasharray="504" style={{ animation: "cvDraw 2s ease 0.5s both" }} />
-      {/* Text lines */}
-      {[40, 52, 64, 76].map((y, i) => (
-        <rect key={y} x="92" y={y} width={i === 0 ? 110 : 140 - i * 18} height="4" rx="2"
-          fill={i === 0 ? "rgba(242,210,140,0.6)" : "rgba(170,182,197,0.3)"}
-          style={{ transformOrigin: "92px 0px", animation: `cvWrite 0.6s ease ${1 + i * 0.3}s both` }} />
-      ))}
-      {/* Seal stamps in */}
-      <g style={{ transformOrigin: "310px 60px", animation: "cvStamp 0.45s cubic-bezier(0.34,1.56,0.64,1) 2.4s both" }}>
-        <circle cx="310" cy="60" r="30" fill="rgba(213,165,59,0.08)" stroke="#D5A53B" strokeWidth="1.5" />
-        <circle cx="310" cy="60" r="23" fill="none" stroke="rgba(213,165,59,0.45)" strokeWidth="0.75" strokeDasharray="3 3" />
-        <text x="310" y="56" fill="#F2D28C" fontSize="9" fontFamily={mono} fontWeight="700" textAnchor="middle" letterSpacing="1">CAC</text>
-        <text x="310" y="68" fill="#D5A53B" fontSize="7" fontFamily={mono} fontWeight="700" textAnchor="middle" letterSpacing="0.5">REGISTERED</text>
-      </g>
-      <circle cx="310" cy="60" r="30" fill="none" stroke="#F2D28C" strokeWidth="1"
-        style={{ transformOrigin: "310px 60px", animation: "cvSealRing 2.5s ease-out 2.9s infinite" }} />
-      <text x="16" y="22" fill="#D5A53B" fontSize="10" fontFamily={mono} fontWeight="700" letterSpacing="2"
-        writingMode="tb" transform="rotate(0)">
-      </text>
-    </svg>
+    <img
+      src="/images/CAC.jpg"
+      alt="CAC Registration Certificate"
+      style={{ width: "100%", height: "auto", display: "block", borderRadius: "10px" }}
+    />
   );
 }
 
