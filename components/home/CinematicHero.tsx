@@ -298,7 +298,7 @@ export default function CinematicHero() {
         style={{
           position: "absolute",
           inset: 0,
-          background: "linear-gradient(90deg, rgba(235,228,215,0.98) 0%, rgba(245,240,232,0.7) 50%, rgba(245,240,232,0.1) 100%)",
+          background: "linear-gradient(90deg, rgba(5,10,24,0.95) 0%, rgba(5,10,24,0.7) 50%, rgba(5,10,24,0.2) 100%)",
           pointerEvents: "none",
         }}
       />
@@ -312,7 +312,7 @@ export default function CinematicHero() {
           left: 0,
           right: 0,
           height: "200px",
-          background: "linear-gradient(to bottom, transparent, var(--navy))",
+          background: "linear-gradient(to bottom, transparent, #050A18)",
           pointerEvents: "none",
         }}
       />
@@ -383,7 +383,7 @@ export default function CinematicHero() {
                 style={{
                   fontFamily: "'Cinzel', Georgia, serif",
                   fontSize: "0.8rem",
-                  color: "var(--steel)",
+                  color: "#AEB8C6",
                   margin: 0,
                   lineHeight: 1.3,
                 }}
@@ -400,7 +400,7 @@ export default function CinematicHero() {
               fontWeight: 700,
               fontSize: "clamp(2.25rem, 5vw, 3.75rem)",
               lineHeight: 1.1,
-              color: "var(--ivory)",
+              color: "#F6F3EA",
               marginBottom: "1.5rem",
               textWrap: "balance",
               opacity: loaded ? 1 : 0,
@@ -427,7 +427,7 @@ export default function CinematicHero() {
           {/* Body copy */}
           <p
             style={{
-              color: "var(--steel)",
+              color: "#AEB8C6",
               fontSize: "clamp(1rem, 1.5vw, 1.125rem)",
               lineHeight: 1.75,
               marginBottom: "2.5rem",
@@ -466,7 +466,7 @@ export default function CinematicHero() {
             style={{
               fontFamily: "'Space Grotesk', system-ui, sans-serif",
               fontSize: "0.8rem",
-              color: "rgba(90,80,65,0.65)",
+              color: "rgba(174,184,198,0.65)",
               letterSpacing: "0.08em",
               opacity: loaded ? 1 : 0,
               transition: "opacity 0.8s ease 0.7s",
@@ -490,7 +490,7 @@ export default function CinematicHero() {
           flexDirection: "column",
           alignItems: "center",
           gap: "0.5rem",
-          color: "rgba(90,80,65,0.5)",
+          color: "rgba(174,184,198,0.5)",
           zIndex: 3,
           transition: "color 0.2s",
         }}
