@@ -280,6 +280,28 @@ export default function CinematicHero() {
         }}
       >
         <GlobeCanvas />
+        {/* Logo centred over the globe */}
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "clamp(160px, 22vw, 280px)",
+            height: "clamp(160px, 22vw, 280px)",
+            borderRadius: "50%",
+            overflow: "hidden",
+            boxShadow: "0 0 60px rgba(213,165,59,0.25), 0 0 20px rgba(213,165,59,0.15)",
+          }}
+        >
+          <Image
+            src="/images/logo.svg"
+            alt={siteConfig.logo.alt}
+            fill
+            style={{ objectFit: "contain" }}
+            priority
+          />
+        </div>
       </div>
 
       {/* Cinematic vignette */}
