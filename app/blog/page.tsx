@@ -75,7 +75,7 @@ export default function BlogPage() {
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <p className="eyebrow" style={{ marginBottom: "1.5rem" }}>Featured Story</p>
           <Link href={`/blog/${featured.slug}`} style={{ display: "block", textDecoration: "none" }}>
-            <article className="featured-post-grid" style={{
+            <article className="featured-post-grid blog-featured-card" style={{
               display: "grid",
               gridTemplateColumns: "1fr 1fr",
               gap: 0,
@@ -84,23 +84,13 @@ export default function BlogPage() {
               borderRadius: "20px",
               overflow: "hidden",
               transition: "border-color 0.25s, box-shadow 0.25s",
-            }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor = "rgba(213,165,59,0.45)";
-                (e.currentTarget as HTMLElement).style.boxShadow = "0 16px 60px rgba(0,0,0,0.5), 0 0 30px rgba(213,165,59,0.06)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor = "rgba(213,165,59,0.18)";
-                (e.currentTarget as HTMLElement).style.boxShadow = "none";
-              }}
-            >
+            }}>
               {/* Image */}
               <div style={{ aspectRatio: "4/3", overflow: "hidden", position: "relative" }}>
                 <img src={featured.coverImage} alt={featured.coverAlt}
+                  className="featured-cover-img"
                   style={{ width: "100%", height: "100%", objectFit: "cover", display: "block",
                     transition: "transform 0.5s ease" }}
-                  onMouseEnter={(e) => { (e.currentTarget as HTMLImageElement).style.transform = "scale(1.04)"; }}
-                  onMouseLeave={(e) => { (e.currentTarget as HTMLImageElement).style.transform = "scale(1)"; }}
                 />
                 <div style={{
                   position: "absolute", inset: 0,
@@ -145,6 +135,9 @@ export default function BlogPage() {
             </article>
           </Link>
           <style>{`
+            .blog-featured-card:hover { border-color: rgba(213,165,59,0.45) !important; box-shadow: 0 16px 60px rgba(0,0,0,0.5), 0 0 30px rgba(213,165,59,0.06) !important; }
+            .blog-featured-card:hover .featured-cover-img { transform: scale(1.04); }
+            .blog-post-card:hover { border-color: rgba(213,165,59,0.35) !important; box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 0 20px rgba(213,165,59,0.06) !important; transform: translateY(-4px) !important; }
             @media (max-width: 767px) {
               .featured-post-grid {
                 grid-template-columns: 1fr !important;
@@ -168,26 +161,13 @@ export default function BlogPage() {
           }}>
             {rest.map((post) => (
               <Link key={post.slug} href={`/blog/${post.slug}`} style={{ display: "block", textDecoration: "none", height: "100%" }}>
-                <article style={{
+                <article className="blog-post-card" style={{
                   background: "rgba(16,36,58,0.85)",
                   border: "1px solid rgba(213,165,59,0.1)",
                   borderRadius: "16px", overflow: "hidden",
                   display: "flex", flexDirection: "column", height: "100%",
                   transition: "border-color 0.25s, box-shadow 0.25s, transform 0.25s",
-                }}
-                  onMouseEnter={(e) => {
-                    const el = e.currentTarget as HTMLElement;
-                    el.style.borderColor = "rgba(213,165,59,0.35)";
-                    el.style.boxShadow = "0 8px 40px rgba(0,0,0,0.5), 0 0 20px rgba(213,165,59,0.06)";
-                    el.style.transform = "translateY(-4px)";
-                  }}
-                  onMouseLeave={(e) => {
-                    const el = e.currentTarget as HTMLElement;
-                    el.style.borderColor = "rgba(213,165,59,0.1)";
-                    el.style.boxShadow = "none";
-                    el.style.transform = "translateY(0)";
-                  }}
-                >
+                }}>
                   {/* Cover */}
                   <div style={{ aspectRatio: "16/9", overflow: "hidden", position: "relative", flexShrink: 0 }}>
                     <img src={post.coverImage} alt={post.coverAlt}

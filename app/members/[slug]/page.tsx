@@ -69,11 +69,11 @@ export default async function MemberProfilePage({ params }: { params: Promise<{ 
         <Link
           href="/members"
           style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem", fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.875rem", color: "var(--steel)", transition: "color 0.2s" }}
-          onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--gold)")}
-          onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--steel)")}
+          className="back-link"
         >
           <ArrowLeft size={16} /> Member Directory
         </Link>
+        <style>{`.back-link:hover { color: var(--gold) !important; }`}</style>
       </div>
 
       {/* Profile hero */}

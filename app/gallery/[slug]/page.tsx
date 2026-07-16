@@ -27,12 +27,10 @@ export default async function GalleryAlbumPage({ params }: { params: Promise<{ s
   return (
     <div style={{ paddingTop: "72px", background: "var(--navy)", minHeight: "100vh" }}>
       <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "2.5rem 1.5rem 0" }}>
-        <Link href="/gallery" style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem", fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.875rem", color: "var(--steel)", transition: "color 0.2s" }}
-          onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--gold)")}
-          onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--steel)")}
-        >
+        <Link href="/gallery" className="back-link" style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem", fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.875rem", color: "var(--steel)", transition: "color 0.2s" }}>
           <ArrowLeft size={16} /> Gallery
         </Link>
+        <style>{`.back-link:hover { color: var(--gold) !important; }`}</style>
       </div>
 
       <section style={{ padding: "3rem 1.5rem 2rem" }}>
