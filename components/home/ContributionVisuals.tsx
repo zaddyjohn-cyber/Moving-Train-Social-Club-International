@@ -65,81 +65,12 @@ function RegistryVisual() {
 
 /* ── 3. Video — live meeting grid with people on camera ─────── */
 function VideoVisual() {
-  // Six participants, each with a distinct look (skin tone / shirt / pose)
-  const people = [
-    { x: 24,  y: 28, skin: "#C08552", shirt: "#2A4A6B", tie: true  },
-    { x: 118, y: 28, skin: "#8D5524", shirt: "#3D2B56", tie: false },
-    { x: 212, y: 28, skin: "#A96B3F", shirt: "#1F3A2E", tie: true  },
-    { x: 24,  y: 70, skin: "#6B4226", shirt: "#4A2E2E", tie: false },
-    { x: 118, y: 70, skin: "#B07B4F", shirt: "#2E3A4A", tie: true  },
-    { x: 212, y: 70, skin: "#7A4A28", shirt: "#3A3A2E", tie: false },
-  ];
-  const speaker = 1; // active speaker gets cyan ring + voice bars
   return (
-    <svg viewBox="0 0 400 120" width="100%" style={{ display: "block" }} aria-hidden="true">
-      <text x="16" y="18" fill="#D5A53B" fontSize="10" fontFamily={mono} fontWeight="700" letterSpacing="2">
-        INTERNATIONAL MEETING
-      </text>
-      {/* LIVE light */}
-      <circle cx="330" cy="14" r="4" fill="#E5484D" style={{ animation: "cvBlink 1.2s ease-in-out infinite" }} />
-      <text x="340" y="18" fill="rgba(229,72,77,0.9)" fontSize="10" fontFamily={mono} fontWeight="700">LIVE</text>
-
-      {people.map(({ x, y, skin, shirt, tie }, i) => (
-        <g key={i} style={{ animation: `cvFadeIn 0.4s ease ${0.2 + i * 0.15}s both` }}>
-          <defs>
-            <clipPath id={`vtile${i}`}>
-              <rect x={x} y={y} width={86} height={38} rx={5} />
-            </clipPath>
-          </defs>
-          {/* Webcam frame */}
-          <rect x={x} y={y} width={86} height={38} rx={5}
-            fill="rgba(10,22,40,0.95)"
-            stroke={i === speaker ? "rgba(0,200,255,0.7)" : "rgba(213,165,59,0.22)"}
-            strokeWidth={i === speaker ? 1.5 : 1} />
-          {/* Person — head & shoulders, slightly breathing */}
-          <g clipPath={`url(#vtile${i})`}>
-            <g style={{
-              transformOrigin: `${x + 43}px ${y + 38}px`,
-              animation: `cvBreathe ${2.8 + (i % 3) * 0.5}s ease-in-out ${i * 0.3}s infinite alternate`,
-            }}>
-              {/* shoulders / suit */}
-              <path d={`M${x + 20},${y + 38} q23,-16 46,0 z`} fill={shirt} />
-              {/* collar */}
-              <path d={`M${x + 39},${y + 30} l4,7 l4,-7 z`} fill="#F6F3EA" opacity="0.85" />
-              {tie && <path d={`M${x + 42},${y + 33} l1,5 l1,-5 z`} fill="#B8861E" />}
-              {/* neck */}
-              <rect x={x + 40} y={y + 24} width={6} height={6} rx={2} fill={skin} />
-              {/* head */}
-              <circle cx={x + 43} cy={y + 18} r={7.5} fill={skin} />
-              {/* hair */}
-              <path d={`M${x + 35.5},${y + 17} a7.5,7.5 0 0 1 15,0 q0,-5.5 -7.5,-5.5 q-7.5,0 -7.5,5.5 z`} fill="#1A1208" />
-            </g>
-          </g>
-          {/* Name strip */}
-          <rect x={x + 3} y={y + 29} width={26} height={7} rx={2} fill="rgba(3,7,17,0.75)" />
-          <rect x={x + 6} y={y + 32} width={20} height={1.5} rx={0.75} fill="rgba(170,182,197,0.55)" />
-          {/* Mic — voice bars for speaker, muted dot for others */}
-          {i === speaker ? (
-            <g>
-              {[0, 1, 2].map((b) => (
-                <rect key={b} x={x + 70 + b * 4.5} y={y + 28} width={2.5} height={8} rx={1.25}
-                  fill="#00C8FF"
-                  style={{
-                    transformOrigin: `${x + 71 + b * 4.5}px ${y + 32}px`,
-                    animation: `cvVoice ${0.5 + b * 0.2}s ease-in-out ${b * 0.1}s infinite alternate`,
-                  }} />
-              ))}
-            </g>
-          ) : (
-            <circle cx={x + 76} cy={y + 32} r={2.5} fill="rgba(213,165,59,0.45)"
-              style={{ animation: `cvBlink ${2 + i * 0.4}s ease-in-out infinite` }} />
-          )}
-        </g>
-      ))}
-      <text x="330" y="118" fill="rgba(170,182,197,0.55)" fontSize="9" fontFamily={mono} textAnchor="middle">
-        42 MONTHS SPONSORED
-      </text>
-    </svg>
+    <img
+      src="/images/zoom.jpg"
+      alt="International Meeting"
+      style={{ width: "100%", height: "auto", display: "block", borderRadius: "10px" }}
+    />
   );
 }
 
