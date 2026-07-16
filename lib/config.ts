@@ -37,7 +37,7 @@ export const siteConfig = {
   },
 
   logo: {
-    src: "/images/logo.svg",
+    src: "/images/logo.gif",
     alt: "Great Moving Train Social Club International Logo",
     width: 80,
     height: 80,
@@ -65,3 +65,4 @@ export const siteConfig = {
 } as const;
 
 export type SiteConfig = typeof siteConfig;
+

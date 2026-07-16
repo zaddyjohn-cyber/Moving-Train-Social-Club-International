@@ -83,13 +83,12 @@ export default function Navbar() {
               overflow: "hidden",
             }}
           >
-            <Image
-              src="/images/logo.svg"
+            <img
+              src="/images/logo.gif"
               alt={siteConfig.logo.alt}
               width={38}
               height={38}
               style={{ objectFit: "contain" }}
-              priority
               onError={(e) => {
                 (e.target as HTMLImageElement).style.display = "none";
               }}

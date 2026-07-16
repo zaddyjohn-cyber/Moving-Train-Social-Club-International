@@ -130,8 +130,8 @@ export default function Footer() {
                   flexShrink: 0,
                 }}
               >
-                <Image
-                  src="/images/logo.svg"
+                <img
+                  src="/images/logo.gif"
                   alt={siteConfig.logo.alt}
                   width={44}
                   height={44}

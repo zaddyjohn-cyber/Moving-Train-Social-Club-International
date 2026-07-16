@@ -294,12 +294,10 @@ export default function CinematicHero() {
             boxShadow: "0 0 60px rgba(213,165,59,0.25), 0 0 20px rgba(213,165,59,0.15)",
           }}
         >
-          <Image
-            src="/images/logo.svg"
+          <img
+            src="/images/logo.gif"
             alt={siteConfig.logo.alt}
-            fill
-            style={{ objectFit: "contain" }}
-            priority
+            style={{ width: "100%", height: "100%", objectFit: "contain" }}
           />
         </div>
       </div>
@@ -369,13 +367,12 @@ export default function CinematicHero() {
                 boxShadow: "0 0 24px rgba(213,165,59,0.2)",
               }}
             >
-              <Image
-                src="/images/logo.svg"
+              <img
+                src="/images/logo.gif"
                 alt={siteConfig.logo.alt}
                 width={52}
                 height={52}
                 style={{ objectFit: "contain" }}
-                priority
               />
             </div>
             <div>

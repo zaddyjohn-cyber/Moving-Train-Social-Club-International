@@ -63,7 +63,7 @@ export default function LoginPage() {
         <div style={{ textAlign: "center", marginBottom: "2.5rem" }}>
           <Link href="/" style={{ display: "inline-flex", flexDirection: "column", alignItems: "center", gap: "0.875rem" }}>
             <div style={{ width: 64, height: 64, borderRadius: "50%", border: "1.5px solid rgba(213,165,59,0.4)", display: "flex", alignItems: "center", justifyContent: "center", background: "rgba(213,165,59,0.06)", overflow: "hidden", boxShadow: "0 0 24px rgba(213,165,59,0.15)" }}>
-              <Image src="/images/logo.svg" alt={siteConfig.logo.alt} width={56} height={56} style={{ objectFit: "contain" }} />
+              <img src="/images/logo.gif" alt={siteConfig.logo.alt} width={56} height={56} style={{ objectFit: "contain" }} />
             </div>
             <span style={{ fontFamily: "'Cinzel', Georgia, serif", fontWeight: 700, fontSize: "0.875rem", color: "var(--gold)", lineHeight: 1.3, textAlign: "center" }}>
               {siteConfig.shortName}
