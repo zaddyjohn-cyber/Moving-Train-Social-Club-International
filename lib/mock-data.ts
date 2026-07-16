@@ -18,6 +18,7 @@ export const currentExecutives = [
     name: "Mr. Bond Peter Njoku",
     slug: "bond-peter-njoku",
     position: "Chairman",
+    photo: "/images/members/bond-peter-njoku.jpg",
     isCurrent: true,
   },
   {
@@ -129,6 +130,7 @@ export const chairmanshipTimeline = [
     id: "ch-3",
     name: "Mr. Bond Peter Njoku",
     slug: "bond-peter-njoku",
+    photo: "/images/members/bond-peter-njoku.jpg",
     title: "Third Chairman",
     period: "May 28, 2023 — Present",
     startDate: "2023-05-28",

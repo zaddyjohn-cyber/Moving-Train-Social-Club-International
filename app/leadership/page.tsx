@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description: `Meet the current and pioneer executive officers of the ${siteConfig.name}, and explore the full chairmanship history.`,
 };
 
-function OfficerCard({ officer, badge }: { officer: { id: string; name: string; position: string }; badge?: string }) {
+function OfficerCard({ officer, badge }: { officer: { id: string; name: string; position: string; photo?: string }; badge?: string }) {
   return (
     <div
       style={{
@@ -23,16 +23,23 @@ function OfficerCard({ officer, badge }: { officer: { id: string; name: string; 
       }}
     >
       <div
-        aria-hidden="true"
         style={{
           width: 72, height: 72, borderRadius: "50%",
-          background: "linear-gradient(135deg, rgba(213,165,59,0.12) 0%, rgba(184,134,30,0.07) 100%)",
-          border: "1.5px solid rgba(213,165,59,0.25)",
+          overflow: "hidden",
+          border: "1.5px solid rgba(213,165,59,0.35)",
           display: "flex", alignItems: "center", justifyContent: "center",
-          fontFamily: "'Cinzel', Georgia, serif", fontWeight: 700, fontSize: "1.25rem", color: "var(--gold)",
+          background: "linear-gradient(135deg, rgba(213,165,59,0.12) 0%, rgba(184,134,30,0.07) 100%)",
+          boxShadow: officer.photo ? "0 0 16px rgba(184,134,30,0.2)" : "none",
+          flexShrink: 0,
         }}
       >
-        {officer.name.split(" ").filter((w) => w !== "Mr.").slice(0, 2).map((w) => w[0]).join("")}
+        {officer.photo ? (
+          <img src={officer.photo} alt={officer.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
+        ) : (
+          <span style={{ fontFamily: "'Cinzel', Georgia, serif", fontWeight: 700, fontSize: "1.25rem", color: "var(--gold)" }}>
+            {officer.name.split(" ").filter((w) => w !== "Mr.").slice(0, 2).map((w) => w[0]).join("")}
+          </span>
+        )}
       </div>
       <div
         style={{

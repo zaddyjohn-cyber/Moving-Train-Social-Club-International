@@ -32,26 +32,33 @@ function LeadershipCard({ exec }: { exec: (typeof currentExecutives)[number] }) 
         el.style.boxShadow = "none";
       }}
     >
-      {/* Avatar placeholder */}
+      {/* Avatar */}
       <div
-        aria-hidden="true"
         style={{
           width: 80,
           height: 80,
           borderRadius: "50%",
+          border: "1.5px solid rgba(213,165,59,0.35)",
+          overflow: "hidden",
+          flexShrink: 0,
           background: "linear-gradient(135deg, rgba(213,165,59,0.15) 0%, rgba(184,134,30,0.08) 100%)",
-          border: "1.5px solid rgba(213,165,59,0.25)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          fontSize: "1.5rem",
-          fontFamily: "'Cinzel', Georgia, serif",
-          fontWeight: 700,
-          color: "var(--gold)",
-          flexShrink: 0,
+          boxShadow: "0 0 16px rgba(184,134,30,0.15)",
         }}
       >
-        {exec.name.split(" ").slice(-1)[0][0]}
+        {(exec as typeof exec & { photo?: string }).photo ? (
+          <img
+            src={(exec as typeof exec & { photo?: string }).photo}
+            alt={exec.name}
+            style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }}
+          />
+        ) : (
+          <span style={{ fontSize: "1.5rem", fontFamily: "'Cinzel', Georgia, serif", fontWeight: 700, color: "var(--gold)" }}>
+            {exec.name.split(" ").slice(-1)[0][0]}
+          </span>
+        )}
       </div>
 
       {/* Position badge */}

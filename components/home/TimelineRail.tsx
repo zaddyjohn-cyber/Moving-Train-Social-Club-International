@@ -79,6 +79,13 @@ function TimelineNode({
           boxShadow: item.endDate === null ? "0 0 32px rgba(213,165,59,0.08)" : "none",
         }}
       >
+        {(item as typeof item & { photo?: string }).photo && (
+          <div style={{ display: "flex", justifyContent: "center", marginBottom: "1rem" }}>
+            <div style={{ width: 80, height: 80, borderRadius: "50%", overflow: "hidden", border: "2px solid rgba(213,165,59,0.4)", boxShadow: "0 0 20px rgba(184,134,30,0.2)" }}>
+              <img src={(item as typeof item & { photo?: string }).photo} alt={item.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
+            </div>
+          </div>
+        )}
         {item.endDate === null && (
           <div
             style={{
