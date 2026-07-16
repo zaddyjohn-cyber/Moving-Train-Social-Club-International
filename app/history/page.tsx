@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig } from "@/lib/config";
 import { founderMembers, chairmanshipTimeline, notableContributions } from "@/lib/mock-data";
-import { contributionIcons } from "@/components/icons/ContributionIcons";
+import { contributionVisuals, ContributionVisualStyles } from "@/components/home/ContributionVisuals";
 import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -212,22 +212,20 @@ export default function HistoryPage() {
                   position: "absolute", top: 0, left: 0, right: 0, height: 1,
                   background: "linear-gradient(90deg, transparent, rgba(213,165,59,0.3), transparent)",
                 }}/>
-                <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-                  <div style={{
-                    width: 56, height: 56, borderRadius: "14px", flexShrink: 0,
-                    background: "radial-gradient(circle at 30% 25%, rgba(213,165,59,0.16), rgba(213,165,59,0.05))",
-                    border: "1px solid rgba(213,165,59,0.25)",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    boxShadow: "0 2px 14px rgba(0,0,0,0.35), 0 0 12px rgba(213,165,59,0.08)",
-                  }}>
-                    {contributionIcons[(item as typeof item & { icon?: string }).icon ?? ""] ?? contributionIcons.coins}
-                  </div>
-                  <p style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--gold)", margin: 0, lineHeight: 1.5 }}>{item.member}</p>
+                <div aria-hidden="true" style={{
+                  background: "rgba(3,7,17,0.75)",
+                  border: "1px solid rgba(213,165,59,0.12)",
+                  borderRadius: "10px",
+                  overflow: "hidden",
+                }}>
+                  {contributionVisuals[(item as typeof item & { icon?: string }).icon ?? ""] ?? contributionVisuals.coins}
                 </div>
+                <p style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--gold)", margin: 0, lineHeight: 1.5 }}>{item.member}</p>
                 <p style={{ color: "var(--steel)", fontSize: "0.9rem", lineHeight: 1.75, margin: 0, maxWidth: "100%" }}>{item.contribution}</p>
               </div>
             ))}
           </div>
+          <ContributionVisualStyles />
         </div>
       </section>
 
