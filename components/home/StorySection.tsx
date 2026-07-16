@@ -20,6 +20,59 @@ function useVisible(threshold = 0.2) {
   return { ref, visible };
 }
 
+function useCountUp(target: number, duration = 1800, started = false) {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (!started) return;
+    let startTime: number | null = null;
+    const step = (now: number) => {
+      if (!startTime) startTime = now;
+      const progress = Math.min((now - startTime) / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(ease * target));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [started, target, duration]);
+  return count;
+}
+
+const stats = [
+  { target: 6,    suffix: "",  label: "Founders",  duration: 1200 },
+  { target: 2020, suffix: "",  label: "Founded",   duration: 2200 },
+  { target: 6,    suffix: "+", label: "Countries", duration: 1400 },
+];
+
+function AnimatedStat({ target, suffix, label, duration, started }: {
+  target: number; suffix: string; label: string; duration: number; started: boolean;
+}) {
+  const count = useCountUp(target, duration, started);
+  return (
+    <div style={{ textAlign: "center" }}>
+      <div style={{
+        fontFamily: "'Cinzel', Georgia, serif",
+        fontSize: "clamp(1.4rem, 3vw, 1.75rem)",
+        fontWeight: 700,
+        color: "var(--gold-light)",
+        lineHeight: 1,
+        marginBottom: "0.3rem",
+        fontVariantNumeric: "tabular-nums",
+      }}>
+        {count}{suffix}
+      </div>
+      <div style={{
+        fontFamily: "'Space Grotesk', system-ui, sans-serif",
+        fontSize: "0.68rem",
+        letterSpacing: "0.12em",
+        textTransform: "uppercase",
+        color: "rgba(170,182,197,0.7)",
+      }}>
+        {label}
+      </div>
+    </div>
+  );
+}
+
 export default function StorySection() {
   const { ref: introRef, visible: introVisible } = useVisible(0.15);
   const { ref: foundersRef, visible: foundersVisible } = useVisible(0.1);
@@ -54,13 +107,14 @@ export default function StorySection() {
 
         <div
           ref={introRef}
+          className="story-intro-grid"
           style={{
             maxWidth: "1100px",
             margin: "0 auto",
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
-            gap: "5rem",
-            alignItems: "center",
+            gap: "clamp(2rem, 5vw, 5rem)",
+            alignItems: "start",
           }}
         >
           {/* Text */}
@@ -115,7 +169,7 @@ export default function StorySection() {
             </Link>
           </div>
 
-          {/* Visual panel */}
+          {/* Visual panel — image + quote overlay + counting stats */}
           <div
             style={{
               opacity: introVisible ? 1 : 0,
@@ -124,107 +178,70 @@ export default function StorySection() {
               position: "relative",
             }}
           >
-            <div
-              style={{
-                background: "rgba(16,36,58,0.85)",
-                border: "1px solid rgba(213,165,59,0.2)",
-                borderRadius: "20px",
-                padding: "2.5rem",
-                position: "relative",
-              }}
-            >
-              {/* Quote */}
-              <div
-                style={{
-                  fontFamily: "'Cinzel', Georgia, serif",
-                  fontSize: "3rem",
-                  color: "rgba(213,165,59,0.2)",
-                  lineHeight: 1,
-                  marginBottom: "1rem",
-                  userSelect: "none",
-                }}
-                aria-hidden="true"
-              >
-                "
-              </div>
-              <blockquote
-                style={{
-                  fontFamily: "'Cinzel', Georgia, serif",
-                  fontSize: "clamp(1.1rem, 2vw, 1.375rem)",
-                  color: "var(--ivory)",
-                  lineHeight: 1.5,
-                  marginBottom: "1.5rem",
-                  border: "none",
-                  padding: 0,
-                  margin: "0 0 1.5rem",
-                }}
-              >
-                {siteConfig.philosophy}
-              </blockquote>
-              <p
-                style={{
-                  color: "var(--steel)",
-                  fontSize: "0.875rem",
-                  lineHeight: 1.7,
-                  marginBottom: "1.75rem",
-                  maxWidth: "100%",
-                }}
-              >
-                No member should face life's challenges alone. This is not a rule — it is the
-                spirit that animates everything the Moving Train does.
-              </p>
+            <div style={{
+              borderRadius: "20px",
+              border: "1px solid rgba(213,165,59,0.25)",
+              overflow: "hidden",
+              position: "relative",
+              boxShadow: "0 24px 64px rgba(0,0,0,0.5), 0 0 0 1px rgba(213,165,59,0.08)",
+            }}>
+              {/* Photo */}
+              <img
+                src="/images/our-brothers-keeper.jpg"
+                alt="Our Brother's Keeper — Moving Train members"
+                style={{ width: "100%", height: "auto", display: "block" }}
+              />
 
-              {/* Stats strip */}
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr 1fr",
-                  gap: "1rem",
-                  borderTop: "1px solid rgba(213,165,59,0.12)",
-                  paddingTop: "1.75rem",
-                }}
-              >
-                {[
-                  { value: "6", label: "Founders" },
-                  { value: "2020", label: "Founded" },
-                  { value: "6+", label: "Countries" },
-                ].map((stat) => (
-                  <div key={stat.label} style={{ textAlign: "center" }}>
-                    <div
-                      style={{
-                        fontFamily: "'Cinzel', Georgia, serif",
-                        fontSize: "1.5rem",
-                        fontWeight: 700,
-                        color: "var(--gold-light)",
-                        lineHeight: 1,
-                        marginBottom: "0.25rem",
-                      }}
-                    >
-                      {stat.value}
-                    </div>
-                    <div
-                      style={{
-                        fontFamily: "'Space Grotesk', system-ui, sans-serif",
-                        fontSize: "0.7rem",
-                        letterSpacing: "0.1em",
-                        textTransform: "uppercase",
-                        color: "var(--steel)",
-                      }}
-                    >
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
+              {/* Dark overlay — stronger at bottom for text legibility */}
+              <div style={{
+                position: "absolute", inset: 0,
+                background: "linear-gradient(to bottom, rgba(5,10,24,0.25) 0%, rgba(5,10,24,0.55) 45%, rgba(5,10,24,0.92) 100%)",
+              }} aria-hidden="true"/>
+
+              {/* Quote overlaid on photo */}
+              <div style={{
+                position: "absolute", bottom: 0, left: 0, right: 0,
+                padding: "1.75rem 1.75rem 0",
+              }}>
+                <div aria-hidden="true" style={{
+                  fontFamily: "'Cinzel', Georgia, serif",
+                  fontSize: "2.5rem", color: "rgba(242,210,140,0.35)",
+                  lineHeight: 1, marginBottom: "0.5rem", userSelect: "none",
+                }}>"</div>
+                <blockquote style={{
+                  fontFamily: "'Cinzel', Georgia, serif",
+                  fontSize: "clamp(1rem, 2vw, 1.2rem)",
+                  color: "var(--ivory)", lineHeight: 1.45,
+                  margin: "0 0 1.25rem", border: "none", padding: 0,
+                }}>
+                  {siteConfig.philosophy}
+                </blockquote>
               </div>
+            </div>
+
+            {/* Stats row — sits below image, outside the overflow:hidden */}
+            <div style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr 1fr",
+              gap: "0.5rem",
+              marginTop: "0.875rem",
+              padding: "1.25rem 1rem",
+              background: "rgba(16,36,58,0.9)",
+              border: "1px solid rgba(213,165,59,0.15)",
+              borderRadius: "14px",
+            }}>
+              {stats.map((s) => (
+                <AnimatedStat key={s.label} {...s} started={introVisible} />
+              ))}
             </div>
           </div>
         </div>
 
         <style>{`
-          @media (max-width: 768px) {
-            #story [style*="grid-template-columns: 1fr 1fr"] {
+          @media (max-width: 767px) {
+            .story-intro-grid {
               grid-template-columns: 1fr !important;
-              gap: 2.5rem !important;
+              gap: 2rem !important;
             }
           }
         `}</style>
