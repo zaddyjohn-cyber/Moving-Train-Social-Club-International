@@ -16,7 +16,7 @@ export default function HistoryPage() {
       <section
         style={{
           padding: "6rem 1.5rem 4rem",
-          background: "radial-gradient(ellipse at 30% 60%, rgba(240,234,220,0.5) 0%, var(--navy) 65%)",
+          background: "radial-gradient(ellipse at 30% 60%, rgba(8,20,38,0.50) 0%, var(--navy) 65%)",
           position: "relative",
         }}
       >
@@ -106,7 +106,7 @@ export default function HistoryPage() {
               <div
                 key={m.id}
                 style={{
-                  background: "rgba(255,252,246,0.82)",
+                  background: "rgba(16,36,58,0.75)",
                   border: "1px solid rgba(213,165,59,0.12)",
                   borderRadius: "12px",
                   padding: "1.5rem 1.25rem",
@@ -153,7 +153,7 @@ export default function HistoryPage() {
               <div
                 key={chair.id}
                 style={{
-                  background: "rgba(255,252,246,0.92)",
+                  background: "rgba(16,36,58,0.85)",
                   border: `1px solid ${chair.endDate === null ? "rgba(213,165,59,0.35)" : "rgba(213,165,59,0.1)"}`,
                   borderLeft: "3px solid rgba(213,165,59,0.5)",
                   borderRadius: "0 12px 12px 0",
@@ -171,7 +171,7 @@ export default function HistoryPage() {
                     </span>
                   )}
                 </div>
-                <p style={{ fontSize: "0.8rem", color: "rgba(90,80,65,0.55)", marginBottom: "0.75rem", fontVariantNumeric: "tabular-nums" }}>{chair.period}</p>
+                <p style={{ fontSize: "0.8rem", color: "rgba(170,182,197,0.55)", marginBottom: "0.75rem", fontVariantNumeric: "tabular-nums" }}>{chair.period}</p>
                 <p style={{ color: "var(--steel)", fontSize: "0.875rem", lineHeight: 1.7, margin: 0, maxWidth: "100%" }}>{chair.description}</p>
               </div>
             ))}
@@ -191,7 +191,7 @@ export default function HistoryPage() {
               <div
                 key={i}
                 style={{
-                  background: "rgba(255,252,246,0.82)",
+                  background: "rgba(16,36,58,0.75)",
                   border: "1px solid rgba(213,165,59,0.1)",
                   borderLeft: "3px solid rgba(213,165,59,0.3)",
                   borderRadius: "0 12px 12px 0",

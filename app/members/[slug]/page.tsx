@@ -174,7 +174,7 @@ export default async function MemberProfilePage({ params }: { params: Promise<{ 
                 <div
                   key={i}
                   style={{
-                    background: "rgba(255,252,246,0.82)",
+                    background: "rgba(16,36,58,0.75)",
                     borderLeft: "3px solid rgba(213,165,59,0.4)",
                     padding: "1.25rem 1.5rem",
                     borderRadius: "0 10px 10px 0",

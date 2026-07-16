@@ -71,7 +71,7 @@ function TimelineNode({
       {/* Card */}
       <div
         style={{
-          background: "rgba(255,252,246,0.92)",
+          background: "rgba(16,36,58,0.85)",
           border: `1px solid ${item.endDate === null ? "rgba(213,165,59,0.35)" : "rgba(213,165,59,0.12)"}`,
           borderRadius: "12px",
           padding: "1.5rem",
@@ -81,7 +81,7 @@ function TimelineNode({
       >
         {(item as typeof item & { photo?: string }).photo && (
           <div style={{ display: "flex", justifyContent: "center", marginBottom: "1rem" }}>
-            <div style={{ width: 80, height: 80, borderRadius: "50%", overflow: "hidden", border: "2px solid rgba(213,165,59,0.4)", boxShadow: "0 0 20px rgba(184,134,30,0.2)" }}>
+            <div style={{ width: 80, height: 80, borderRadius: "50%", overflow: "hidden", border: "2px solid rgba(213,165,59,0.4)", boxShadow: "0 0 20px rgba(213,165,59,0.20)" }}>
               <img src={(item as typeof item & { photo?: string }).photo} alt={item.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
             </div>
           </div>
@@ -149,7 +149,7 @@ function TimelineNode({
         <p
           style={{
             fontSize: "0.8rem",
-            color: "rgba(90,80,65,0.65)",
+            color: "rgba(170,182,197,0.65)",
             marginBottom: "0.875rem",
             fontVariantNumeric: "tabular-nums",
           }}

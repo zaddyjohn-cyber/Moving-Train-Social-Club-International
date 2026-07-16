@@ -11,7 +11,7 @@ function OfficerCard({ officer, badge }: { officer: { id: string; name: string; 
   return (
     <div
       style={{
-        background: "rgba(255,252,246,0.92)",
+        background: "rgba(16,36,58,0.85)",
         border: "1px solid rgba(213,165,59,0.12)",
         borderRadius: "16px",
         padding: "2rem 1.5rem",
@@ -28,8 +28,8 @@ function OfficerCard({ officer, badge }: { officer: { id: string; name: string; 
           overflow: "hidden",
           border: "1.5px solid rgba(213,165,59,0.35)",
           display: "flex", alignItems: "center", justifyContent: "center",
-          background: "linear-gradient(135deg, rgba(213,165,59,0.12) 0%, rgba(184,134,30,0.07) 100%)",
-          boxShadow: officer.photo ? "0 0 16px rgba(184,134,30,0.2)" : "none",
+          background: "linear-gradient(135deg, rgba(213,165,59,0.12) 0%, rgba(213,165,59,0.07) 100%)",
+          boxShadow: officer.photo ? "0 0 16px rgba(213,165,59,0.20)" : "none",
           flexShrink: 0,
         }}
       >
@@ -69,7 +69,7 @@ export default function LeadershipPage() {
   return (
     <div style={{ paddingTop: "72px", background: "var(--navy)" }}>
       {/* Hero */}
-      <section style={{ padding: "6rem 1.5rem 4rem", background: "radial-gradient(ellipse at 70% 50%, rgba(240,234,220,0.5) 0%, var(--navy) 65%)" }}>
+      <section style={{ padding: "6rem 1.5rem 4rem", background: "radial-gradient(ellipse at 70% 50%, rgba(8,20,38,0.50) 0%, var(--navy) 65%)" }}>
         <div style={{ maxWidth: "700px", margin: "0 auto" }}>
           <p className="eyebrow" style={{ marginBottom: "1.25rem" }}>Governance</p>
           <h1 style={{ fontFamily: "'Cinzel', Georgia, serif", color: "var(--ivory)", marginBottom: "1.5rem" }}>
@@ -88,7 +88,7 @@ export default function LeadershipPage() {
           <div style={{ marginBottom: "3rem" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "0.5rem" }}>
               <p className="eyebrow">Current Term</p>
-              <span style={{ padding: "0.2rem 0.75rem", background: "rgba(184,134,30,0.08)", border: "1px solid rgba(0,200,255,0.25)", borderRadius: "999px", fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--gold)" }}>Active</span>
+              <span style={{ padding: "0.2rem 0.75rem", background: "rgba(213,165,59,0.08)", border: "1px solid rgba(0,200,255,0.25)", borderRadius: "999px", fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--gold)" }}>Active</span>
             </div>
             <h2 id="current-exec-title" style={{ fontFamily: "'Cinzel', Georgia, serif", color: "var(--ivory)" }}>
               Current Executive Officers
@@ -136,7 +136,7 @@ export default function LeadershipPage() {
               <div
                 key={chair.id}
                 style={{
-                  background: "rgba(255,252,246,0.92)",
+                  background: "rgba(16,36,58,0.85)",
                   border: `1px solid ${chair.endDate === null ? "rgba(213,165,59,0.4)" : "rgba(213,165,59,0.12)"}`,
                   borderRadius: "16px",
                   padding: "2rem",
@@ -152,7 +152,7 @@ export default function LeadershipPage() {
                   )}
                 </div>
                 <p style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.75rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "0.5rem" }}>{chair.title}</p>
-                <p style={{ fontSize: "0.8rem", color: "rgba(90,80,65,0.55)", marginBottom: "0.875rem" }}>{chair.period}</p>
+                <p style={{ fontSize: "0.8rem", color: "rgba(170,182,197,0.55)", marginBottom: "0.875rem" }}>{chair.period}</p>
                 <p style={{ color: "var(--steel)", fontSize: "0.9rem", lineHeight: 1.75, margin: 0, maxWidth: "100%" }}>{chair.description}</p>
               </div>
             ))}

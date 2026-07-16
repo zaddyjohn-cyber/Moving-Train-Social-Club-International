@@ -56,7 +56,7 @@ export default function MembersPage() {
   return (
     <div style={{ paddingTop: "72px", background: "var(--navy)" }}>
       {/* Hero */}
-      <section style={{ padding: "6rem 1.5rem 4rem", background: "radial-gradient(ellipse at 50% 60%, rgba(240,234,220,0.5) 0%, var(--navy) 65%)" }}>
+      <section style={{ padding: "6rem 1.5rem 4rem", background: "radial-gradient(ellipse at 50% 60%, rgba(8,20,38,0.50) 0%, var(--navy) 65%)" }}>
         <div style={{ maxWidth: "700px", margin: "0 auto", textAlign: "center" }}>
           <p className="eyebrow" style={{ marginBottom: "1.25rem" }}>Our Brotherhood</p>
           <h1 style={{ fontFamily: "'Cinzel', Georgia, serif", color: "var(--ivory)", marginBottom: "1.5rem" }}>
@@ -80,13 +80,13 @@ export default function MembersPage() {
       >
         <div
           style={{
-            background: "rgba(184,134,30,0.05)",
+            background: "rgba(213,165,59,0.05)",
             border: "1px solid rgba(184,134,30,0.18)",
             borderRadius: "10px",
             padding: "1rem 1.5rem",
           }}
         >
-          <p style={{ color: "rgba(90,80,65,0.75)", fontSize: "0.875rem", lineHeight: 1.6, margin: 0, maxWidth: "100%" }}>
+          <p style={{ color: "rgba(170,182,197,0.75)", fontSize: "0.875rem", lineHeight: 1.6, margin: 0, maxWidth: "100%" }}>
             <strong style={{ color: "var(--gold)", fontFamily: "'Space Grotesk', system-ui, sans-serif", fontWeight: 600 }}>Member Profiles:</strong>{" "}
             Only names and roles explicitly documented in the club's records are displayed. Full profile
             pages will be populated as members provide and consent to information. Private details are never
@@ -102,7 +102,7 @@ export default function MembersPage() {
             style={{
               fontFamily: "'Space Grotesk', system-ui, sans-serif",
               fontSize: "0.8rem",
-              color: "rgba(90,80,65,0.55)",
+              color: "rgba(170,182,197,0.55)",
               marginBottom: "2rem",
               letterSpacing: "0.05em",
             }}
@@ -115,7 +115,7 @@ export default function MembersPage() {
               <article
                 key={member.id}
                 style={{
-                  background: "rgba(255,252,246,0.92)",
+                  background: "rgba(16,36,58,0.85)",
                   border: "1px solid rgba(213,165,59,0.12)",
                   borderRadius: "16px",
                   padding: "1.75rem 1.5rem",
@@ -141,7 +141,7 @@ export default function MembersPage() {
                     aria-hidden="true"
                     style={{
                       width: 56, height: 56, borderRadius: "50%",
-                      background: "linear-gradient(135deg, rgba(213,165,59,0.12) 0%, rgba(184,134,30,0.07) 100%)",
+                      background: "linear-gradient(135deg, rgba(213,165,59,0.12) 0%, rgba(213,165,59,0.07) 100%)",
                       border: "1.5px solid rgba(213,165,59,0.2)",
                       display: "flex", alignItems: "center", justifyContent: "center",
                       fontFamily: "'Cinzel', Georgia, serif", fontWeight: 700, fontSize: "1rem", color: "var(--gold)",
@@ -188,7 +188,7 @@ export default function MembersPage() {
                         letterSpacing: "0.08em",
                         textTransform: "uppercase",
                         ...(badge === "Current Executive"
-                          ? { background: "rgba(184,134,30,0.08)", border: "1px solid rgba(184,134,30,0.22)", color: "var(--gold)" }
+                          ? { background: "rgba(213,165,59,0.08)", border: "1px solid rgba(184,134,30,0.22)", color: "var(--gold)" }
                           : badge === "Founder"
                           ? { background: "rgba(213,165,59,0.1)", border: "1px solid rgba(213,165,59,0.25)", color: "var(--gold)" }
                           : { background: "rgba(174,184,198,0.06)", border: "1px solid rgba(174,184,198,0.15)", color: "var(--steel)" }),
@@ -228,7 +228,7 @@ export default function MembersPage() {
               marginTop: "3rem",
               textAlign: "center",
               padding: "2.5rem",
-              background: "rgba(255,252,246,0.65)",
+              background: "rgba(16,36,58,0.60)",
               border: "1px solid rgba(213,165,59,0.1)",
               borderRadius: "16px",
             }}

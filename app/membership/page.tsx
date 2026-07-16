@@ -81,7 +81,7 @@ export default function MembershipPage() {
 
   const fieldStyle = {
     width: "100%", padding: "0.75rem 1rem",
-    background: "rgba(255,252,246,0.92)", border: "1px solid rgba(213,165,59,0.2)",
+    background: "rgba(16,36,58,0.85)", border: "1px solid rgba(213,165,59,0.2)",
     borderRadius: "8px", color: "var(--ivory)",
     fontFamily: "'Manrope', system-ui, sans-serif", fontSize: "0.9375rem",
     outline: "none", transition: "border-color 0.2s",
@@ -105,11 +105,11 @@ export default function MembershipPage() {
             Thank you for your interest in the {siteConfig.name}. Your application has been received and
             will be reviewed by the club's leadership. You will be contacted in due course.
           </p>
-          <div style={{ padding: "1.25rem", background: "rgba(255,252,246,0.92)", border: "1px solid rgba(213,165,59,0.2)", borderRadius: "10px", marginBottom: "2rem" }}>
+          <div style={{ padding: "1.25rem", background: "rgba(16,36,58,0.85)", border: "1px solid rgba(213,165,59,0.2)", borderRadius: "10px", marginBottom: "2rem" }}>
             <p style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.75rem", color: "var(--steel)", marginBottom: "0.4rem", textTransform: "uppercase", letterSpacing: "0.1em" }}>Reference Number</p>
             <p style={{ fontFamily: "'Cinzel', Georgia, serif", fontSize: "1.25rem", color: "var(--gold)", margin: 0 }}>{refNumber}</p>
           </div>
-          <p style={{ color: "rgba(90,80,65,0.55)", fontSize: "0.875rem", marginBottom: "2rem" }}>
+          <p style={{ color: "rgba(170,182,197,0.55)", fontSize: "0.875rem", marginBottom: "2rem" }}>
             Please note that submission does not guarantee acceptance. A six-month probationary period
             applies upon successful admission.
           </p>
@@ -122,7 +122,7 @@ export default function MembershipPage() {
   return (
     <div style={{ paddingTop: "72px", background: "var(--navy)" }}>
       {/* Hero */}
-      <section style={{ padding: "5rem 1.5rem 3rem", background: "radial-gradient(ellipse at 50% 50%, rgba(240,234,220,0.5) 0%, var(--navy) 65%)" }}>
+      <section style={{ padding: "5rem 1.5rem 3rem", background: "radial-gradient(ellipse at 50% 50%, rgba(8,20,38,0.50) 0%, var(--navy) 65%)" }}>
         <div style={{ maxWidth: "700px", margin: "0 auto", textAlign: "center" }}>
           <p className="eyebrow" style={{ marginBottom: "1.25rem" }}>Join the Brotherhood</p>
           <h1 style={{ fontFamily: "'Cinzel', Georgia, serif", color: "var(--ivory)", marginBottom: "1.25rem" }}>
@@ -162,12 +162,12 @@ export default function MembershipPage() {
                     transition: "background 0.3s ease",
                   }}
                 />
-                <p style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.68rem", color: step >= s.id ? "var(--gold)" : "rgba(90,80,65,0.5)", margin: 0, textTransform: "uppercase", letterSpacing: "0.06em" }}>{s.label}</p>
+                <p style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.68rem", color: step >= s.id ? "var(--gold)" : "rgba(170,182,197,0.50)", margin: 0, textTransform: "uppercase", letterSpacing: "0.06em" }}>{s.label}</p>
               </div>
             ))}
           </div>
 
-          <div style={{ background: "rgba(255,252,246,0.92)", border: "1px solid rgba(213,165,59,0.15)", borderRadius: "16px", padding: "2.5rem" }}>
+          <div style={{ background: "rgba(16,36,58,0.85)", border: "1px solid rgba(213,165,59,0.15)", borderRadius: "16px", padding: "2.5rem" }}>
 
             {/* Step 1 */}
             {step === 1 && (

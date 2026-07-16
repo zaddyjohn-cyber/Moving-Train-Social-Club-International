@@ -23,7 +23,7 @@ export default function ContactPage() {
 
   const fieldStyle = {
     width: "100%", padding: "0.75rem 1rem",
-    background: "rgba(255,252,246,0.92)", border: "1px solid rgba(213,165,59,0.2)",
+    background: "rgba(16,36,58,0.85)", border: "1px solid rgba(213,165,59,0.2)",
     borderRadius: "8px", color: "var(--ivory)",
     fontFamily: "'Manrope', system-ui, sans-serif", fontSize: "0.9375rem",
     outline: "none",
@@ -36,7 +36,7 @@ export default function ContactPage() {
 
   return (
     <div style={{ paddingTop: "72px", background: "var(--navy)" }}>
-      <section style={{ padding: "6rem 1.5rem 4rem", background: "radial-gradient(ellipse at 40% 50%, rgba(240,234,220,0.5) 0%, var(--navy) 65%)" }}>
+      <section style={{ padding: "6rem 1.5rem 4rem", background: "radial-gradient(ellipse at 40% 50%, rgba(8,20,38,0.50) 0%, var(--navy) 65%)" }}>
         <div style={{ maxWidth: "700px", margin: "0 auto" }}>
           <p className="eyebrow" style={{ marginBottom: "1.25rem" }}>Get in Touch</p>
           <h1 style={{ fontFamily: "'Cinzel', Georgia, serif", color: "var(--ivory)", marginBottom: "1.5rem" }}>Contact Us</h1>
@@ -65,7 +65,7 @@ export default function ContactPage() {
                 </div>
               </div>
             )}
-            <div style={{ marginTop: "3rem", padding: "1.75rem", background: "rgba(255,252,246,0.82)", border: "1px solid rgba(213,165,59,0.12)", borderRadius: "14px" }}>
+            <div style={{ marginTop: "3rem", padding: "1.75rem", background: "rgba(16,36,58,0.75)", border: "1px solid rgba(213,165,59,0.12)", borderRadius: "14px" }}>
               <p style={{ fontFamily: "'Cinzel', Georgia, serif", fontSize: "1rem", color: "var(--ivory)", marginBottom: "0.875rem" }}>
                 Looking to join?
               </p>

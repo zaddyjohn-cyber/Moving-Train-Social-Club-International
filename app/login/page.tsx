@@ -29,7 +29,7 @@ export default function LoginPage() {
 
   const fieldStyle = {
     width: "100%", padding: "0.75rem 1rem",
-    background: "rgba(255,252,246,0.92)", border: "1px solid rgba(213,165,59,0.2)",
+    background: "rgba(16,36,58,0.85)", border: "1px solid rgba(213,165,59,0.2)",
     borderRadius: "8px", color: "var(--ivory)",
     fontFamily: "'Manrope', system-ui, sans-serif", fontSize: "0.9375rem",
     outline: "none",
@@ -76,7 +76,7 @@ export default function LoginPage() {
           <h1 style={{ fontFamily: "'Cinzel', Georgia, serif", fontSize: "1.5rem", color: "var(--ivory)", marginBottom: "0.5rem", textAlign: "center" }}>
             Member Login
           </h1>
-          <p style={{ color: "rgba(90,80,65,0.55)", fontSize: "0.875rem", textAlign: "center", marginBottom: "2rem" }}>
+          <p style={{ color: "rgba(170,182,197,0.55)", fontSize: "0.875rem", textAlign: "center", marginBottom: "2rem" }}>
             Sign in to access your member dashboard
           </p>
 
@@ -144,7 +144,7 @@ export default function LoginPage() {
 
         {/* Footer links */}
         <div style={{ textAlign: "center", marginTop: "2rem" }}>
-          <p style={{ color: "rgba(90,80,65,0.55)", fontSize: "0.875rem", marginBottom: "0.75rem" }}>
+          <p style={{ color: "rgba(170,182,197,0.55)", fontSize: "0.875rem", marginBottom: "0.75rem" }}>
             Not yet a member?
           </p>
           <Link href="/membership" style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem", color: "var(--gold)", fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.875rem", fontWeight: 600 }}>

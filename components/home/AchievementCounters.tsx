@@ -61,7 +61,7 @@ function AchievementCard({ achievement }: { achievement: typeof achievements[num
     <div
       ref={ref}
       style={{
-        background: "rgba(255,252,246,0.92)",
+        background: "rgba(16,36,58,0.85)",
         border: "1px solid rgba(213,165,59,0.12)",
         borderRadius: "16px",
         padding: "2rem 1.75rem",

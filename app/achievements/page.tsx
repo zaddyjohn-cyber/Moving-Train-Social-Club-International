@@ -13,7 +13,7 @@ export default function AchievementsPage() {
   return (
     <div style={{ paddingTop: "72px", background: "var(--navy)" }}>
       {/* Hero */}
-      <section style={{ padding: "6rem 1.5rem 4rem", background: "radial-gradient(ellipse at 50% 50%, rgba(240,234,220,0.5) 0%, var(--navy) 65%)" }}>
+      <section style={{ padding: "6rem 1.5rem 4rem", background: "radial-gradient(ellipse at 50% 50%, rgba(8,20,38,0.50) 0%, var(--navy) 65%)" }}>
         <div style={{ maxWidth: "700px", margin: "0 auto", textAlign: "center" }}>
           <p className="eyebrow" style={{ marginBottom: "1.25rem" }}>Proof of Purpose</p>
           <h1 style={{ fontFamily: "'Cinzel', Georgia, serif", color: "var(--ivory)", marginBottom: "1.5rem" }}>
@@ -43,7 +43,7 @@ export default function AchievementsPage() {
               <div
                 key={a.id}
                 style={{
-                  background: "rgba(255,252,246,0.92)",
+                  background: "rgba(16,36,58,0.85)",
                   border: "1px solid rgba(213,165,59,0.12)",
                   borderLeft: "3px solid rgba(213,165,59,0.5)",
                   borderRadius: "0 16px 16px 0",

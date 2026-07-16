@@ -359,7 +359,7 @@ export default function Footer() {
           </p>
           <p
             style={{
-              color: "rgba(90,80,65,0.55)",
+              color: "rgba(170,182,197,0.55)",
               fontSize: "0.75rem",
               margin: 0,
               fontFamily: "'Cinzel', Georgia, serif",

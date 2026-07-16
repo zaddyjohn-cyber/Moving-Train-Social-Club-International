@@ -56,7 +56,7 @@ export default function MottoSection() {
           width: "120px",
           height: "120px",
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(184,134,30,0.15) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(213,165,59,0.15) 0%, transparent 70%)",
           transform: "translateY(-50%)",
           animation: "trainLight 8s linear infinite",
         }}

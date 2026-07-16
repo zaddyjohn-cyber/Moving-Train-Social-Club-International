@@ -51,7 +51,7 @@ function GlobeCanvas() {
       const globeGrad = ctx.createRadialGradient(cx - r * 0.15, cy - r * 0.2, r * 0.1, cx, cy, r);
       globeGrad.addColorStop(0, "rgba(15,35,70,0.9)");
       globeGrad.addColorStop(0.6, "rgba(7,18,37,0.85)");
-      globeGrad.addColorStop(1, "rgba(235,228,215,0.95)");
+      globeGrad.addColorStop(1, "rgba(3,7,17,0.95)");
       ctx.beginPath();
       ctx.arc(cx, cy, r, 0, Math.PI * 2);
       ctx.fillStyle = globeGrad;
@@ -59,7 +59,7 @@ function GlobeCanvas() {
 
       // Outer glow
       const glowGrad = ctx.createRadialGradient(cx, cy, r * 0.9, cx, cy, r * 1.25);
-      glowGrad.addColorStop(0, "rgba(184,134,30,0.08)");
+      glowGrad.addColorStop(0, "rgba(213,165,59,0.08)");
       glowGrad.addColorStop(0.5, "rgba(213,165,59,0.04)");
       glowGrad.addColorStop(1, "rgba(0,200,255,0)");
       ctx.beginPath();
@@ -107,7 +107,7 @@ function GlobeCanvas() {
       ctx.rotate(t * 0.008);
       ctx.beginPath();
       ctx.ellipse(0, 0, r * 1.18, r * 0.35, 0, 0, Math.PI * 2);
-      ctx.strokeStyle = "rgba(184,134,30,0.15)";
+      ctx.strokeStyle = "rgba(213,165,59,0.15)";
       ctx.lineWidth = 1;
       ctx.setLineDash([4, 8]);
       ctx.stroke();
@@ -278,7 +278,7 @@ export default function CinematicHero() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          filter: "drop-shadow(0 0 60px rgba(184,134,30,0.35)) drop-shadow(0 0 120px rgba(184,134,30,0.15))",
+          filter: "drop-shadow(0 0 60px rgba(184,134,30,0.35)) drop-shadow(0 0 120px rgba(213,165,59,0.15))",
         }}
       >
         <img
@@ -495,7 +495,7 @@ export default function CinematicHero() {
           transition: "color 0.2s",
         }}
         onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "var(--gold)")}
-        onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "rgba(90,80,65,0.5)")}
+        onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "rgba(170,182,197,0.50)")}
       >
         <span
           style={{
