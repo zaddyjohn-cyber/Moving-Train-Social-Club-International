@@ -74,11 +74,11 @@ export default function WhyJoinPage() {
               >
                 {/* Image */}
                 {(benefit as typeof benefit & { image?: string }).image && (
-                  <div style={{ width: "100%", aspectRatio: "16/9", overflow: "hidden", position: "relative" }}>
+                  <div style={{ width: "100%", overflow: "hidden", position: "relative" }}>
                     <img
                       src={(benefit as typeof benefit & { image?: string }).image}
                       alt={benefit.title}
-                      style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }}
+                      style={{ width: "100%", height: "auto", display: "block" }}
                     />
                     {/* Gold overlay tint */}
                     <div style={{

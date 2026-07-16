@@ -60,9 +60,9 @@ function ValueCard({ value, index }: { value: ValueItem; index: number }) {
         el.style.boxShadow = "none";
       }}
     >
-      {/* Media — image or video */}
+      {/* Media — image or video, full image shown without cropping */}
       {hasMedia && (
-        <div style={{ width: "100%", aspectRatio: "16/9", overflow: "hidden", position: "relative", flexShrink: 0 }}>
+        <div style={{ width: "100%", overflow: "hidden", position: "relative", flexShrink: 0 }}>
           {value.video ? (
             <video
               src={value.video}
@@ -70,13 +70,13 @@ function ValueCard({ value, index }: { value: ValueItem; index: number }) {
               muted
               loop
               playsInline
-              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }}
+              style={{ width: "100%", height: "auto", display: "block" }}
             />
           ) : (
             <img
               src={value.image}
               alt={value.title}
-              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }}
+              style={{ width: "100%", height: "auto", display: "block" }}
             />
           )}
           {/* Dark gradient overlay */}
