@@ -200,6 +200,7 @@ export const coreValues = [
     description:
       "A lifelong bond between men who celebrate one another's successes and stand together through every challenge.",
     icon: "users",
+    image: "/images/values/brotherhood.jpg",
   },
   {
     id: "v-2",
@@ -207,6 +208,7 @@ export const coreValues = [
     description:
       "The foundation upon which every relationship in the organisation is built — earned through consistency and character.",
     icon: "shield",
+    image: "/images/values/trust.jpg",
   },
   {
     id: "v-3",
@@ -214,6 +216,7 @@ export const coreValues = [
     description:
       "Across nations and distances, members move as one — connected by shared values and genuine commitment.",
     icon: "globe",
+    image: "/images/values/unity.jpg",
   },
   {
     id: "v-4",
@@ -221,6 +224,7 @@ export const coreValues = [
     description:
       "Every member and leader answers to the brotherhood — transparent, honest, and answerable in all things.",
     icon: "scale",
+    image: "/images/values/accountability.jpg",
   },
   {
     id: "v-5",
@@ -228,6 +232,7 @@ export const coreValues = [
     description:
       "Financial literacy, disciplined investment, and collective wealth creation are central to the club's mission.",
     icon: "trending-up",
+    video: "/images/values/empowerment.mp4",
   },
   {
     id: "v-6",
@@ -235,6 +240,7 @@ export const coreValues = [
     description:
       "No brother faces illness, bereavement, or hardship alone. Practical and emotional support is always present.",
     icon: "heart",
+    image: "/images/values/compassion.jpg",
   },
   {
     id: "v-7",
@@ -242,6 +248,7 @@ export const coreValues = [
     description:
       "Like the train that gives us our name, the organisation moves continuously forward — never settling, never stopping.",
     icon: "arrow-right-circle",
+    image: "/images/values/progress.png",
   },
   {
     id: "v-8",
@@ -249,6 +256,7 @@ export const coreValues = [
     description:
       "The brotherhood is built to endure — creating meaning, opportunity, and belonging for generations to come.",
     icon: "landmark",
+    image: "/images/values/legacy.png",
   },
 ];
 
