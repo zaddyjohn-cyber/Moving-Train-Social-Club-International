@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState } from "react";
 import { siteConfig } from "@/lib/config";
 import { founderMembers, notableContributions } from "@/lib/mock-data";
+import { contributionIcons } from "@/components/icons/ContributionIcons";
 import Link from "next/link";
 
 function useVisible(threshold = 0.2) {
@@ -376,48 +377,69 @@ export default function StorySection() {
               </h2>
             </div>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+            <div style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(min(380px, 100%), 1fr))",
+              gap: "1.25rem",
+              alignItems: "stretch",
+            }}>
               {notableContributions.map((item, i) => (
                 <div
                   key={i}
                   style={{
-                    background: "rgba(16,36,58,0.82)",
-                    border: "1px solid rgba(213,165,59,0.1)",
-                    borderRadius: "14px",
-                    padding: "1.25rem 1.5rem",
+                    background: "linear-gradient(150deg, rgba(16,36,58,0.92) 0%, rgba(8,20,38,0.92) 100%)",
+                    border: "1px solid rgba(213,165,59,0.12)",
+                    borderRadius: "16px",
+                    padding: "1.625rem",
                     display: "flex",
-                    alignItems: "flex-start",
-                    gap: "1.125rem",
+                    flexDirection: "column",
+                    gap: "1rem",
+                    position: "relative",
+                    overflow: "hidden",
                     opacity: contributionsVisible ? 1 : 0,
-                    transform: contributionsVisible ? "translateX(0)" : "translateX(-20px)",
-                    transition: `all 0.5s ease ${0.05 + i * 0.07}s`,
+                    transform: contributionsVisible ? "translateY(0)" : "translateY(20px)",
+                    transition: `opacity 0.5s ease ${0.05 + i * 0.07}s, transform 0.5s ease ${0.05 + i * 0.07}s, border-color 0.25s, box-shadow 0.25s`,
+                  }}
+                  onMouseEnter={(e) => {
+                    const el = e.currentTarget as HTMLElement;
+                    el.style.borderColor = "rgba(213,165,59,0.32)";
+                    el.style.boxShadow = "0 8px 32px rgba(0,0,0,0.5), 0 0 18px rgba(213,165,59,0.06)";
+                  }}
+                  onMouseLeave={(e) => {
+                    const el = e.currentTarget as HTMLElement;
+                    el.style.borderColor = "rgba(213,165,59,0.12)";
+                    el.style.boxShadow = "none";
                   }}
                 >
-                  {/* Emoji icon */}
-                  <div style={{
-                    width: 52, height: 52, borderRadius: "12px", flexShrink: 0,
-                    background: "rgba(213,165,59,0.07)",
-                    border: "1px solid rgba(213,165,59,0.18)",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    fontSize: "1.6rem", lineHeight: 1,
-                    boxShadow: "0 2px 12px rgba(0,0,0,0.3)",
-                  }}>
-                    {(item as typeof item & { emoji?: string }).emoji ?? "⭐"}
-                  </div>
-                  {/* Text */}
-                  <div style={{ flex: 1, minWidth: 0 }}>
+                  {/* Top edge light */}
+                  <div aria-hidden="true" style={{
+                    position: "absolute", top: 0, left: 0, right: 0, height: 1,
+                    background: "linear-gradient(90deg, transparent, rgba(213,165,59,0.3), transparent)",
+                  }}/>
+                  {/* Icon + member row */}
+                  <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+                    <div style={{
+                      width: 56, height: 56, borderRadius: "14px", flexShrink: 0,
+                      background: "radial-gradient(circle at 30% 25%, rgba(213,165,59,0.16), rgba(213,165,59,0.05))",
+                      border: "1px solid rgba(213,165,59,0.25)",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      boxShadow: "0 2px 14px rgba(0,0,0,0.35), 0 0 12px rgba(213,165,59,0.08)",
+                    }}>
+                      {contributionIcons[(item as typeof item & { icon?: string }).icon ?? ""] ?? contributionIcons.coins}
+                    </div>
                     <p style={{
                       fontFamily: "'Space Grotesk', system-ui, sans-serif",
                       fontSize: "0.72rem", fontWeight: 700,
                       letterSpacing: "0.1em", textTransform: "uppercase",
-                      color: "var(--gold)", marginBottom: "0.375rem",
+                      color: "var(--gold)", margin: 0, lineHeight: 1.5,
                     }}>
                       {item.member}
                     </p>
-                    <p style={{ color: "var(--steel)", fontSize: "0.9rem", lineHeight: 1.7, margin: 0, maxWidth: "100%" }}>
-                      {item.contribution}
-                    </p>
                   </div>
+                  {/* Contribution text */}
+                  <p style={{ color: "var(--steel)", fontSize: "0.9rem", lineHeight: 1.75, margin: 0, maxWidth: "100%" }}>
+                    {item.contribution}
+                  </p>
                 </div>
               ))}
             </div>

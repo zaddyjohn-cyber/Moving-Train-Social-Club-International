@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig } from "@/lib/config";
 import { founderMembers, chairmanshipTimeline, notableContributions } from "@/lib/mock-data";
+import { contributionIcons } from "@/components/icons/ContributionIcons";
 import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -186,34 +187,44 @@ export default function HistoryPage() {
             <p className="eyebrow" style={{ marginBottom: "1rem" }}>Built by Many Hands</p>
             <h2 id="contrib-history-title" style={{ fontFamily: "'Cinzel', Georgia, serif", color: "var(--ivory)" }}>Notable Contributions</h2>
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+          <div style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(min(360px, 100%), 1fr))",
+            gap: "1.25rem",
+            alignItems: "stretch",
+          }}>
             {notableContributions.map((item, i) => (
               <div
                 key={i}
                 style={{
-                  background: "rgba(16,36,58,0.82)",
-                  border: "1px solid rgba(213,165,59,0.1)",
-                  borderRadius: "14px",
-                  padding: "1.25rem 1.5rem",
+                  background: "linear-gradient(150deg, rgba(16,36,58,0.92) 0%, rgba(8,20,38,0.92) 100%)",
+                  border: "1px solid rgba(213,165,59,0.12)",
+                  borderRadius: "16px",
+                  padding: "1.625rem",
                   display: "flex",
-                  alignItems: "flex-start",
-                  gap: "1.125rem",
+                  flexDirection: "column",
+                  gap: "1rem",
+                  position: "relative",
+                  overflow: "hidden",
                 }}
               >
-                <div style={{
-                  width: 52, height: 52, borderRadius: "12px", flexShrink: 0,
-                  background: "rgba(213,165,59,0.07)",
-                  border: "1px solid rgba(213,165,59,0.18)",
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  fontSize: "1.6rem", lineHeight: 1,
-                  boxShadow: "0 2px 12px rgba(0,0,0,0.3)",
-                }}>
-                  {(item as typeof item & { emoji?: string }).emoji ?? "⭐"}
+                <div aria-hidden="true" style={{
+                  position: "absolute", top: 0, left: 0, right: 0, height: 1,
+                  background: "linear-gradient(90deg, transparent, rgba(213,165,59,0.3), transparent)",
+                }}/>
+                <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+                  <div style={{
+                    width: 56, height: 56, borderRadius: "14px", flexShrink: 0,
+                    background: "radial-gradient(circle at 30% 25%, rgba(213,165,59,0.16), rgba(213,165,59,0.05))",
+                    border: "1px solid rgba(213,165,59,0.25)",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    boxShadow: "0 2px 14px rgba(0,0,0,0.35), 0 0 12px rgba(213,165,59,0.08)",
+                  }}>
+                    {contributionIcons[(item as typeof item & { icon?: string }).icon ?? ""] ?? contributionIcons.coins}
+                  </div>
+                  <p style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--gold)", margin: 0, lineHeight: 1.5 }}>{item.member}</p>
                 </div>
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <p style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "0.375rem" }}>{item.member}</p>
-                  <p style={{ color: "var(--steel)", fontSize: "0.9rem", lineHeight: 1.7, margin: 0, maxWidth: "100%" }}>{item.contribution}</p>
-                </div>
+                <p style={{ color: "var(--steel)", fontSize: "0.9rem", lineHeight: 1.75, margin: 0, maxWidth: "100%" }}>{item.contribution}</p>
               </div>
             ))}
           </div>
