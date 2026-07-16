@@ -263,31 +263,37 @@ export const coreValues = [
 export const notableContributions = [
   {
     member: "Mr. Bertrand Chekwube Ugorji",
+    emoji: "💰",
     contribution:
       "Paid one full year of monthly dues on behalf of all members during the club's inaugural year, ensuring the organisation's financial stability from its very beginning.",
   },
   {
     member: "Mr. Chinedu Okafor",
+    emoji: "🏛️",
     contribution:
       "Facilitated the club's registration with the Corporate Affairs Commission of Nigeria, giving the organisation its formal legal standing.",
   },
   {
     member: "Mr. John Matthew",
+    emoji: "🎥",
     contribution:
       "Sponsored the club's Zoom subscription for three and a half years, enabling consistent international meetings across continents.",
   },
   {
     member: "Mr. Bertrand Chekwube Ugorji",
+    emoji: "🌐",
     contribution:
       "Subsequently assumed responsibility for the Zoom subscription, ensuring the continuation of the club's international communication infrastructure.",
   },
   {
     member: "Mr. Obinna Aladum, Mr. John Matthew, Mr. Emmanuel Henry Okoh & Mr. Chuks Ikwuakolam Omumu",
+    emoji: "📜",
     contribution:
       "Collaborated to draft the club's first constitution, providing the governance framework that continues to guide the organisation.",
   },
   {
     member: "Mr. Chinatu Ubani",
+    emoji: "🌱",
     contribution:
       "Proposed the formation of the Committee of Friends in 2020 and later invited additional members, laying the groundwork for what became the Moving Train.",
   },

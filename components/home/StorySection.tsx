@@ -376,37 +376,48 @@ export default function StorySection() {
               </h2>
             </div>
 
-            <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
               {notableContributions.map((item, i) => (
                 <div
                   key={i}
                   style={{
-                    background: "rgba(16,36,58,0.75)",
+                    background: "rgba(16,36,58,0.82)",
                     border: "1px solid rgba(213,165,59,0.1)",
-                    borderLeft: "3px solid rgba(213,165,59,0.4)",
-                    borderRadius: "0 12px 12px 0",
-                    padding: "1.5rem 1.75rem",
+                    borderRadius: "14px",
+                    padding: "1.25rem 1.5rem",
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: "1.125rem",
                     opacity: contributionsVisible ? 1 : 0,
                     transform: contributionsVisible ? "translateX(0)" : "translateX(-20px)",
                     transition: `all 0.5s ease ${0.05 + i * 0.07}s`,
                   }}
                 >
-                  <p
-                    style={{
+                  {/* Emoji icon */}
+                  <div style={{
+                    width: 52, height: 52, borderRadius: "12px", flexShrink: 0,
+                    background: "rgba(213,165,59,0.07)",
+                    border: "1px solid rgba(213,165,59,0.18)",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    fontSize: "1.6rem", lineHeight: 1,
+                    boxShadow: "0 2px 12px rgba(0,0,0,0.3)",
+                  }}>
+                    {(item as typeof item & { emoji?: string }).emoji ?? "⭐"}
+                  </div>
+                  {/* Text */}
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <p style={{
                       fontFamily: "'Space Grotesk', system-ui, sans-serif",
-                      fontSize: "0.75rem",
-                      fontWeight: 700,
-                      letterSpacing: "0.1em",
-                      textTransform: "uppercase",
-                      color: "var(--gold)",
-                      marginBottom: "0.5rem",
-                    }}
-                  >
-                    {item.member}
-                  </p>
-                  <p style={{ color: "var(--steel)", fontSize: "0.9rem", lineHeight: 1.7, margin: 0, maxWidth: "100%" }}>
-                    {item.contribution}
-                  </p>
+                      fontSize: "0.72rem", fontWeight: 700,
+                      letterSpacing: "0.1em", textTransform: "uppercase",
+                      color: "var(--gold)", marginBottom: "0.375rem",
+                    }}>
+                      {item.member}
+                    </p>
+                    <p style={{ color: "var(--steel)", fontSize: "0.9rem", lineHeight: 1.7, margin: 0, maxWidth: "100%" }}>
+                      {item.contribution}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
