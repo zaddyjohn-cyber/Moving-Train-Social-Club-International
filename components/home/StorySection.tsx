@@ -193,10 +193,10 @@ export default function StorySection() {
                 style={{ width: "100%", height: "auto", display: "block" }}
               />
 
-              {/* Dark overlay — stronger at bottom for text legibility */}
+              {/* Dark overlay — lighter at top, just enough at bottom for text legibility */}
               <div style={{
                 position: "absolute", inset: 0,
-                background: "linear-gradient(to bottom, rgba(5,10,24,0.25) 0%, rgba(5,10,24,0.55) 45%, rgba(5,10,24,0.92) 100%)",
+                background: "linear-gradient(to bottom, rgba(5,10,24,0.1) 0%, rgba(5,10,24,0.35) 45%, rgba(5,10,24,0.88) 100%)",
               }} aria-hidden="true"/>
 
               {/* Quote overlaid on photo */}
@@ -436,7 +436,6 @@ export default function StorySection() {
                   }}/>
                   {/* Animated visual — depicts this specific contribution */}
                   <div aria-hidden="true" style={{
-                    background: "rgba(3,7,17,0.75)",
                     border: "1px solid rgba(213,165,59,0.12)",
                     borderRadius: "10px",
                     overflow: "hidden",

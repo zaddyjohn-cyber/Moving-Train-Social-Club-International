@@ -281,43 +281,7 @@ export default function CinematicHero() {
         paddingBottom:"clamp(4rem,8vw,6rem)",
         display:"flex", flexDirection:"column",
       }}>
-        {/* Mobile logo — visible only on mobile via CSS */}
-        <div aria-hidden="true" className="mobile-hero-logo" style={{
-          display:"none", justifyContent:"center", marginBottom:"1.5rem",
-        }}>
-          <img src="/images/logo.gif" alt="" style={{ width:"clamp(140px,50vw,200px)", height:"clamp(140px,50vw,200px)", objectFit:"contain", filter:"drop-shadow(0 0 40px rgba(213,165,59,0.35))" }}/>
-        </div>
-
         <div className="hero-content-inner" style={{ maxWidth:"640px" }}>
-          {/* Logo badge */}
-          <div style={{
-            display:"flex", alignItems:"center", gap:"0.875rem",
-            marginBottom:"2rem",
-            opacity: loaded ? 1 : 0,
-            transform: loaded ? "translateY(0)" : "translateY(18px)",
-            transition:"all 0.7s ease 0.1s",
-          }}>
-            <div style={{
-              width:52, height:52, borderRadius:"50%",
-              border:"1.5px solid rgba(213,165,59,0.45)",
-              display:"flex", alignItems:"center", justifyContent:"center",
-              background:"rgba(213,165,59,0.07)", overflow:"hidden",
-              boxShadow:"0 0 24px rgba(213,165,59,0.18)",
-            }}>
-              <img src="/images/logo.gif" alt="" aria-hidden="true" width={44} height={44} style={{objectFit:"contain"}}/>
-            </div>
-            <div>
-              <p style={{
-                fontFamily:"'Space Grotesk',system-ui,sans-serif",
-                fontSize:"0.68rem", fontWeight:700, letterSpacing:"0.2em",
-                textTransform:"uppercase", color:"var(--gold)", margin:0,
-              }}>{siteConfig.abbreviation}</p>
-              <p style={{ fontFamily:"'Cinzel',Georgia,serif", fontSize:"0.78rem", color:"var(--steel)", margin:0, lineHeight:1.3 }}>
-                Est. {siteConfig.founded}
-              </p>
-            </div>
-          </div>
-
           {/* Eyebrow */}
           <div style={{
             display:"flex", alignItems:"center", gap:"0.6rem",
@@ -439,7 +403,6 @@ export default function CinematicHero() {
       <style>{`
         @media (max-width: 767px) {
           .hero-logo-right { display: none !important; }
-          .mobile-hero-logo { display: flex !important; }
           .hero-content-wrapper {
             flex-direction: column;
             align-items: center;

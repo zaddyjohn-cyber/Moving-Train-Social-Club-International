@@ -25,8 +25,8 @@ function DuesVisual() {
         playsInline
         style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }}
       />
-      {/* Dark overlay so SVG stays legible */}
-      <div style={{ position: "absolute", inset: 0, background: "rgba(3,7,17,0.52)" }} />
+      {/* Overlay — just dark enough for SVG legibility */}
+      <div style={{ position: "absolute", inset: 0, background: "rgba(3,7,17,0.28)" }} />
       {/* Animated bar chart SVG on top */}
       <svg
         viewBox="0 0 400 120"
@@ -120,10 +120,10 @@ function NetworkVisual() {
         playsInline
         style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }}
       />
-      {/* Dark overlay so SVG elements stay legible */}
+      {/* Overlay — just dark enough for SVG legibility */}
       <div style={{
         position: "absolute", inset: 0,
-        background: "rgba(3,7,17,0.52)",
+        background: "rgba(3,7,17,0.28)",
       }} />
       {/* Animated network SVG on top */}
       <svg
