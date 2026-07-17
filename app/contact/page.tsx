@@ -2,15 +2,17 @@
 
 import { useState } from "react";
 import { siteConfig } from "@/lib/config";
-import { Mail, CheckCircle, Send } from "lucide-react";
+import { Mail, CheckCircle, Send, AlertCircle } from "lucide-react";
+
+type FormState = { fullName: string; email: string; subject: string; message: string };
 
 export default function ContactPage() {
-  const [form, setForm] = useState({ fullName: "", email: "", subject: "", message: "" });
-  const [errors, setErrors] = useState<typeof form>({ fullName: "", email: "", subject: "", message: "" });
-  const [sent, setSent] = useState(false);
+  const [form, setForm] = useState<FormState>({ fullName: "", email: "", subject: "", message: "" });
+  const [errors, setErrors] = useState<FormState>({ fullName: "", email: "", subject: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const validate = () => {
-    const e = { fullName: "", email: "", subject: "", message: "" };
+    const e: FormState = { fullName: "", email: "", subject: "", message: "" };
     if (!form.fullName.trim()) e.fullName = "Name is required.";
     if (!form.email.includes("@")) e.email = "Valid email required.";
     if (!form.subject.trim()) e.subject = "Subject is required.";
@@ -19,7 +21,30 @@ export default function ContactPage() {
     return !Object.values(e).some(Boolean);
   };
 
-  const submit = () => { if (validate()) setSent(true); };
+  const submit = async () => {
+    if (!validate()) return;
+    setStatus("sending");
+    try {
+      const res = await fetch(`https://formsubmit.co/ajax/${siteConfig.contact.email}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: form.fullName,
+          email: form.email,
+          subject: form.subject,
+          message: form.message,
+          _template: "table",
+        }),
+      });
+      if (res.ok) {
+        setStatus("sent");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
 
   const fieldStyle = {
     width: "100%", padding: "0.75rem 1rem",
@@ -30,7 +55,7 @@ export default function ContactPage() {
   };
   const labelStyle = {
     display: "block", fontFamily: "'Space Grotesk', system-ui, sans-serif",
-    fontSize: "0.8rem", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase" as const,
+    fontSize: "0.8rem", fontWeight: 600 as const, letterSpacing: "0.06em", textTransform: "uppercase" as const,
     color: "var(--steel)", marginBottom: "0.5rem",
   };
 
@@ -48,7 +73,7 @@ export default function ContactPage() {
       </section>
 
       <section style={{ padding: "3rem 1.5rem 6rem" }}>
-        <div style={{ maxWidth: "900px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "start" }}>
+        <div className="contact-grid" style={{ maxWidth: "900px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", alignItems: "start" }}>
           {/* Contact info */}
           <div>
             <h2 style={{ fontFamily: "'Cinzel', Georgia, serif", fontSize: "1.25rem", color: "var(--ivory)", marginBottom: "2rem" }}>
@@ -81,13 +106,19 @@ export default function ContactPage() {
 
           {/* Form */}
           <div>
-            {sent ? (
+            {status === "sent" ? (
               <div style={{ textAlign: "center", padding: "3rem 2rem" }}>
                 <CheckCircle size={48} style={{ color: "var(--gold)", marginBottom: "1.5rem" }} />
                 <h2 style={{ fontFamily: "'Cinzel', Georgia, serif", color: "var(--ivory)", marginBottom: "1rem" }}>Message Received</h2>
-                <p style={{ color: "var(--steel)", fontSize: "0.9375rem", lineHeight: 1.7 }}>
+                <p style={{ color: "var(--steel)", fontSize: "0.9375rem", lineHeight: 1.7, maxWidth: "100%" }}>
                   Thank you for reaching out. We will be in touch as soon as possible.
                 </p>
+              </div>
+            ) : status === "error" ? (
+              <div style={{ textAlign: "center", padding: "2rem" }}>
+                <AlertCircle size={40} style={{ color: "#f87171", marginBottom: "1rem" }} />
+                <p style={{ color: "var(--steel)", marginBottom: "1.5rem", maxWidth: "100%" }}>Something went wrong. Please email us directly at <a href={`mailto:${siteConfig.contact.email}`} style={{ color: "var(--gold)" }}>{siteConfig.contact.email}</a></p>
+                <button onClick={() => setStatus("idle")} className="btn-ghost-gold">Try Again</button>
               </div>
             ) : (
               <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
@@ -120,8 +151,14 @@ export default function ContactPage() {
                   />
                   {errors.message && <p style={{ color: "#f87171", fontSize: "0.8rem", marginTop: "0.25rem" }}>{errors.message}</p>}
                 </div>
-                <button type="button" onClick={submit} className="btn-gold">
-                  Send Message <Send size={16} />
+                <button
+                  type="button"
+                  onClick={submit}
+                  disabled={status === "sending"}
+                  className="btn-gold"
+                  style={{ opacity: status === "sending" ? 0.7 : 1, cursor: status === "sending" ? "wait" : "pointer" }}
+                >
+                  {status === "sending" ? "Sending…" : <><Send size={16} /> Send Message</>}
                 </button>
               </div>
             )}
@@ -131,7 +168,7 @@ export default function ContactPage() {
 
       <style>{`
         @media (max-width: 768px) {
-          section [style*="grid-template-columns: 1fr 1fr"] {
+          .contact-grid {
             grid-template-columns: 1fr !important;
             gap: 2rem !important;
           }

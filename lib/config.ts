@@ -18,7 +18,7 @@ export const siteConfig = {
   metaDescription:
     "Discover the Great Moving Train Social Club International, a global brotherhood built on friendship, unity, accountability, welfare support, financial empowerment, and continuous progress.",
 
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://gmtsci.org",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.mtsci.org",
 
   founded: 2020,
 

@@ -38,6 +38,10 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
   },
   robots: { index: true, follow: true },
+  icons: {
+    icon: "/images/logo.gif",
+    apple: "/images/logo.gif",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
