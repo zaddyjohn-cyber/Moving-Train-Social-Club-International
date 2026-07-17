@@ -85,7 +85,7 @@ export default function MembersPage() {
             Showing {members.length} verified member records
           </p>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(260px,100%), 1fr))", gap: "1.25rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(220px,100%), 1fr))", gap: "1.25rem" }}>
             {members.map((member) => (
               <article
                 key={member.id}
@@ -93,114 +93,109 @@ export default function MembersPage() {
                   background: "rgba(16,36,58,0.85)",
                   border: "1px solid rgba(213,165,59,0.12)",
                   borderRadius: "16px",
-                  padding: "1.75rem 1.5rem",
+                  overflow: "hidden",
                   display: "flex",
                   flexDirection: "column",
-                  gap: "0.875rem",
                   transition: "all 0.25s ease",
                 }}
                 onMouseEnter={(e) => {
                   const el = e.currentTarget as HTMLElement;
-                  el.style.borderColor = "rgba(213,165,59,0.3)";
-                  el.style.transform = "translateY(-3px)";
+                  el.style.borderColor = "rgba(213,165,59,0.4)";
+                  el.style.transform = "translateY(-4px)";
+                  el.style.boxShadow = "0 12px 40px rgba(0,0,0,0.5), 0 0 20px rgba(213,165,59,0.07)";
                 }}
                 onMouseLeave={(e) => {
                   const el = e.currentTarget as HTMLElement;
                   el.style.borderColor = "rgba(213,165,59,0.12)";
                   el.style.transform = "translateY(0)";
+                  el.style.boxShadow = "none";
                 }}
               >
-                {/* Avatar */}
-                <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-                  {member.photo ? (
+                {/* Portrait — full-width photo or initials block */}
+                {member.photo ? (
+                  <div style={{ position: "relative", aspectRatio: "3/4", overflow: "hidden" }}>
                     <img
                       src={member.photo}
                       alt={member.name}
-                      style={{ width: 56, height: 56, borderRadius: "50%", objectFit: "cover", border: "2px solid rgba(213,165,59,0.35)", flexShrink: 0 }}
+                      style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
                     />
-                  ) : (
-                  <div
-                    aria-hidden="true"
-                    style={{
-                      width: 56, height: 56, borderRadius: "50%",
-                      background: "linear-gradient(135deg, rgba(213,165,59,0.12) 0%, rgba(213,165,59,0.07) 100%)",
-                      border: "1.5px solid rgba(213,165,59,0.2)",
-                      display: "flex", alignItems: "center", justifyContent: "center",
-                      fontFamily: "'Cinzel', Georgia, serif", fontWeight: 700, fontSize: "1rem", color: "var(--gold)",
-                      flexShrink: 0,
-                    }}
-                  >
-                    {member.name.split(" ").filter((w) => !["Hon.", "Mr.", "Mrs.", "Chief", "High", "Dr.", "Engr.", "Nze"].includes(w)).slice(0, 2).map((w) => w[0]).join("")}
+                    {/* Gradient fade into card body */}
+                    <div style={{
+                      position: "absolute", bottom: 0, left: 0, right: 0, height: "60px",
+                      background: "linear-gradient(to bottom, transparent, rgba(16,36,58,0.85))",
+                    }} aria-hidden="true" />
                   </div>
-                  )}
-                  <div style={{ minWidth: 0 }}>
-                    <h2
-                      style={{
-                        fontFamily: "'Cinzel', Georgia, serif",
-                        fontSize: "0.9rem",
-                        fontWeight: 600,
-                        color: "var(--ivory)",
-                        margin: 0,
-                        lineHeight: 1.3,
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                        whiteSpace: "nowrap",
-                      }}
-                    >
+                ) : (
+                  <div style={{
+                    aspectRatio: "3/4",
+                    background: "linear-gradient(135deg, rgba(213,165,59,0.08) 0%, rgba(5,10,24,0.6) 100%)",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    borderBottom: "1px solid rgba(213,165,59,0.1)",
+                  }}>
+                    <span style={{
+                      fontFamily: "'Cinzel', Georgia, serif", fontWeight: 700,
+                      fontSize: "3rem", color: "rgba(213,165,59,0.35)",
+                      letterSpacing: "0.05em",
+                    }}>
+                      {member.name.split(" ").filter((w) => !["Hon.", "Mr.", "Mrs.", "Chief", "High", "Dr.", "Engr.", "Nze"].includes(w)).slice(0, 2).map((w) => w[0]).join("")}
+                    </span>
+                  </div>
+                )}
+
+                {/* Info */}
+                <div style={{ padding: "1.25rem 1.25rem 1.5rem", display: "flex", flexDirection: "column", gap: "0.75rem", flex: 1 }}>
+                  <div>
+                    <h2 style={{
+                      fontFamily: "'Cinzel', Georgia, serif",
+                      fontSize: "0.92rem", fontWeight: 700,
+                      color: "var(--ivory)", margin: "0 0 0.3rem", lineHeight: 1.35,
+                    }}>
                       {member.name}
                     </h2>
                     {member.positions.length > 0 && (
-                      <p style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.7rem", color: "var(--gold)", margin: "0.2rem 0 0", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                      <p style={{
+                        fontFamily: "'Space Grotesk', system-ui, sans-serif",
+                        fontSize: "0.72rem", color: "var(--gold)",
+                        margin: 0, lineHeight: 1.4,
+                      }}>
                         {member.positions[0]}
                       </p>
                     )}
                   </div>
-                </div>
 
-                {/* Badges */}
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.375rem" }}>
-                  {member.badges.map((badge) => (
-                    <span
-                      key={badge}
-                      style={{
-                        padding: "0.2rem 0.6rem",
-                        borderRadius: "999px",
+                  {/* Badges */}
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
+                    {member.badges.map((badge) => (
+                      <span key={badge} style={{
+                        padding: "0.18rem 0.55rem", borderRadius: "999px",
                         fontFamily: "'Space Grotesk', system-ui, sans-serif",
-                        fontSize: "0.65rem",
-                        fontWeight: 700,
-                        letterSpacing: "0.08em",
-                        textTransform: "uppercase",
+                        fontSize: "0.62rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase",
                         ...(badge === "Current Executive"
                           ? { background: "rgba(213,165,59,0.08)", border: "1px solid rgba(184,134,30,0.22)", color: "var(--gold)" }
                           : badge === "Founder"
                           ? { background: "rgba(213,165,59,0.1)", border: "1px solid rgba(213,165,59,0.25)", color: "var(--gold)" }
                           : { background: "rgba(174,184,198,0.06)", border: "1px solid rgba(174,184,198,0.15)", color: "var(--steel)" }),
-                      }}
-                    >
-                      {badge}
-                    </span>
-                  ))}
-                </div>
+                      }}>
+                        {badge}
+                      </span>
+                    ))}
+                  </div>
 
-                {/* Profile link */}
-                <Link
-                  href={`/members/${member.slug}`}
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "0.35rem",
-                    fontFamily: "'Space Grotesk', system-ui, sans-serif",
-                    fontSize: "0.8rem",
-                    fontWeight: 600,
-                    color: "var(--gold)",
-                    marginTop: "auto",
-                    transition: "gap 0.2s",
-                  }}
-                  onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.gap = "0.55rem")}
-                  onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.gap = "0.35rem")}
-                >
-                  View Profile →
-                </Link>
+                  {/* Profile link */}
+                  <Link
+                    href={`/members/${member.slug}`}
+                    style={{
+                      display: "inline-flex", alignItems: "center", gap: "0.35rem",
+                      fontFamily: "'Space Grotesk', system-ui, sans-serif",
+                      fontSize: "0.8rem", fontWeight: 600, color: "var(--gold)",
+                      marginTop: "auto", transition: "gap 0.2s",
+                    }}
+                    onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.gap = "0.55rem")}
+                    onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.gap = "0.35rem")}
+                  >
+                    View Profile →
+                  </Link>
+                </div>
               </article>
             ))}
           </div>
