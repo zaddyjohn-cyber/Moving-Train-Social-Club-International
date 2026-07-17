@@ -61,7 +61,7 @@ export const currentExecutives = [
 export const pioneerExecutives = [
   {
     id: "pe-1",
-    name: "Chief Bertrand Chekwube Ugorji",
+    name: "Chief Bethrand Chekwube Ugorji",
     slug: "bertrand-chekwube-ugorji",
     position: "Chairman",
     isPioneer: true,
@@ -106,7 +106,7 @@ export const pioneerExecutives = [
 export const chairmanshipTimeline = [
   {
     id: "ch-1",
-    name: "Chief Bertrand Chekwube Ugorji",
+    name: "Chief Bethrand Chekwube Ugorji",
     slug: "bertrand-chekwube-ugorji",
     title: "Pioneer Chairman",
     period: "October 2020 — December 31, 2022",
@@ -262,7 +262,7 @@ export const coreValues = [
 
 export const notableContributions = [
   {
-    member: "Chief Bertrand Chekwube Ugorji",
+    member: "Chief Bethrand Chekwube Ugorji",
     icon: "coins",
     contribution:
       "Paid one full year of monthly dues on behalf of all members during the club's inaugural year, ensuring the organisation's financial stability from its very beginning.",
@@ -280,7 +280,7 @@ export const notableContributions = [
       "Sponsored the club's Zoom subscription for three and a half years, enabling consistent international meetings across continents.",
   },
   {
-    member: "Chief Bertrand Chekwube Ugorji",
+    member: "Chief Bethrand Chekwube Ugorji",
     icon: "network",
     contribution:
       "Subsequently assumed responsibility for the Zoom subscription, ensuring the continuation of the club's international communication infrastructure.",
