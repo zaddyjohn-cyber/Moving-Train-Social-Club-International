@@ -1,56 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { siteConfig } from "@/lib/config";
-import { currentExecutives, founderMembers, chairmanshipTimeline } from "@/lib/mock-data";
-
-
-// Combine known members into a display list (no fabricated data)
-function buildMemberList() {
-  const known: { id: string; name: string; slug: string; photo?: string; positions: string[]; badges: string[] }[] = [];
-
-  // Combine unique members across sources
-  const allSlugs = new Map<string, { name: string; photo?: string; positions: string[]; badges: string[] }>();
-
-  founderMembers.forEach((m) => {
-    allSlugs.set(m.slug, { name: m.name, positions: [], badges: ["Founder"] });
-  });
-
-  chairmanshipTimeline.forEach((c) => {
-    const existing = allSlugs.get(c.slug) ?? { name: c.name, positions: [], badges: [] };
-    existing.positions.push(c.title);
-    if (c.photo && !existing.photo) existing.photo = c.photo;
-    if (!existing.badges.includes("Pioneer")) existing.badges.push("Pioneer");
-    allSlugs.set(c.slug, existing);
-  });
-
-  currentExecutives.forEach((e) => {
-    const existing = allSlugs.get(e.slug) ?? { name: e.name, positions: [], badges: [] };
-    existing.positions.push(e.position);
-    if (e.photo && !existing.photo) existing.photo = e.photo;
-    if (!existing.badges.includes("Current Executive")) existing.badges.push("Current Executive");
-    allSlugs.set(e.slug, existing);
-  });
-
-  // Add additional named members from pioneer executives not already in list
-  const { pioneerExecutives } = require("@/lib/mock-data");
-  (pioneerExecutives as { id: string; name: string; slug: string; position: string }[]).forEach((e) => {
-    const existing = allSlugs.get(e.slug) ?? { name: e.name, positions: [], badges: [] };
-    if (!existing.positions.includes(e.position)) existing.positions.push(e.position);
-    if (!existing.badges.includes("Pioneer")) existing.badges.push("Pioneer");
-    allSlugs.set(e.slug, existing);
-  });
-
-  allSlugs.forEach((data, slug) => {
-    known.push({ id: slug, slug, ...data });
-  });
-
-  return known.sort((a, b) => a.name.localeCompare(b.name));
-}
+import { currentMembers } from "@/lib/mock-data";
 
 export default function MembersPage() {
-  const members = buildMemberList();
-
   return (
     <div style={{ paddingTop: "72px", background: "var(--navy)" }}>
       {/* Hero */}
@@ -68,25 +21,21 @@ export default function MembersPage() {
         </div>
       </section>
 
-
-
       {/* Members grid */}
       <section aria-label="Member directory" style={{ padding: "2rem 1.5rem 6rem" }}>
         <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-          <p
-            style={{
-              fontFamily: "'Space Grotesk', system-ui, sans-serif",
-              fontSize: "0.8rem",
-              color: "rgba(170,182,197,0.55)",
-              marginBottom: "2rem",
-              letterSpacing: "0.05em",
-            }}
-          >
-            Showing {members.length} verified member records
+          <p style={{
+            fontFamily: "'Space Grotesk', system-ui, sans-serif",
+            fontSize: "0.8rem",
+            color: "rgba(170,182,197,0.55)",
+            marginBottom: "2rem",
+            letterSpacing: "0.05em",
+          }}>
+            Showing {currentMembers.length} verified member records
           </p>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(220px,100%), 1fr))", gap: "1.25rem" }}>
-            {members.map((member) => (
+            {currentMembers.map((member) => (
               <article
                 key={member.id}
                 style={{
@@ -111,7 +60,7 @@ export default function MembersPage() {
                   el.style.boxShadow = "none";
                 }}
               >
-                {/* Portrait — full-width photo or initials block */}
+                {/* Portrait */}
                 {member.photo ? (
                   <div style={{ position: "relative", aspectRatio: "3/4", overflow: "hidden" }}>
                     <img
@@ -119,7 +68,6 @@ export default function MembersPage() {
                       alt={member.name}
                       style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
                     />
-                    {/* Gradient fade into card body */}
                     <div style={{
                       position: "absolute", bottom: 0, left: 0, right: 0, height: "60px",
                       background: "linear-gradient(to bottom, transparent, rgba(16,36,58,0.85))",
@@ -137,7 +85,7 @@ export default function MembersPage() {
                       fontSize: "3rem", color: "rgba(213,165,59,0.35)",
                       letterSpacing: "0.05em",
                     }}>
-                      {member.name.split(" ").filter((w) => !["Hon.", "Mr.", "Mrs.", "Chief", "High", "Dr.", "Engr.", "Nze"].includes(w)).slice(0, 2).map((w) => w[0]).join("")}
+                      {member.name.split(" ").filter((w) => !["Hon.", "Mr.", "Mrs.", "Chief", "Chief.", "High", "Dr.", "Engr.", "Nze"].includes(w)).slice(0, 2).map((w) => w[0]).join("")}
                     </span>
                   </div>
                 )}
@@ -152,36 +100,26 @@ export default function MembersPage() {
                     }}>
                       {member.name}
                     </h2>
-                    {member.positions.length > 0 && (
-                      <p style={{
-                        fontFamily: "'Space Grotesk', system-ui, sans-serif",
-                        fontSize: "0.72rem", color: "var(--gold)",
-                        margin: 0, lineHeight: 1.4,
-                      }}>
-                        {member.positions[0]}
-                      </p>
-                    )}
+                    <p style={{
+                      fontFamily: "'Space Grotesk', system-ui, sans-serif",
+                      fontSize: "0.72rem", color: "var(--gold)",
+                      margin: 0, lineHeight: 1.4,
+                    }}>
+                      {member.position}
+                    </p>
                   </div>
 
-                  {/* Badges */}
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>
-                    {member.badges.map((badge) => (
-                      <span key={badge} style={{
-                        padding: "0.18rem 0.55rem", borderRadius: "999px",
-                        fontFamily: "'Space Grotesk', system-ui, sans-serif",
-                        fontSize: "0.62rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase",
-                        ...(badge === "Current Executive"
-                          ? { background: "rgba(213,165,59,0.08)", border: "1px solid rgba(184,134,30,0.22)", color: "var(--gold)" }
-                          : badge === "Founder"
-                          ? { background: "rgba(213,165,59,0.1)", border: "1px solid rgba(213,165,59,0.25)", color: "var(--gold)" }
-                          : { background: "rgba(174,184,198,0.06)", border: "1px solid rgba(174,184,198,0.15)", color: "var(--steel)" }),
-                      }}>
-                        {badge}
-                      </span>
-                    ))}
+                    <span style={{
+                      padding: "0.18rem 0.55rem", borderRadius: "999px",
+                      fontFamily: "'Space Grotesk', system-ui, sans-serif",
+                      fontSize: "0.62rem", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase",
+                      background: "rgba(213,165,59,0.08)", border: "1px solid rgba(184,134,30,0.22)", color: "var(--gold)",
+                    }}>
+                      Current Member
+                    </span>
                   </div>
 
-                  {/* Profile link */}
                   <Link
                     href={`/members/${member.slug}`}
                     style={{
@@ -200,24 +138,14 @@ export default function MembersPage() {
             ))}
           </div>
 
-          {/* Note about more members */}
-          <div
-            style={{
-              marginTop: "3rem",
-              textAlign: "center",
-              padding: "2.5rem",
-              background: "rgba(16,36,58,0.60)",
-              border: "1px solid rgba(213,165,59,0.1)",
-              borderRadius: "16px",
-            }}
-          >
+          <div style={{
+            marginTop: "3rem", textAlign: "center", padding: "2.5rem",
+            background: "rgba(16,36,58,0.60)", border: "1px solid rgba(213,165,59,0.1)", borderRadius: "16px",
+          }}>
             <p style={{ color: "var(--steel)", fontSize: "0.9375rem", lineHeight: 1.7, marginBottom: "1.25rem", maxWidth: "50ch", margin: "0 auto 1.25rem" }}>
-              Additional member profiles will be added as the organisation grows and as members
-              provide and consent to their information.
+              Additional member profiles will be added as members provide and consent to their information.
             </p>
-            <Link href="/membership" className="btn-gold">
-              Apply to Join
-            </Link>
+            <Link href="/membership" className="btn-gold">Apply to Join</Link>
           </div>
         </div>
       </section>

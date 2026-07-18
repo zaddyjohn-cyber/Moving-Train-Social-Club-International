@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig } from "@/lib/config";
-import { currentExecutives, pioneerExecutives, chairmanshipTimeline, founderMembers, notableContributions } from "@/lib/mock-data";
+import { currentMembers, pioneerExecutives, chairmanshipTimeline, notableContributions } from "@/lib/mock-data";
 import { ArrowLeft } from "lucide-react";
 
 // Build a lookup of all known members
@@ -16,9 +16,8 @@ function getMemberBySlug(slug: string) {
     allMembers.set(s, m);
   };
 
-  founderMembers.forEach((m) => add(m.slug, m.name, undefined, undefined, "Founder"));
+  currentMembers.forEach((m) => add(m.slug, m.name, m.photo, m.position, "Current Member"));
   chairmanshipTimeline.forEach((c) => add(c.slug, c.name, c.photo, c.title, "Pioneer"));
-  currentExecutives.forEach((e) => add(e.slug, e.name, e.photo, e.position, "Current Executive"));
   pioneerExecutives.forEach((e) => add(e.slug, e.name, undefined, e.position, "Pioneer"));
 
   notableContributions.forEach((c) => {
@@ -60,7 +59,7 @@ export default async function MemberProfilePage({ params }: { params: Promise<{ 
     );
   }
 
-  const isCurrent = member.badges.includes("Current Executive");
+  const isCurrent = member.badges.includes("Current Member");
   const isFounder = member.badges.includes("Founder");
 
   return (

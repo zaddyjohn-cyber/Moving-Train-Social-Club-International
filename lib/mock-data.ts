@@ -4,25 +4,26 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const founderMembers = [
-  { id: "1", name: "Hon. Chinedu Okafor", slug: "chinedu-okafor" },
-  { id: "2", name: "Hon. Chinatu Ubani", slug: "chinatu-ubani" },
-  { id: "3", name: "Hon. John Matthew", slug: "john-matthew" },
-  { id: "4", name: "Hon. Nnamdi Muodukwu", slug: "nnamdi-muodukwu" },
-  { id: "5", name: "Hon. Chuks Ikwuakolam Omumu", slug: "chuks-ikwuakolam-omumu" },
-  { id: "6", name: "Hon. Daniel Anyaeri", slug: "daniel-anyaeri" },
+  { id: "1", name: "Hon. Chinatu Ubani", slug: "chinatu-ubani" },
+  { id: "2", name: "Hon. John Matthew Amagba", slug: "john-matthew-amagba" },
+  { id: "3", name: "Hon. Nnamdi Muodukwu", slug: "nnamdi-muodukwu" },
+  { id: "4", name: "Hon. Chuks Ikwuakolam Omumu", slug: "chuks-ikwuakolam-omumu" },
+  { id: "5", name: "Chief Ugorji Chekwube Bethrand", slug: "ugorji-chekwube-bethrand" },
+  { id: "6", name: "High Chief Emmanuel Henry Okoh", slug: "emmanuel-henry-okoh" },
 ];
 
-export const currentExecutives = [
+export const currentMembers = [
+  // Executive officers
   {
-    id: "ex-1",
+    id: "m-1",
     name: "Hon. Bond Peter Njoku",
     slug: "bond-peter-njoku",
-    position: "Chairman",
     photo: "/images/members/bond-peter-njoku.jpg",
+    position: "Chairman",
     isCurrent: true,
   },
   {
-    id: "ex-2",
+    id: "m-2",
     name: "Hon. Herbert Chuks Ekweogu",
     slug: "herbert-chuks-ekweogu",
     photo: "/images/members/herbert-chuks-ekweogu.jpg",
@@ -30,15 +31,15 @@ export const currentExecutives = [
     isCurrent: true,
   },
   {
-    id: "ex-3",
-    name: "Hon. John Matthew",
-    slug: "john-matthew",
+    id: "m-3",
+    name: "Hon. John Matthew Amagba",
+    slug: "john-matthew-amagba",
     photo: "/images/members/john-matthew.jpg",
     position: "Secretary",
     isCurrent: true,
   },
   {
-    id: "ex-4",
+    id: "m-4",
     name: "Hon. Obinna Aladum",
     slug: "obinna-aladum",
     photo: "/images/members/obinna-aladum.jpg",
@@ -46,27 +47,103 @@ export const currentExecutives = [
     isCurrent: true,
   },
   {
-    id: "ex-5",
+    id: "m-5",
     name: "High Chief Emmanuel Henry Okoh",
     slug: "emmanuel-henry-okoh",
     position: "Treasurer",
     isCurrent: true,
   },
   {
-    id: "ex-6",
+    id: "m-6",
     name: "Hon. Chinatu Ubani",
     slug: "chinatu-ubani",
     photo: "/images/members/chinatu-ubani.jpg",
     position: "Public Relations Officer",
     isCurrent: true,
   },
+  // Members
+  {
+    id: "m-7",
+    name: "Chief Ugorji Chekwube Bethrand",
+    slug: "ugorji-chekwube-bethrand",
+    position: "Member",
+    isCurrent: true,
+  },
+  {
+    id: "m-8",
+    name: "High Chief Samson Ndenojuo",
+    slug: "samson-ndenojuo",
+    position: "Member",
+    isCurrent: true,
+  },
+  {
+    id: "m-9",
+    name: "Hon. David Edeh",
+    slug: "david-edeh",
+    position: "Member",
+    isCurrent: true,
+  },
+  {
+    id: "m-10",
+    name: "Hon. Chinedu Onwukike",
+    slug: "chinedu-onwukike",
+    position: "Member",
+    isCurrent: true,
+  },
+  {
+    id: "m-11",
+    name: "Hon. Nnamdi Muodukwu",
+    slug: "nnamdi-muodukwu",
+    position: "Member",
+    isCurrent: true,
+  },
+  {
+    id: "m-12",
+    name: "Hon. Chuks Ikwuakolam Omumu",
+    slug: "chuks-ikwuakolam-omumu",
+    position: "Member",
+    isCurrent: true,
+  },
+  {
+    id: "m-13",
+    name: "Hon. Eugene Chibueke",
+    slug: "eugene-chibueke",
+    position: "Member",
+    isCurrent: true,
+  },
+  {
+    id: "m-14",
+    name: "Nze Engr. Solomon Chibueze Kanu",
+    slug: "solomon-chibueze-kanu",
+    position: "Member",
+    isCurrent: true,
+  },
+  {
+    id: "m-15",
+    name: "Chief Linus Njoku Njoku",
+    slug: "linus-njoku-njoku",
+    position: "Member",
+    isCurrent: true,
+  },
+  {
+    id: "m-16",
+    name: "Hon. Grant Nwamkpa",
+    slug: "grant-nwamkpa",
+    position: "Member",
+    isCurrent: true,
+  },
 ];
+
+// Keep currentExecutives as alias for leadership/components that use it
+export const currentExecutives = currentMembers.filter((m) =>
+  ["Chairman", "Vice Chairman", "Secretary", "Financial Secretary", "Treasurer", "Public Relations Officer"].includes(m.position)
+);
 
 export const pioneerExecutives = [
   {
     id: "pe-1",
-    name: "Chief Bethrand Chekwube Ugorji",
-    slug: "bertrand-chekwube-ugorji",
+    name: "Chief Ugorji Chekwube Bethrand",
+    slug: "ugorji-chekwube-bethrand",
     position: "Chairman",
     isPioneer: true,
   },
@@ -79,29 +156,22 @@ export const pioneerExecutives = [
   },
   {
     id: "pe-3",
-    name: "Hon. Chinedu Okafor",
-    slug: "chinedu-okafor",
-    position: "Secretary",
-    isPioneer: true,
-  },
-  {
-    id: "pe-4",
     name: "Hon. Nnamdi Muodukwu",
     slug: "nnamdi-muodukwu",
     position: "Financial Secretary",
     isPioneer: true,
   },
   {
-    id: "pe-5",
+    id: "pe-4",
     name: "High Chief Emmanuel Henry Okoh",
     slug: "emmanuel-henry-okoh",
     position: "Treasurer",
     isPioneer: true,
   },
   {
-    id: "pe-6",
-    name: "Hon. John Matthew",
-    slug: "john-matthew",
+    id: "pe-5",
+    name: "Hon. John Matthew Amagba",
+    slug: "john-matthew-amagba",
     position: "Public Relations Officer",
     isPioneer: true,
   },
@@ -110,8 +180,8 @@ export const pioneerExecutives = [
 export const chairmanshipTimeline = [
   {
     id: "ch-1",
-    name: "Chief Bethrand Chekwube Ugorji",
-    slug: "bertrand-chekwube-ugorji",
+    name: "Chief Ugorji Chekwube Bethrand",
+    slug: "ugorji-chekwube-bethrand",
     title: "Pioneer Chairman",
     period: "October 2020 — December 31, 2022",
     startDate: "2020-10-01",
@@ -266,7 +336,7 @@ export const coreValues = [
 
 export const notableContributions = [
   {
-    member: "Chief Bethrand Chekwube Ugorji",
+    member: "Chief Ugorji Chekwube Bethrand",
     icon: "coins",
     contribution:
       "Paid one full year of monthly dues on behalf of all members during the club's inaugural year, ensuring the organisation's financial stability from its very beginning.",
@@ -278,19 +348,19 @@ export const notableContributions = [
       "Facilitated the club's registration with the Corporate Affairs Commission of Nigeria, giving the organisation its formal legal standing.",
   },
   {
-    member: "Hon. John Matthew",
+    member: "Hon. John Matthew Amagba",
     icon: "video",
     contribution:
       "Sponsored the club's Zoom subscription for three and a half years, enabling consistent international meetings across continents.",
   },
   {
-    member: "Chief Bethrand Chekwube Ugorji",
+    member: "Chief Ugorji Chekwube Bethrand",
     icon: "network",
     contribution:
       "Subsequently assumed responsibility for the Zoom subscription, ensuring the continuation of the club's international communication infrastructure.",
   },
   {
-    member: "Hon. Obinna Aladum, Hon. John Matthew, High Chief Emmanuel Henry Okoh & Hon. Chuks Ikwuakolam Omumu",
+    member: "Hon. Obinna Aladum, Hon. John Matthew Amagba, High Chief Emmanuel Henry Okoh & Hon. Chuks Ikwuakolam Omumu",
     icon: "scroll",
     contribution:
       "Collaborated to draft the club's first constitution, providing the governance framework that continues to guide the organisation.",
