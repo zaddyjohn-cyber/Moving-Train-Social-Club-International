@@ -87,6 +87,7 @@ export const currentMembers = [
     id: "m-10",
     name: "Hon. Chinedu Onwukike",
     slug: "chinedu-onwukike",
+    photo: "/images/members/chinedu-onwukike.jpg",
     position: "Member",
     isCurrent: true,
   },
