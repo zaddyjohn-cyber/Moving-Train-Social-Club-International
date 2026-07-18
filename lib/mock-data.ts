@@ -41,6 +41,7 @@ export const currentExecutives = [
     id: "ex-4",
     name: "Hon. Obinna Aladum",
     slug: "obinna-aladum",
+    photo: "/images/members/obinna-aladum.jpg",
     position: "Financial Secretary",
     isCurrent: true,
   },
