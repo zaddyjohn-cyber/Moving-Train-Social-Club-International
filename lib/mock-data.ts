@@ -23,7 +23,7 @@ export const currentExecutives = [
   },
   {
     id: "ex-2",
-    name: "Herbert Chuks Ekweogu",
+    name: "Hon. Herbert Chuks Ekweogu",
     slug: "herbert-chuks-ekweogu",
     photo: "/images/members/herbert-chuks-ekweogu.jpg",
     position: "Vice Chairman",
