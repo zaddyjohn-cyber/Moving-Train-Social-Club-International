@@ -56,6 +56,7 @@ export const currentExecutives = [
     id: "ex-6",
     name: "Hon. Chinatu Ubani",
     slug: "chinatu-ubani",
+    photo: "/images/members/chinatu-ubani.jpg",
     position: "Public Relations Officer",
     isCurrent: true,
   },
