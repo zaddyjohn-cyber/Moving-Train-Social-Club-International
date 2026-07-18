@@ -6,19 +6,20 @@ import { ArrowLeft } from "lucide-react";
 
 // Build a lookup of all known members
 function getMemberBySlug(slug: string) {
-  const allMembers = new Map<string, { name: string; positions: string[]; badges: string[]; contributions: string[] }>();
+  const allMembers = new Map<string, { name: string; photo?: string; positions: string[]; badges: string[]; contributions: string[] }>();
 
-  const add = (s: string, name: string, position?: string, badge?: string) => {
+  const add = (s: string, name: string, photo?: string, position?: string, badge?: string) => {
     const m = allMembers.get(s) ?? { name, positions: [], badges: [], contributions: [] };
+    if (photo && !m.photo) m.photo = photo;
     if (position && !m.positions.includes(position)) m.positions.push(position);
     if (badge && !m.badges.includes(badge)) m.badges.push(badge);
     allMembers.set(s, m);
   };
 
-  founderMembers.forEach((m) => add(m.slug, m.name, undefined, "Founder"));
-  chairmanshipTimeline.forEach((c) => add(c.slug, c.name, c.title, "Pioneer"));
-  currentExecutives.forEach((e) => add(e.slug, e.name, e.position, "Current Executive"));
-  pioneerExecutives.forEach((e) => add(e.slug, e.name, e.position, "Pioneer"));
+  founderMembers.forEach((m) => add(m.slug, m.name, undefined, undefined, "Founder"));
+  chairmanshipTimeline.forEach((c) => add(c.slug, c.name, c.photo, c.title, "Pioneer"));
+  currentExecutives.forEach((e) => add(e.slug, e.name, e.photo, e.position, "Current Executive"));
+  pioneerExecutives.forEach((e) => add(e.slug, e.name, undefined, e.position, "Pioneer"));
 
   notableContributions.forEach((c) => {
     c.member.split(",").map((s) => s.trim()).forEach((namePart) => {
@@ -93,19 +94,25 @@ export default async function MemberProfilePage({ params }: { params: Promise<{ 
             }}
           >
             {/* Avatar */}
-            <div
-              aria-hidden="true"
-              style={{
-                width: 120, height: 120, borderRadius: "50%", flexShrink: 0,
-                background: "linear-gradient(135deg, rgba(213,165,59,0.15) 0%, rgba(184,134,30,0.08) 100%)",
-                border: "2px solid rgba(213,165,59,0.3)",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                fontFamily: "'Cinzel', Georgia, serif", fontWeight: 700, fontSize: "2rem", color: "var(--gold)",
-                boxShadow: "0 0 24px rgba(213,165,59,0.1)",
-              }}
-            >
-              {member.name.split(" ").filter((w) => !["Hon.", "Mr.", "Mrs.", "Chief", "High", "Dr.", "Engr.", "Nze"].includes(w)).slice(0, 2).map((w) => w[0]).join("")}
-            </div>
+            {member.photo ? (
+              <div style={{ width: 120, height: 120, borderRadius: "50%", flexShrink: 0, overflow: "hidden", border: "2px solid rgba(213,165,59,0.3)", boxShadow: "0 0 24px rgba(213,165,59,0.1)" }}>
+                <img src={member.photo} alt={member.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }} />
+              </div>
+            ) : (
+              <div
+                aria-hidden="true"
+                style={{
+                  width: 120, height: 120, borderRadius: "50%", flexShrink: 0,
+                  background: "linear-gradient(135deg, rgba(213,165,59,0.15) 0%, rgba(184,134,30,0.08) 100%)",
+                  border: "2px solid rgba(213,165,59,0.3)",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  fontFamily: "'Cinzel', Georgia, serif", fontWeight: 700, fontSize: "2rem", color: "var(--gold)",
+                  boxShadow: "0 0 24px rgba(213,165,59,0.1)",
+                }}
+              >
+                {member.name.split(" ").filter((w) => !["Hon.", "Mr.", "Mrs.", "Chief", "High", "Dr.", "Engr.", "Nze"].includes(w)).slice(0, 2).map((w) => w[0]).join("")}
+              </div>
+            )}
 
             {/* Info */}
             <div style={{ flex: 1, minWidth: "200px" }}>
