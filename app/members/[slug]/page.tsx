@@ -6,19 +6,20 @@ import { ArrowLeft } from "lucide-react";
 
 // Build a lookup of all known members
 function getMemberBySlug(slug: string) {
-  const allMembers = new Map<string, { name: string; photo?: string; positions: string[]; badges: string[]; contributions: string[] }>();
+  const allMembers = new Map<string, { name: string; photo?: string; location?: string; positions: string[]; badges: string[]; contributions: string[] }>();
 
-  const add = (s: string, name: string, photo?: string, position?: string, badge?: string) => {
+  const add = (s: string, name: string, photo?: string, location?: string, position?: string, badge?: string) => {
     const m = allMembers.get(s) ?? { name, positions: [], badges: [], contributions: [] };
     if (photo && !m.photo) m.photo = photo;
+    if (location && !m.location) m.location = location;
     if (position && !m.positions.includes(position)) m.positions.push(position);
     if (badge && !m.badges.includes(badge)) m.badges.push(badge);
     allMembers.set(s, m);
   };
 
-  currentMembers.forEach((m) => add(m.slug, m.name, m.photo, m.position, "Current Member"));
-  chairmanshipTimeline.forEach((c) => add(c.slug, c.name, c.photo, c.title, "Pioneer"));
-  pioneerExecutives.forEach((e) => add(e.slug, e.name, undefined, e.position, "Pioneer"));
+  currentMembers.forEach((m) => add(m.slug, m.name, m.photo, m.location, m.position, "Current Member"));
+  chairmanshipTimeline.forEach((c) => add(c.slug, c.name, c.photo, undefined, c.title, "Pioneer"));
+  pioneerExecutives.forEach((e) => add(e.slug, e.name, undefined, undefined, e.position, "Pioneer"));
 
   notableContributions.forEach((c) => {
     c.member.split(",").map((s) => s.trim()).forEach((namePart) => {
@@ -142,13 +143,18 @@ export default async function MemberProfilePage({ params }: { params: Promise<{ 
               </h1>
 
               {member.positions.length > 0 && (
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginBottom: "1.5rem" }}>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem", marginBottom: member.location ? "0.5rem" : "1.5rem" }}>
                   {member.positions.map((pos) => (
                     <span key={pos} style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.875rem", color: "var(--gold)", fontWeight: 600 }}>
                       {pos}
                     </span>
                   ))}
                 </div>
+              )}
+              {member.location && (
+                <p style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif", fontSize: "0.85rem", color: "var(--steel)", marginBottom: "1.5rem" }}>
+                  📍 {member.location}
+                </p>
               )}
 
               <div

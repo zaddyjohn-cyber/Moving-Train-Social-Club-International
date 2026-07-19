@@ -103,10 +103,19 @@ export default function MembersPage() {
                     <p style={{
                       fontFamily: "'Space Grotesk', system-ui, sans-serif",
                       fontSize: "0.72rem", color: "var(--gold)",
-                      margin: 0, lineHeight: 1.4,
+                      margin: "0 0 0.2rem", lineHeight: 1.4,
                     }}>
                       {member.position}
                     </p>
+                    {member.location && (
+                      <p style={{
+                        fontFamily: "'Space Grotesk', system-ui, sans-serif",
+                        fontSize: "0.68rem", color: "var(--steel)",
+                        margin: 0, lineHeight: 1.4,
+                      }}>
+                        📍 {member.location}
+                      </p>
+                    )}
                   </div>
 
                   <div style={{ display: "flex", flexWrap: "wrap", gap: "0.35rem" }}>

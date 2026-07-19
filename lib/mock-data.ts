@@ -20,6 +20,7 @@ export const currentMembers = [
     slug: "bond-peter-njoku",
     photo: "/images/members/bond-peter-njoku.jpg",
     position: "Chairman",
+    location: "USA",
     isCurrent: true,
   },
   {
@@ -28,6 +29,7 @@ export const currentMembers = [
     slug: "herbert-chuks-ekweogu",
     photo: "/images/members/herbert-chuks-ekweogu.jpg",
     position: "Vice Chairman",
+    location: "USA",
     isCurrent: true,
   },
   {
@@ -36,6 +38,7 @@ export const currentMembers = [
     slug: "john-matthew-amagba",
     photo: "/images/members/john-matthew.jpg",
     position: "Secretary",
+    location: "Italy",
     isCurrent: true,
   },
   {
@@ -44,6 +47,7 @@ export const currentMembers = [
     slug: "obinna-aladum",
     photo: "/images/members/obinna-aladum.jpg",
     position: "Financial Secretary",
+    location: "USA",
     isCurrent: true,
   },
   {
@@ -51,6 +55,7 @@ export const currentMembers = [
     name: "High Chief Emmanuel Henry Okoh",
     slug: "emmanuel-henry-okoh",
     position: "Treasurer",
+    location: "Holland",
     isCurrent: true,
   },
   {
@@ -59,6 +64,7 @@ export const currentMembers = [
     slug: "chinatu-ubani",
     photo: "/images/members/chinatu-ubani.jpg",
     position: "Public Relations Officer",
+    location: "Germany",
     isCurrent: true,
   },
   // Members
@@ -67,6 +73,7 @@ export const currentMembers = [
     name: "Chief Ugorji Chekwube Bethrand",
     slug: "ugorji-chekwube-bethrand",
     position: "Member",
+    location: "Germany",
     isCurrent: true,
   },
   {
@@ -74,13 +81,15 @@ export const currentMembers = [
     name: "High Chief Samson Ndenojuo",
     slug: "samson-ndenojuo",
     position: "Member",
+    location: "Germany",
     isCurrent: true,
   },
   {
     id: "m-9",
-    name: "Hon. David Edeh",
+    name: "Hon. David Eberechukwu Edeh",
     slug: "david-edeh",
     position: "Member",
+    location: "Italy",
     isCurrent: true,
   },
   {
@@ -89,6 +98,7 @@ export const currentMembers = [
     slug: "chinedu-onwukike",
     photo: "/images/members/chinedu-onwukike.jpg",
     position: "Member",
+    location: "USA",
     isCurrent: true,
   },
   {
@@ -96,6 +106,7 @@ export const currentMembers = [
     name: "Hon. Nnamdi Muodukwu",
     slug: "nnamdi-muodukwu",
     position: "Member",
+    location: "Italy",
     isCurrent: true,
   },
   {
@@ -103,6 +114,7 @@ export const currentMembers = [
     name: "Hon. Chuks Ikwuakolam Omumu",
     slug: "chuks-ikwuakolam-omumu",
     position: "Member",
+    location: "France",
     isCurrent: true,
   },
   {
@@ -110,6 +122,7 @@ export const currentMembers = [
     name: "Hon. Eugene Chibueke",
     slug: "eugene-chibueke",
     position: "Member",
+    location: "England",
     isCurrent: true,
   },
   {
@@ -117,6 +130,7 @@ export const currentMembers = [
     name: "Nze Engr. Solomon Chibueze Kanu",
     slug: "solomon-chibueze-kanu",
     position: "Member",
+    location: "USA",
     isCurrent: true,
   },
   {
@@ -124,6 +138,7 @@ export const currentMembers = [
     name: "Chief Linus Njoku Njoku",
     slug: "linus-njoku-njoku",
     position: "Member",
+    location: "Germany",
     isCurrent: true,
   },
   {
@@ -131,6 +146,15 @@ export const currentMembers = [
     name: "Hon. Grant Nwamkpa",
     slug: "grant-nwamkpa",
     position: "Member",
+    location: "Germany",
+    isCurrent: true,
+  },
+  {
+    id: "m-17",
+    name: "Dr. Chinedu Ugwu",
+    slug: "chinedu-ugwu",
+    position: "Member",
+    location: "Nigeria",
     isCurrent: true,
   },
 ];
