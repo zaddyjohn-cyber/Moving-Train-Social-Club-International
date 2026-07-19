@@ -33,8 +33,9 @@ const categoryText: Record<string, string> = {
   Events:     "#00C8FF",
 };
 
-const featured = blogPosts.find((p) => p.featured) ?? blogPosts[0];
-const rest = blogPosts.filter((p) => p.slug !== featured.slug);
+const sorted = [...blogPosts].sort((a, b) => b.dateISO.localeCompare(a.dateISO));
+const featured = sorted.find((p) => p.featured) ?? sorted[0];
+const rest = sorted.filter((p) => p.slug !== featured.slug);
 
 export default function BlogPage() {
   return (
